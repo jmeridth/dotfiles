@@ -1,0 +1,39 @@
+# tmux
+alias tn="tmux -S /tmp/pair"
+alias to="tmux -S /tmp/pair a"
+
+# cli usage
+alias ..="cd .."
+
+# ruby
+alias rc='rails console'
+alias rg='rails generate'
+alias rd='rails destroy'
+alias be='bundle exec'
+
+# json
+alias json="python -m json.tool"
+
+# git
+alias gl='git pull --prune'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gp='git push origin HEAD'
+alias gd='git diff'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gcb='git copy-branch-name'
+alias gb='git branch'
+alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gu='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+
+# grc overides for ls
+#   Made possible through contributions from generous benefactors like
+#   `brew install coreutils`
+if $(gls &>/dev/null)
+then
+  alias ls="gls -F --color"
+  alias l="gls -lAh --color"
+  alias ll="gls -l --color"
+  alias la='gls -A --color'
+fi

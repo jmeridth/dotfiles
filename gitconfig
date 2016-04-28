@@ -1,0 +1,50 @@
+[user]
+  name = jmeridth
+  email = jmeridth@gmail.com
+  signingkey = BBA30F4F
+[color]
+  ui = true
+[color "branch"]
+  current = yellow black
+  local = yellow
+  remote = magenta
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+  branch = magenta
+[grep]
+  linenumber = true
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  b = branch -a
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  ignore = !git update-index --assume-unchanged 
+  unignore = !git update-index --no-assume-unchanged
+  ignored = !git ls-files -v | grep ^[a-z]
+[push]
+  default = current
+[help]
+  autocorrect = 1
+[gitreview]
+  username = jaso2654
+[branch]
+  autosetuprebase = always
+[core]
+  editor = vim
+  whitespace = cr-at-eol
+  repositoryformatversion = 0
+  filemode = true
+  bare = false
+  logallrefupdates = true
+  autocrlf = false
+[url "https://"]
+  insteadof = git://
+[git-up "bundler"]
+  check = true
+[remote]
+  pushdefault = origin
