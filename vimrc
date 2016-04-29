@@ -35,6 +35,8 @@ Plugin 'vim-airline/vim-airline.git'
 Plugin 'vim-airline/vim-airline-themes.git'
 Plugin 'flazz/vim-colorschemes.git'
 Plugin 'altercation/vim-colors-solarized.git'
+""" tmux
+Plugin 'edkolev/tmuxline.vim.git'
 """ formatting
 Plugin 'godlygeek/tabular.git'
 call vundle#end()
@@ -115,6 +117,8 @@ let g:Syntastic_javascript_checkers = ['eslint', 'jshint']
 "" airline
 let g:airline_theme = "wombat"
 let g:airline_powerline_fonts = 1
+"" tmuxline
+let g:tmuxline_theme = "wombat"
 "" Jedi Vim
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#show_call_signatures = "1"
