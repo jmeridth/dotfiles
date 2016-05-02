@@ -1,29 +1,14 @@
 EDITOR=vim
 
-if [[ -a ~/.jmaliases ]]
-then
-  source ~/.jmaliases
-fi
-
-if [[ -a ~/.jmprivatealiases ]]
-then
-  source ~/.jmprivatealiases
-fi
-
-if [[ -a ~/.jmrax ]]
-then
-  source ~/.jmrax
-fi
-
-if [[ -a ~/.git-completion.bash ]]
-then
-  source ~/.git-completion.bash
-fi
-
-if [[ -a ~/.git-prompt.sh ]]
-then
-  source ~/.git-prompt.sh
-fi
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+if [[ -a $HOME/.jmaliases ]] ; then source $HOME/.jmaliases ; fi
+if [[ -a $HOME/.jmprivatealiases ]] ; then source $HOME/.jmprivatealiases ; fi
+if [[ -a $HOME/.jmrax ]] ; then source $HOME/.jmrax ; fi
+if [[ -a $HOME/.git-completion.bash ]] ; then source $HOME/.git-completion.bash ; fi
+if [[ -a $HOME/.git-prompt.sh ]] ; then source $HOME/.git-prompt.sh ; fi
+if [[ -a $HOME/.cafe-completion ]] ; then source $HOME/.cafe-completion ; fi
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
@@ -50,10 +35,5 @@ RESET_COLOR="\[\e[0m\]"
 export PS1="$WHITE[\h]${CYAN}[\w]\n\$(__git_ps1 '[%s]')${YELLOW}->\$ ${RESET_COLOR}"
 export ANSIBLE_HOSTS=~/ansible_hosts
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-source /usr/local/opt/autoenv/activate.sh
-
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
-source /usr/local/bin/virtualenvwrapper.sh
