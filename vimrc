@@ -172,3 +172,6 @@ set shortmess+=c
 set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
+
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p

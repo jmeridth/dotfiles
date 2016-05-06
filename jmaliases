@@ -1,6 +1,7 @@
 # tmux
 alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
+alias mux="tmuxinator"
 
 # cli usage
 alias ..="cd .."

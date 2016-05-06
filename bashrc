@@ -1,4 +1,4 @@
-EDITOR=vim
+export EDITOR=vim
 
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 if [[ -a $HOME/.jmaliases ]] ; then source $HOME/.jmaliases ; fi
@@ -7,6 +7,7 @@ if [[ -a $HOME/.jmrax ]] ; then source $HOME/.jmrax ; fi
 if [[ -a $HOME/.git-completion.bash ]] ; then source $HOME/.git-completion.bash ; fi
 if [[ -a $HOME/.git-prompt.sh ]] ; then source $HOME/.git-prompt.sh ; fi
 if [[ -a $HOME/.cafe-completion ]] ; then source $HOME/.cafe-completion ; fi
+if [[ -a $HOME/.tmuxinator.bash ]] ; then source $HOME/.tmuxinator.bash ; fi
 if [[ -a /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
 if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 
@@ -37,3 +38,4 @@ export ANSIBLE_HOSTS=~/ansible_hosts
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
+export DISABLE_AUTO_TITLE=true
