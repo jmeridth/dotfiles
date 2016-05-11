@@ -10,22 +10,23 @@ Plugin 'ctrlpvim/ctrlp.vim.git'
 """ syntax plugins
 Plugin 'scrooloose/syntastic.git'
 Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'luochen1990/rainbow'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 "" There is a compile portion for YouCompleteMe
 "" http://valloric.github.io/YouCompleteMe/
 Plugin 'Valloric/YouCompleteMe.git'
-Plugin 'davidhalter/jedi-vim.git'
 """ git plugins
 Plugin 'tpope/vim-fugitive.git'
 """ python plugins
+Plugin 'klen/python-mode.git'
+Plugin 'davidhalter/jedi-vim.git'
 Plugin 'nvie/vim-flake8.git'
 """ ruby plugins
 Plugin 'vim-ruby/vim-ruby.git'
 """ javascript plugins
 Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim.git'
-""" react.js plugins
-Plugin 'mxw/vim-jsx'
-Plugin 'justinj/vim-react-snippets'
 """ markdown plugins
 Plugin 'plasticboy/vim-markdown.git'
 """ coffeescriptplugins
@@ -79,7 +80,6 @@ autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
 set laststatus=2                  " always show status line
-""
 " NERDCommenter
 let NERDDefaultNesting = 0
 let NERDSpaceDelims = 1
@@ -111,67 +111,69 @@ let g:syntastic_coffee_checkers=['coffee', 'coffeelint']
 let g:syntastic_coffee_coffeelint_args = "-f ~/.coffeelint"
 "" Syntastic yaml
 let g:syntastic_yaml_checkers=['jsyaml']
-"" Syntastic react.js
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"" Syntastic javascript
 let g:Syntastic_javascript_checkers = ['eslint', 'jshint']
 "" airline
 let g:airline_theme = "wombat"
 let g:airline_powerline_fonts = 1
 "" tmuxline
 let g:tmuxline_theme = "wombat"
+"" Python mode
+let g:pymode_rope = 0
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_write = 1
+let g:pymode_virtualenv = 0
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_bind = '<leader>b'
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_folding = 0
+"" Rainbow parens
+let g:rainbow_active = 1
 "" Jedi Vim
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#show_call_signatures = "1"
 filetype indent plugin on
 syntax on                         " syntax coloring on
 set cursorline                    " hightlight current line
-set cursorline
-
 "" autoindent
 set ai
-
 "" smartindent
 set si
-
 "" ignore case on search
 set ignorecase
-
 "" highlight search results
 set hlsearch
-
 "" show matching brackets
 set showmatch
 "" and blink for 2 seconds
 set mat=2
-
 "" disable error bells
 set noerrorbells
 set novisualbell
-
 "" disable code folding
 set nofoldenable
-
 "" enable code folding
 "" set foldmethod=indent
 "" nnoremap <space> za
 "" vnoremap <space> zf
-
 "" show line numbers
 set number
-
 "" No backups
 set nobackup
 set nowritebackup
-
 "" No swap files; more hassle then they're worth
 set noswapfile
-
 set shortmess+=c
-
 "" colors
 set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
-
-autocmd VimEnter * NERDTree
+"" autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
+highlight ColorColumn ctermbg=234 guibg=#2c2d27
