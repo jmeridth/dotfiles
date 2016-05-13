@@ -5,6 +5,7 @@ call vundle#begin()
 let mapleader=","
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 """ Plugin 'Xuyuanp/nerdtree-git-plugin'
 """ syntax plugins
@@ -47,7 +48,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 "" NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>N :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "" Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -55,6 +56,8 @@ set whichwrap+=<,>,h,l
 ""Vertical split then hop to new buffer
 :noremap <Leader>v <c-w>v<cr>
 :noremap <Leader>h <c-w>s<cr>
+:noremap <Leader>V <c-w>t<c-w>H<cr>
+:noremap <Leader>H <c-w>t<c-w>K<cr>
 "" Tabular
 nmap <Leader>t= :Tabularize /=<CR>
 vmap <Leader>t= :Tabularize /=<CR>
