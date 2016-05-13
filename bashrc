@@ -43,10 +43,6 @@ if [[ -a $HOME/.cafe-completion ]] ; then source $HOME/.cafe-completion ; fi
 # ANSIBLE
 export ANSIBLE_HOSTS=~/ansible_hosts
 
-# RVM
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # TMUX/TMUXINATOR
 if [[ -a $HOME/.tmuxinator.bash ]] ; then source $HOME/.tmuxinator.bash ; fi
 export DISABLE_AUTO_TITLE=true
@@ -65,3 +61,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 if which pyenv > /dev/null; then pyenv virtualenvwrapper; fi
+
+# RVM
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
+export PATH="$PATH:$HOME/.rvm/bin"
