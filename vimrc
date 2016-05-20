@@ -7,39 +7,27 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim.git'
-""" Plugin 'Xuyuanp/nerdtree-git-plugin'
-""" syntax plugins
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'luochen1990/rainbow'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-"" There is a compile portion for YouCompleteMe
-"" http://valloric.github.io/YouCompleteMe/
 Plugin 'Valloric/YouCompleteMe.git'
-""" git plugins
 Plugin 'tpope/vim-fugitive.git'
-""" python plugins
 Plugin 'klen/python-mode.git'
 Plugin 'davidhalter/jedi-vim.git'
 Plugin 'nvie/vim-flake8.git'
-""" ruby plugins
 Plugin 'vim-ruby/vim-ruby.git'
-""" javascript plugins
 Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim.git'
-""" markdown plugins
 Plugin 'plasticboy/vim-markdown.git'
-""" coffeescriptplugins
 Plugin 'kchmck/vim-coffee-script.git'
-""" fonts and color plugins
 Plugin 'vim-airline/vim-airline.git'
 Plugin 'vim-airline/vim-airline-themes.git'
 Plugin 'flazz/vim-colorschemes.git'
 Plugin 'altercation/vim-colors-solarized.git'
-""" tmux
 Plugin 'edkolev/tmuxline.vim.git'
-""" formatting
 Plugin 'godlygeek/tabular.git'
 call vundle#end()
 "" Some new configurations
@@ -139,7 +127,7 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#use_splits_not_buffers = "bottom"
 let g:jedi#show_call_signatures = "1"
 filetype indent plugin on
 syntax on                         " syntax coloring on
@@ -150,6 +138,7 @@ set ai
 set si
 "" ignore case on search
 set ignorecase
+set incsearch
 "" highlight search results
 set hlsearch
 "" show matching brackets
@@ -177,6 +166,6 @@ set shortmess+=c
 set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
-"" autocmd VimEnter * NERDTree
+autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 highlight ColorColumn ctermbg=234 guibg=#2c2d27
