@@ -38,6 +38,7 @@ map <c-h> <c-w>h
 "" NERDTree
 map <Leader>N :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowBookmarks=1
 "" Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l

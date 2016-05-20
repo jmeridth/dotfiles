@@ -6,13 +6,15 @@ alias mux="tmuxinator"
 # cli usage
 alias ..="cd .."
 
+# cd helpers
+alias dotfiles="cd ~/dev/dotfiles"
+
 # ag
 function agsearch(){
   ag --$1 -i $2 .
 }
 alias agp='agsearch "py" $1'
 alias agr='agsearch "rb" $1'
-alias agc='agsearch "config" $1'
 
 # ruby
 alias rc='rails console'
