@@ -17,7 +17,6 @@ Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'klen/python-mode.git'
 Plugin 'davidhalter/jedi-vim.git'
-Plugin 'nvie/vim-flake8.git'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim.git'
@@ -35,10 +34,16 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
+" Allow copy to clipboard
+set clipboard+=unnamed
 "" NERDTree
-map <Leader>N :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeAutoDeleteBuffer=1
 let NERDTreeShowBookmarks=1
+map <Leader>ne :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "" Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
@@ -78,8 +83,8 @@ let NERDSpaceDelims = 1
 let NERDRemoveExtraSpaces = 1
 "" ctrlp
 let g:ctrlp_custom_ignore = 'vendor/ruby/\|node_modules/\|tmp/|coverage/'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_use_caching = 1
+map <Leader>b :CtrlPBuffer<CR>
+map <Leader>m :CtrlPMRU<CR>
 "" YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion=1
 "" Syntastic
@@ -92,9 +97,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "" Syntastic python
-let g:syntastic_python_flake8_args = "--builtins=_"
-let g:syntastic_python_checkers=['flake8']
-let python_highlight_all=1
+autocmd FileType python let g:syntastic_check_on_wq = 0
 "" Syntastic ruby
 let g:syntastic_ruby_checkers=['rubocop', 'rubylint']
 let g:syntastic_ruby_rubocop_exec='~/.rubocop.sh'
@@ -129,7 +132,6 @@ let g:pymode_folding = 0
 let g:rainbow_active = 1
 "" Jedi Vim
 let g:jedi#use_splits_not_buffers = "bottom"
-let g:jedi#show_call_signatures = "1"
 filetype indent plugin on
 syntax on                         " syntax coloring on
 set cursorline                    " hightlight current line
@@ -164,9 +166,12 @@ set nowritebackup
 set noswapfile
 set shortmess+=c
 "" colors
+"" Softer diff colors
 set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
+autocmd BufEnter * NERDTreeFind
+autocmd BufEnter * wincmd p
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 highlight ColorColumn ctermbg=234 guibg=#2c2d27
