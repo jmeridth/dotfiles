@@ -5,7 +5,6 @@ call vundle#begin()
 let mapleader=","
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ctrlpvim/ctrlp.vim.git'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic.git'
@@ -13,7 +12,6 @@ Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'luochen1990/rainbow'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'klen/python-mode.git'
 Plugin 'davidhalter/jedi-vim.git'
@@ -170,8 +168,4 @@ set shortmess+=c
 set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
-autocmd BufEnter * NERDTreeFind
-autocmd BufEnter * wincmd p
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
 highlight ColorColumn ctermbg=234 guibg=#2c2d27

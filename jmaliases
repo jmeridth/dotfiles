@@ -3,6 +3,11 @@ alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
 alias mux="tmuxinator"
 
+# config files
+alias vimrc="vim ~/.vimrc"
+alias bashrc="vim ~/.bashrc"
+alias aliases="vim ~/.jmaliases"
+
 # cli usage
 alias ..="cd .."
 
