@@ -16,6 +16,7 @@ Plugin 'tpope/vim-fugitive.git'
 Plugin 'klen/python-mode.git'
 Plugin 'davidhalter/jedi-vim.git'
 Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'mitsuhiko/vim-jinja.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'walm/jshint.vim.git'
 Plugin 'plasticboy/vim-markdown.git'
@@ -76,9 +77,7 @@ autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
 autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
 set laststatus=2                  " always show status line
 " NERDCommenter
-let NERDDefaultNesting = 0
-let NERDSpaceDelims = 1
-let NERDRemoveExtraSpaces = 1
+let NERDDefaultAlign = 'left'
 "" ctrlp
 let g:ctrlp_custom_ignore = 'vendor/ruby/\|node_modules/\|tmp/|coverage/'
 map <Leader>b :CtrlPBuffer<CR>
@@ -129,7 +128,7 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#use_splits_not_buffers = "right"
 filetype indent plugin on
 syntax on                         " syntax coloring on
 set cursorline                    " hightlight current line

@@ -65,3 +65,9 @@ if which pyenv > /dev/null; then pyenv virtualenvwrapper; fi
 # RVM
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# GO
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
