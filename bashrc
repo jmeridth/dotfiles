@@ -34,7 +34,7 @@ RESET_COLOR="\[\e[0m\]"
 export PS1="$WHITE[\h]${CYAN}[\w]\n\$(__git_ps1 '[%s]')${YELLOW}->\$ ${RESET_COLOR}"
 
 # HOMEBREW
-export PATH=$(brew --prefix)/lib:$PATH
+if which brew > /dev/null; then export PATH=$(brew --prefix)/lib:$PATH; fi
 
 # OPENCAFE
 
