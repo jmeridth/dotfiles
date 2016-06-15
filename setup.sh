@@ -1,13 +1,13 @@
-DOTFILES = ~/dev/dotfiles
+DOTFILES=~/dev/dotfiles
 
 # ALIASES
 ln -sf $DOTFILES/jmaliases $HOME/.jmaliases
 
 # GIT
-ln -sf ~/dev/dotfiles/gitconfig $HOME/.gitconfig
-ln -sf ~/dev/dotfiles/git-completion.bash $HOME/.git-completion.bash
-ln -sf ~/dev/dotfiles/git-prompt.sh $HOME/.git-prompt.sh
+ln -sf $DOTFILESes/gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/git-completion.bash $HOME/.git-completion.bash
+ln -sf $DOTFILES/git-prompt.sh $HOME/.git-prompt.sh
 
 # TMUX
-ln -sf ~/dev/dotfiles/tmux.conf $HOME/.tmux.conf
+ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 
