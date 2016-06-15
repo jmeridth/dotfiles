@@ -1,5 +1,8 @@
 DOTFILES=~/dev/dotfiles
 
+# BASHRC
+ln -sf $DOTFILES/bashrc $HOME/.bashrc
+
 # ALIASES
 ln -sf $DOTFILES/jmaliases $HOME/.jmaliases
 
