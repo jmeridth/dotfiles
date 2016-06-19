@@ -11,6 +11,7 @@ Plugin 'scrooloose/syntastic.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'luochen1990/rainbow'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'ervandew/supertab.git'
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'klen/python-mode.git'
@@ -27,6 +28,7 @@ Plugin 'flazz/vim-colorschemes.git'
 Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'edkolev/tmuxline.vim.git'
 Plugin 'godlygeek/tabular.git'
+Plugin 'nathanaelkane/vim-indent-guides.git'
 call vundle#end()
 "" Some new configurations
 map <c-j> <c-w>j
@@ -82,8 +84,10 @@ let NERDDefaultAlign = 'left'
 let g:ctrlp_custom_ignore = 'vendor/ruby/\|node_modules/\|tmp/|coverage/'
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPMRU<CR>
-"" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
+"" vim-indent-guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 "" Syntastic
 "" from https://github.com/scrooloose/syntastic#3-recommended-settings
 set statusline+=%#warningmsg#
