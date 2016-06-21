@@ -59,8 +59,8 @@ export PROJECT_HOME=$HOME/dev
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-if which pyenv > /dev/null; then pyenv virtualenvwrapper; fi
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # RVM
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
