@@ -132,7 +132,7 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#use_splits_not_buffers = "bottom"
 filetype indent plugin on
 syntax on                         " syntax coloring on
 set cursorline                    " hightlight current line
@@ -142,7 +142,7 @@ set ai
 set si
 "" ignore case on search
 set ignorecase
-set incsearch
+"" set incsearch
 "" highlight search results
 set hlsearch
 "" show matching brackets

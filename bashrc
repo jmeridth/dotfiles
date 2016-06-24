@@ -13,25 +13,39 @@ GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWCOLORHINTS=true
 
-BLACK="\[\e[0;30m\]"
-DGRAY="\[\e[1;30m\]"
-BLUE="\[\e[0;34m\]"
-LBLUE="\[\e[1;34m\]"
-GREEN="\[\e[0;32m\]"
-LGREEN="\[\e[1;32m\]"
-CYAN="\[\e[0;36m\]"
-LCYAN="\[\e[1;36m\]"
-RED="\[\e[0;31m\]"
-LRED="\[\e[1;31m\]"
-PURPLE="\[\e[0;35m\]"
-LPURPLE="\[\e[1;35m\]"
-BROWN="\[\e[0;33m\]"
-YELLOW="\[\e[1;33m\]"
-LGRAY="\[\e[0;37m\]"
-WHITE="\[\e[1;37m\]"
-RESET_COLOR="\[\e[0m\]"
+function updatePrompt {
+        BLACK="\[\e[0;30m\]"
+        DGRAY="\[\e[1;30m\]"
+        BLUE="\[\e[0;34m\]"
+        LBLUE="\[\e[1;34m\]"
+        GREEN="\[\e[0;32m\]"
+        LGREEN="\[\e[1;32m\]"
+        CYAN="\[\e[0;36m\]"
+        LCYAN="\[\e[1;36m\]"
+        RED="\[\e[0;31m\]"
+        LRED="\[\e[1;31m\]"
+        PURPLE="\[\e[0;35m\]"
+        LPURPLE="\[\e[1;35m\]"
+        BROWN="\[\e[0;33m\]"
+        YELLOW="\[\e[1;33m\]"
+        LGRAY="\[\e[0;37m\]"
+        WHITE="\[\e[1;37m\]"
+        RESET_COLOR="\[\e[0m\]"
+       
+        PROMPT="$WHITE[\h]${CYAN}[\w]\n"
 
-export PS1="$WHITE[\h]${CYAN}[\w]\n\$(__git_ps1 '[%s]')${YELLOW}->\$ ${RESET_COLOR}"
+        if [[ $VIRTUAL_ENV != "" ]]; then
+                PROMPT="$PROMPT${LCYAN}($(basename ${VIRTUAL_ENV}))${RESET_COLOR}"
+        fi
+
+        if type "__git_ps1" > /dev/null 2>&1; then
+                PROMPT="$PROMPT\$(__git_ps1 '[%s]')${YELLOW}->"
+        fi
+
+        PS1="$PROMPT\$ ${RESET_COLOR}"
+}
+export -f updatePrompt
+export PROMPT_COMMAND='updatePrompt'
 
 # HOMEBREW
 if which brew > /dev/null; then export PATH=$(brew --prefix)/lib:$PATH; fi
@@ -59,6 +73,9 @@ export PROJECT_HOME=$HOME/dev
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# PYENV-VIRTUALENV
+export PYENV_VIRTUALENV_VERBOSE_ACTIVE=1
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
