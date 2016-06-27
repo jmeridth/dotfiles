@@ -3,6 +3,9 @@ DOTFILES=~/dev/dotfiles
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
 
+# EDITORCONFIG
+ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
+
 # ALIASES
 ln -sf $DOTFILES/jmaliases $HOME/.jmaliases
 
