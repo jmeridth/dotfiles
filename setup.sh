@@ -10,7 +10,7 @@ ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
 ln -sf $DOTFILES/aliases $HOME/.aliases
 
 # GIT
-ln -sf $DOTFILESes/gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 ln -sf $DOTFILES/git-completion.bash $HOME/.git-completion.bash
 ln -sf $DOTFILES/git-prompt.sh $HOME/.git-prompt.sh
 
