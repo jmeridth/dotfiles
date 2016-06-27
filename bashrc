@@ -1,9 +1,9 @@
 export EDITOR=vim
 
 # ALIASES
-if [[ -a $HOME/.jmaliases ]] ; then source $HOME/.jmaliases ; fi
-if [[ -a $HOME/.jmprivatealiases ]] ; then source $HOME/.jmprivatealiases ; fi
-if [[ -a $HOME/.jmrax ]] ; then source $HOME/.jmrax ; fi
+if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
+if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
+if [[ -a $HOME/.rax ]] ; then source $HOME/.rax ; fi
 
 
 # GIT

@@ -7,7 +7,7 @@ ln -sf $DOTFILES/bashrc $HOME/.bashrc
 ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
 
 # ALIASES
-ln -sf $DOTFILES/jmaliases $HOME/.jmaliases
+ln -sf $DOTFILES/aliases $HOME/.aliases
 
 # GIT
 ln -sf $DOTFILESes/gitconfig $HOME/.gitconfig
@@ -17,3 +17,5 @@ ln -sf $DOTFILES/git-prompt.sh $HOME/.git-prompt.sh
 # TMUX
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 
+# VIM
+ln -sf $DOTFILES/vimrc $HOME/.vimrc
