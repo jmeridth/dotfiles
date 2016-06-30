@@ -164,7 +164,6 @@ set nobackup
 set nowritebackup
 "" No swap files; more hassle then they're worth
 set noswapfile
-set shortmess+=c
 "" colors
 "" Softer diff colors
 set background=dark
