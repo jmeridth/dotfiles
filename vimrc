@@ -10,10 +10,8 @@ Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'luochen1990/rainbow'
-Plugin 'jiangmiao/auto-pairs'
 Plugin 'ervandew/supertab.git'
 Plugin 'editorconfig/editorconfig-vim.git'
-Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'klen/python-mode.git'
 Plugin 'davidhalter/jedi-vim.git'
@@ -44,7 +42,7 @@ let NERDTreeDirArrows=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeShowBookmarks=1
-map <Leader>ne :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "" Configure backspace so it acts as it should act
 set backspace=eol,start,indent
