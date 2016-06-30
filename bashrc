@@ -5,6 +5,8 @@ if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 if [[ -a $HOME/.rax ]] ; then source $HOME/.rax ; fi
 
+# HISTORY
+export HISTTIMEFORMAT="%m/%d/%y %T "
 
 # GIT
 if [[ -a $HOME/.git-completion.bash ]] ; then source $HOME/.git-completion.bash ; fi
@@ -31,7 +33,7 @@ function updatePrompt {
         LGRAY="\[\e[0;37m\]"
         WHITE="\[\e[1;37m\]"
         RESET_COLOR="\[\e[0m\]"
-       
+
         PROMPT="$WHITE[\h]${CYAN}[\w]\n"
 
         if [[ -a .ruby-gemset ]] ; then
