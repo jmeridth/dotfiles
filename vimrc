@@ -23,6 +23,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'for': 'cpp', 'do': './install.py --clang-completer' }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 call plug#end()
@@ -34,6 +35,8 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 " Allow copy to clipboard
 set clipboard+=unnamed
+"" Tagbar
+map <Leader>tb :TagbarToggle<CR>
 "" NERDTree
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
