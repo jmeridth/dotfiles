@@ -78,6 +78,7 @@ export PROJECT_HOME=$HOME/dev
 # PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # PYENV-VIRTUALENV

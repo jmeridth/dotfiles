@@ -1,34 +1,32 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'luochen1990/rainbow'
+Plug 'ervandew/supertab'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'pangloss/vim-javascript'
+Plug 'walm/jshint.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'edkolev/tmuxline.vim'
+Plug 'godlygeek/tabular'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Valloric/YouCompleteMe', { 'for': 'cpp', 'do': './install.py --clang-completer' }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+call plug#end()
 let mapleader=","
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'ctrlpvim/ctrlp.vim.git'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'scrooloose/nerdcommenter.git'
-Plugin 'luochen1990/rainbow'
-Plugin 'ervandew/supertab.git'
-Plugin 'editorconfig/editorconfig-vim.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'klen/python-mode.git'
-Plugin 'davidhalter/jedi-vim.git'
-Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'mitsuhiko/vim-jinja.git'
-Plugin 'pangloss/vim-javascript'
-Plugin 'walm/jshint.vim.git'
-Plugin 'plasticboy/vim-markdown.git'
-Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'vim-airline/vim-airline.git'
-Plugin 'vim-airline/vim-airline-themes.git'
-Plugin 'flazz/vim-colorschemes.git'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'edkolev/tmuxline.vim.git'
-Plugin 'godlygeek/tabular.git'
-Plugin 'nathanaelkane/vim-indent-guides.git'
-call vundle#end()
 "" Some new configurations
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -79,6 +77,8 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
 set laststatus=2                  " always show status line
 " NERDCommenter
 let NERDDefaultAlign = 'left'
+" YCM
+let g:ycm_path_to_python_interpreter = '$HOME/.pyenv/shims/python'
 "" ctrlp
 let g:ctrlp_custom_ignore = 'vendor/ruby/\|node_modules/\|tmp/|coverage/'
 map <Leader>b :CtrlPBuffer<CR>

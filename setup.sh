@@ -1,8 +1,8 @@
 DOTFILES=$(pwd)/dotfiles
 
-# VUNDLE
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall!
+# VIM PLUG INSTALL
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
