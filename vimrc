@@ -132,9 +132,10 @@ let g:pymode_folding = 0
 let g:rainbow_active = 1
 "" Jedi Vim
 let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#completions_enabled = 0
 filetype indent plugin on
-syntax on                         " syntax coloring on
-set cursorline                    " hightlight current line
+syntax on
+set cursorline
 "" autoindent
 set ai
 "" smartindent
