@@ -1,5 +1,12 @@
 DOTFILES=$(pwd)/dotfiles
 
+# CMAKE
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  sudo apt-get install cmake
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install cmake
+fi
+
 # VIM-PLUG INSTALL
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
