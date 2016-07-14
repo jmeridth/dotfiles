@@ -28,6 +28,7 @@ Plug 'Valloric/YouCompleteMe', { 'for': 'cpp', 'do': './install.py --clang-compl
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 call plug#end()
 let mapleader=","
+au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 "" Some new configurations
 map <c-j> <c-w>j
 map <c-k> <c-w>k
