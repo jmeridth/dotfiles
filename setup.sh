@@ -31,3 +31,8 @@ ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
+
+# RUBY
+ln -sf $DOTFILES/gemrc $HOME/.gemrc
+ln -sf $DOTFILES/pryrc $HOME/.pryrc
+ln -sf $DOTFILES/rubocop.sh $HOME/.rubocop.sh
