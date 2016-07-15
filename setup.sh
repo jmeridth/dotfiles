@@ -1,4 +1,4 @@
-DOTFILES=$(pwd)/dotfiles
+DOTFILES=$(pwd)
 
 # CMAKE
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -7,10 +7,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
 fi
 
+# VIM
+ln -sf $DOTFILES/vimrc $HOME/.vimrc
+
 # VIM-PLUG INSTALL
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall!
+vim +PlugInstall +q +q!
 
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
@@ -29,10 +32,9 @@ ln -sf $DOTFILES/git-prompt.sh $HOME/.git-prompt.sh
 # TMUX
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
 
-# VIM
-ln -sf $DOTFILES/vimrc $HOME/.vimrc
-
 # RUBY
 ln -sf $DOTFILES/gemrc $HOME/.gemrc
 ln -sf $DOTFILES/pryrc $HOME/.pryrc
 ln -sf $DOTFILES/rubocop.sh $HOME/.rubocop.sh
+
+exec $SHELL
