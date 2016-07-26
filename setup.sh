@@ -1,5 +1,7 @@
 DOTFILES=$(pwd)
 
+./update_scripts.sh
+
 # CMAKE
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get install cmake

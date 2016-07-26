@@ -114,6 +114,11 @@ if which go > /dev/null; then
   fi
 fi
 
+# DOCKER
+if [[ -s $HOME/.docker-completion.sh ]] ; then
+  source $HOME/.docker-completion.sh
+fi
+
 function http(){
   curl http://httpcode.info/$1;
 }
