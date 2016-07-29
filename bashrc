@@ -77,7 +77,7 @@ fi
 if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 
 # PYENV
-if which pyenv > /dev/null; then
+if [[ -s $HOME/.pyenv ]] ; then
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
   export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -85,7 +85,7 @@ if which pyenv > /dev/null; then
 fi
 
 # PYENV-VIRTUALENVWRAPPER
-if which pyenv-virtualenvwrapper > /dev/null; then
+if [[ -s $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
   export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
   pyenv virtualenvwrapper
 fi
