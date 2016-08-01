@@ -7,6 +7,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get install cmake
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
+  brew install coreutils
 fi
 
 # VIM

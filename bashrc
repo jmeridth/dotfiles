@@ -4,6 +4,7 @@ export EDITOR=vim
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 if [[ -a $HOME/.rax ]] ; then source $HOME/.rax ; fi
+if [[ -a $HOME/.piston ]] ; then source $HOME/.piston ; fi
 
 # HISTORY
 export HISTTIMEFORMAT="%m/%d/%y %T "
