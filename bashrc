@@ -78,17 +78,22 @@ fi
 if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 
 # PYENV
-if [[ -s $HOME/.pyenv ]] ; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  export PYTHON_CONFIGURE_OPTS="--enable-framework"
+if [[ -d $HOME/.pyenv ]] ; then
+  export PYENV_ROOT=$HOME/.pyenv
+  export PATH=$PYENV_ROOT/bin:$PATH
   eval "$(pyenv init -)"
 fi
 
+# VIRTUALENVWRAPPER
+if [[ -a /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+
 # PYENV-VIRTUALENVWRAPPER
-if [[ -s $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
-  export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-  pyenv virtualenvwrapper
+if [[ -d $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
+  export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+pyenv virtualenvwrapper
 fi
 
 # RVM
