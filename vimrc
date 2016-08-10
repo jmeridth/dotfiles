@@ -135,7 +135,7 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#completions_enabled = 0
 filetype indent plugin on
 syntax on
