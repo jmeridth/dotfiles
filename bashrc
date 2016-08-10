@@ -92,8 +92,8 @@ export PROJECT_HOME=$HOME/dev
 # PYENV-VIRTUALENVWRAPPER
 if [[ -d $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
   export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-pyenv virtualenvwrapper
+  export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+  pyenv virtualenvwrapper
 fi
 
 # RVM

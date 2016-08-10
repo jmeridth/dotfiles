@@ -4,7 +4,12 @@ DOTFILES=$(pwd)
 
 # CMAKE
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-  sudo apt-get install cmake
+  if [ -f /etc/redhat-release ]; then
+    yum install -y cmake
+  fi
+  if [ -f /etc/lsb-release ]; then
+    sudo apt-get install -y cmake
+  fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
   brew install coreutils
@@ -17,10 +22,10 @@ ln -sf $DOTFILES/vimrc $HOME/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +q +q!
-
+ 
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
-
+ 
 # DOCKER
 ln -sf $DOTFILES/docker-completion.sh $HOME/.docker-completion.sh
 
