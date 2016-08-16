@@ -86,14 +86,15 @@ fi
 
 # VIRTUALENVWRAPPER
 if [[ -a /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+if [[ -a /usr/bin/virtualenvwrapper.sh ]] ; then source /usr/bin/virtualenvwrapper.sh ; fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 
 # PYENV-VIRTUALENVWRAPPER
 if [[ -d $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
   export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-pyenv virtualenvwrapper
+  export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+  pyenv virtualenvwrapper
 fi
 
 # RVM

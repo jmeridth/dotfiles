@@ -122,7 +122,7 @@ let g:pymode_rope = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes,pep8,pylint"
 let g:pymode_lint_write = 1
 let g:pymode_virtualenv = 0
 let g:pymode_breakpoint = 1
@@ -135,7 +135,7 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#completions_enabled = 0
 filetype indent plugin on
 syntax on

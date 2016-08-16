@@ -414,6 +414,20 @@ __docker_complete_resolved_hostname() {
 	COMPREPLY=( $(host 2>/dev/null "${cur%:}" | awk '/has address/ {print $4}') )
 }
 
+__docker_local_interfaces() {
+	command -v ip >/dev/null 2>&1 || return
+	ip addr show scope global 2>/dev/null | sed -n 's| \+inet \([0-9.]\+\).* \([^ ]\+\)|\1 \2|p'
+}
+
+__docker_complete_local_interfaces() {
+	local additional_interface
+	if [ "$1" = "--add" ] ; then
+		additional_interface="$2"
+	fi
+
+	COMPREPLY=( $( compgen -W "$(__docker_local_interfaces) $additional_interface" -- "$cur" ) )
+}
+
 __docker_complete_capabilities() {
 	# The list of capabilities is defined in types.go, ALL was added manually.
 	COMPREPLY=( $( compgen -W "
@@ -1774,7 +1788,8 @@ _docker_service_update() {
 			return
 			;;
 		--env|-e)
-			COMPREPLY=( $( compgen -e -S = -- "$cur" ) )
+			# we do not append a "=" here because "-e VARNAME" is legal systax, too
+			COMPREPLY=( $( compgen -e -- "$cur" ) )
 			__docker_nospace
 			return
 			;;
@@ -1836,15 +1851,21 @@ _docker_swarm() {
 
 _docker_swarm_init() {
 	case "$prev" in
-		--listen-addr)
-			if [[ $cur == *: ]] ; then
-				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
-			fi
-			return
-			;;
 		--advertise-addr)
 			if [[ $cur == *: ]] ; then
 				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
+			else
+				__docker_complete_local_interfaces
+				__docker_nospace
+			fi
+			return
+			;;
+		--listen-addr)
+			if [[ $cur == *: ]] ; then
+				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
+			else
+				__docker_complete_local_interfaces --add 0.0.0.0
+				__docker_nospace
 			fi
 			return
 			;;
@@ -1859,26 +1880,32 @@ _docker_swarm_init() {
 
 _docker_swarm_join() {
 	case "$prev" in
-		--token)
+		--advertise-addr)
+			if [[ $cur == *: ]] ; then
+				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
+			else
+				__docker_complete_local_interfaces
+				__docker_nospace
+			fi
 			return
 			;;
 		--listen-addr)
 			if [[ $cur == *: ]] ; then
 				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
+			else
+				__docker_complete_local_interfaces --add 0.0.0.0
+				__docker_nospace
 			fi
 			return
 			;;
-		--advertise-addr)
-			if [[ $cur == *: ]] ; then
-				COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
-			fi
+		--token)
 			return
 			;;
 	esac
 
 	case "$cur" in
 		-*)
-			COMPREPLY=( $( compgen -W "--adveritse-addr --help --listen-addr --token" -- "$cur" ) )
+			COMPREPLY=( $( compgen -W "--advertise-addr --help --listen-addr --token" -- "$cur" ) )
 			;;
 		*:)
 			COMPREPLY=( $( compgen -W "2377" -- "${cur##*:}" ) )
@@ -1966,7 +1993,7 @@ _docker_node_inspect() {
 			COMPREPLY=( $( compgen -W "--format -f --help --pretty" -- "$cur" ) )
 			;;
 		*)
-			__docker_complete_nodes
+			__docker_complete_nodes_plus_self
 	esac
 }
 
@@ -2431,6 +2458,7 @@ _docker_run() {
 			return
 			;;
 		--env|-e)
+			# we do not append a "=" here because "-e VARNAME" is legal systax, too
 			COMPREPLY=( $( compgen -e -- "$cur" ) )
 			__docker_nospace
 			return
