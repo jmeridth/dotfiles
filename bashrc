@@ -105,6 +105,7 @@ fi
 # GO
 if which go > /dev/null; then
   export GOPATH=$HOME/golang
+  export GOBIN=$GOPATH/bin
   export GOROOT=/usr/local/opt/go/libexec
   export PATH=$PATH:$GOPATH/bin
   export PATH=$PATH:$GOROOT/bin
@@ -124,6 +125,12 @@ fi
 if [[ -s $HOME/.docker-completion.sh ]] ; then
   source $HOME/.docker-completion.sh
 fi
+
+# BASH COMPLETION
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 
 function http(){
   curl http://httpcode.info/$1;
