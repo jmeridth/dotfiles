@@ -112,6 +112,8 @@ let g:syntastic_coffee_coffeelint_args = "-f ~/.coffeelint"
 let g:syntastic_yaml_checkers=['jsyaml']
 "" Syntastic javascript
 let g:Syntastic_javascript_checkers = ['eslint', 'jshint']
+"" Syntastic python
+let g:syntastic_python_checkers=['pylint']
 "" airline
 let g:airline_theme = "wombat"
 let g:airline_powerline_fonts = 1
@@ -122,7 +124,7 @@ let g:pymode_rope = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8,pylint"
+let g:pymode_lint_checker = "pylint"
 let g:pymode_lint_write = 1
 let g:pymode_virtualenv = 0
 let g:pymode_breakpoint = 1

@@ -41,6 +41,7 @@ alias json="python -m json.tool"
 alias pyclean="find . -name '*.pyc' -delete"
 alias pyinit="touch __init__.py"
 alias py="ptpython"
+alias activate="source env/bin/activate"
 
 # git
 alias gl='git pull --prune'
