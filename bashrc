@@ -6,14 +6,17 @@ TERM=tmux-256color
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 if [[ -a $HOME/.rax ]] ; then source $HOME/.rax ; fi
+if [[ -a $HOME/.piston ]] ; then source $HOME/.piston ; fi
 
+# HISTORY
+export HISTTIMEFORMAT="%m/%d/%y %T "
 
 # GIT
 if [[ -a $HOME/.git-completion.bash ]] ; then source $HOME/.git-completion.bash ; fi
 if [[ -a $HOME/.git-prompt.sh ]] ; then source $HOME/.git-prompt.sh ; fi
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWCOLORHINTS=true
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWCOLORHINTS=true
 
 function updatePrompt {
         BLACK="\[\e[0;30m\]"
@@ -54,43 +57,84 @@ export -f updatePrompt
 export PROMPT_COMMAND='updatePrompt'
 
 # HOMEBREW
-if which brew > /dev/null; then export PATH=$(brew --prefix)/lib:$PATH; fi
+if which brew > /dev/null; then
+  export PATH=$(brew --prefix)/lib:$PATH
+fi
 
 # OPENCAFE
 
 if [[ -a $HOME/.cafe-completion ]] ; then source $HOME/.cafe-completion ; fi
 
 # ANSIBLE
-export ANSIBLE_HOSTS=~/ansible_hosts
+if [[ -a $HOME/ansible_hosts ]] ; then
+  export ANSIBLE_HOSTS=~/ansible_hosts
+fi
 
 # TMUX/TMUXINATOR
 if [[ -a $HOME/.tmuxinator.bash ]] ; then source $HOME/.tmuxinator.bash ; fi
-export DISABLE_AUTO_TITLE=true
+if which mux > /dev/null; then
+  export DISABLE_AUTO_TITLE=true
+fi
 
 # AUTOENV
 if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 
+# PYENV
+if [[ -d $HOME/.pyenv ]] ; then
+  export PYENV_ROOT=$HOME/.pyenv
+  export PATH=$PYENV_ROOT/bin:$PATH
+  eval "$(pyenv init -)"
+fi
+
 # VIRTUALENVWRAPPER
 if [[ -a /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+if [[ -a /usr/bin/virtualenvwrapper.sh ]] ; then source /usr/bin/virtualenvwrapper.sh ; fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 
-# PYENV
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# PYENV-VIRTUALENV
-export PYENV_VIRTUALENV_VERBOSE_ACTIVE=1
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# PYENV-VIRTUALENVWRAPPER
+if [[ -d $HOME/.pyenv/plugins/pyenv-virtualenvwrapper ]] ; then
+  export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/shims/python
+  export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+  pyenv virtualenvwrapper
+fi
 
 # RVM
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
-export PATH="$PATH:$HOME/.rvm/bin"
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
+  source $HOME/.rvm/scripts/rvm
+  export PATH="$PATH:$HOME/.rvm/bin"
+fi
 
 # GO
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+if which go > /dev/null; then
+  export GOPATH=$HOME/golang
+  export GOBIN=$GOPATH/bin
+  export GOROOT=/usr/local/opt/go/libexec
+  export PATH=$PATH:$GOPATH/bin
+  export PATH=$PATH:$GOROOT/bin
+fi
+
+# GCLOUD
+if which go > /dev/null; then
+  if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+  fi
+  if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
+    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+  fi
+fi
+
+# DOCKER
+if [[ -s $HOME/.docker-completion.sh ]] ; then
+  source $HOME/.docker-completion.sh
+fi
+
+# BASH COMPLETION
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
+
+function http(){
+  curl http://httpcode.info/$1;
+}

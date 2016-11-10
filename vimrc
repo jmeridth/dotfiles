@@ -1,34 +1,34 @@
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
+Plug 'luochen1990/rainbow'
+Plug 'ervandew/supertab'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'klen/python-mode'
+Plug 'davidhalter/jedi-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'mitsuhiko/vim-jinja'
+Plug 'pangloss/vim-javascript'
+Plug 'walm/jshint.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'kchmck/vim-coffee-script'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'flazz/vim-colorschemes'
+Plug 'altercation/vim-colors-solarized'
+Plug 'edkolev/tmuxline.vim'
+Plug 'godlygeek/tabular'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe', { 'for': 'cpp', 'do': './install.py --clang-completer' }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+call plug#end()
 let mapleader=","
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'ctrlpvim/ctrlp.vim.git'
-Plugin 'rking/ag.vim'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'scrooloose/nerdcommenter.git'
-Plugin 'luochen1990/rainbow'
-Plugin 'ervandew/supertab.git'
-Plugin 'editorconfig/editorconfig-vim.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'klen/python-mode.git'
-Plugin 'davidhalter/jedi-vim.git'
-Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'mitsuhiko/vim-jinja.git'
-Plugin 'pangloss/vim-javascript'
-Plugin 'walm/jshint.vim.git'
-Plugin 'plasticboy/vim-markdown.git'
-Plugin 'kchmck/vim-coffee-script.git'
-Plugin 'vim-airline/vim-airline.git'
-Plugin 'vim-airline/vim-airline-themes.git'
-Plugin 'flazz/vim-colorschemes.git'
-Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'edkolev/tmuxline.vim.git'
-Plugin 'godlygeek/tabular.git'
-Plugin 'nathanaelkane/vim-indent-guides.git'
-call vundle#end()
+au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 "" Some new configurations
 map <c-j> <c-w>j
 map <c-k> <c-w>k
@@ -36,6 +36,8 @@ map <c-l> <c-w>l
 map <c-h> <c-w>h
 " Allow copy to clipboard
 set clipboard+=unnamed
+"" Tagbar
+map <Leader>tb :TagbarToggle<CR>
 "" NERDTree
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
@@ -79,6 +81,8 @@ autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
 set laststatus=2                  " always show status line
 " NERDCommenter
 let NERDDefaultAlign = 'left'
+" YCM
+let g:ycm_path_to_python_interpreter = '$HOME/.pyenv/shims/python'
 "" ctrlp
 let g:ctrlp_custom_ignore = 'vendor/ruby/\|node_modules/\|tmp/|coverage/'
 map <Leader>b :CtrlPBuffer<CR>
@@ -118,7 +122,7 @@ let g:pymode_rope = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes,pep8,pylint"
 let g:pymode_lint_write = 1
 let g:pymode_virtualenv = 0
 let g:pymode_breakpoint = 1
@@ -131,10 +135,11 @@ let g:pymode_folding = 0
 "" Rainbow parens
 let g:rainbow_active = 1
 "" Jedi Vim
-let g:jedi#use_splits_not_buffers = "bottom"
+let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#completions_enabled = 0
 filetype indent plugin on
-syntax on                         " syntax coloring on
-set cursorline                    " hightlight current line
+syntax on
+set cursorline
 "" autoindent
 set ai
 "" smartindent
