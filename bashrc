@@ -1,5 +1,7 @@
 export EDITOR=vim
 
+TERM=tmux-256color
+
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
@@ -31,7 +33,7 @@ function updatePrompt {
         LGRAY="\[\e[0;37m\]"
         WHITE="\[\e[1;37m\]"
         RESET_COLOR="\[\e[0m\]"
-       
+
         PROMPT="$WHITE[\h]${CYAN}[\w]\n"
 
         if [[ -a .ruby-gemset ]] ; then
