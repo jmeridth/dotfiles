@@ -1,5 +1,7 @@
 export EDITOR=vim
 
+TERM=tmux-256color
+
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
