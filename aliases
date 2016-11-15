@@ -11,9 +11,6 @@ alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias aliases="vim ~/.jmaliases"
 
-# pyenv-virtualenv deactivate
-if which pyenv-virtualenv > /dev/null; then alias deactivate="source deactivate"; fi
-
 # cli usage
 alias ..="cd .."
 alias senv="source ~/.bashrc && cd ."

@@ -34,8 +34,6 @@ map <c-j> <c-w>j
 map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
-" Allow copy to clipboard
-set clipboard+=unnamed
 "" Tagbar
 map <Leader>tb :TagbarToggle<CR>
 "" NERDTree
@@ -177,3 +175,7 @@ set background=dark
 silent! colorscheme vividchalk
 call togglebg#map("<F5>")
 highlight ColorColumn ctermbg=234 guibg=#2c2d27
+
+if $TMUX == ''
+  set clipboard+=unnamed
+endif
