@@ -1,3 +1,14 @@
+function get_python_virtualenv_directory {
+  directory_name="env"
+  if [ -d ".env" ]; then
+    directory_name=".env"
+  fi
+  if [ -d "venv" ]; then
+    directory_name="venv"
+  fi
+  echo $directory_name
+}
+
 # tmux
 alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
@@ -38,7 +49,7 @@ alias json="python -m json.tool"
 alias pyclean="find . -name '*.pyc' -delete"
 alias pyinit="touch __init__.py"
 alias py="ptpython"
-alias activate="source env/bin/activate"
+alias activate="source $(get_python_virtualenv_directory)/bin/activate"
 
 # git
 alias gl='git pull --prune'
