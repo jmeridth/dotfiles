@@ -1,7 +1,6 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
-  signingkey = BBA30F4F
 [color]
   ui = true
 [color "branch"]
@@ -23,7 +22,7 @@
   df = diff
   b = branch -a
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  ignore = !git update-index --assume-unchanged 
+  ignore = !git update-index --assume-unchanged
   unignore = !git update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep ^[a-z]
 [push]
