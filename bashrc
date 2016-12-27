@@ -55,8 +55,10 @@ export -f updatePrompt
 export PROMPT_COMMAND='updatePrompt'
 
 # HOMEBREW
-if which brew > /dev/null; then
-  export PATH=$(brew --prefix)/lib:$PATH
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if which brew > /dev/null; then
+    export PATH=$(brew --prefix)/lib:$PATH
+  fi
 fi
 
 # OPENCAFE
@@ -128,11 +130,16 @@ if [[ -s $HOME/.docker-completion.sh ]] ; then
 fi
 
 # BASH COMPLETION
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+  fi
 fi
 
 
 function http(){
   curl http://httpcode.info/$1;
 }
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
