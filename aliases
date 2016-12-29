@@ -16,6 +16,7 @@ alias mux="tmuxinator"
 
 # pbcopy on ubuntu
 if [[ "$OSTYPE" == "linux"* ]]; then
+  sudo apt-get install xclip -y
   alias pbcopy="xclip -selection clipboard"
 fi
 
