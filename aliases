@@ -14,6 +14,11 @@ alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
 alias mux="tmuxinator"
 
+# pbcopy on ubuntu
+if [[ "$OSTYPE" == "linux"* ]]; then
+  alias pbcopy="xclip -selection clipboard"
+fi
+
 # APT-GET
 alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt autoremove"
 
