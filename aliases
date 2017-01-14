@@ -1,5 +1,8 @@
 function get_python_virtualenv_directory {
   directory_name="env"
+  if [ -d "env" ]; then
+    directory_name="env"
+  fi
   if [ -d ".env" ]; then
     directory_name=".env"
   fi
@@ -16,8 +19,10 @@ alias mux="tmuxinator"
 
 # pbcopy on ubuntu
 if [[ "$OSTYPE" == "linux"* ]]; then
-  sudo apt-get install xclip -y
-  alias pbcopy="xclip -selection clipboard"
+  if ! which xclip > /dev/null; then
+    sudo apt-get install xclip -y
+    alias pbcopy="xclip -selection clipboard"
+  fi
 fi
 
 # APT-GET
