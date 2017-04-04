@@ -63,6 +63,7 @@ alias gs='git status -sb'
 alias gu='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias l='ls -lah --color'
+alias ls='ls -lah --color'
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`

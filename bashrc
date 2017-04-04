@@ -40,7 +40,13 @@ if which mux > /dev/null; then
 fi
 
 # AUTOENV
-if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
+fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source `which activate.sh`
+fi
+
 
 # PYENV
 if [[ -d $HOME/.pyenv ]] ; then
