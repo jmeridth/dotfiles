@@ -3,7 +3,6 @@ export EDITOR=vim
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
-if [[ -a $HOME/.rax ]] ; then source $HOME/.rax ; fi
 if [[ -a $HOME/.piston ]] ; then source $HOME/.piston ; fi
 
 # HISTORY
@@ -24,10 +23,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   fi
 fi
 
-# OPENCAFE
-
-if [[ -a $HOME/.cafe-completion ]] ; then source $HOME/.cafe-completion ; fi
-
 # ANSIBLE
 if [[ -a $HOME/ansible_hosts ]] ; then
   export ANSIBLE_HOSTS=~/ansible_hosts
@@ -44,7 +39,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
 fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source `which activate.sh`
+  source $(brew --prefix autoenv)/activate.sh
 fi
 
 
