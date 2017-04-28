@@ -24,7 +24,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'godlygeek/tabular'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', { 'for': 'cpp', 'do': './install.py --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 call plug#end()
 let mapleader=","
@@ -158,11 +158,11 @@ set mat=2
 set noerrorbells
 set novisualbell
 "" disable code folding
-set nofoldenable
+"" set nofoldenable
 "" enable code folding
 "" set foldmethod=indent
-"" nnoremap <space> za
-"" vnoremap <space> zf
+"" nnoremap <Leader>za
+"" vnoremap <Leader>zf
 "" show line numbers
 set number
 "" No backups

@@ -98,6 +98,11 @@ if [[ -s $HOME/.docker-completion.sh ]] ; then
   source $HOME/.docker-completion.sh
 fi
 
+# KUBERNETES
+if [[ -s $HOME/.kubectl-completion.sh ]] ; then
+  source $HOME/.kubectl-completion.sh
+fi
+
 # BASH COMPLETION
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
