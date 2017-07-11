@@ -1,5 +1,5 @@
 DOTFILES=$(pwd)
-DEV_DIR=~/dev
+DEV_DIR=~/code
 
 ./update_scripts.sh
 
