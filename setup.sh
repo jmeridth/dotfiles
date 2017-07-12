@@ -35,9 +35,6 @@ vim +PlugInstall +q +q!
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
 
-# DOCKER
-ln -sf $DOTFILES/docker-completion.sh $HOME/.docker-completion.sh
-
 # EDITORCONFIG
 ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
 
