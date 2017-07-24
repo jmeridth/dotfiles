@@ -1,3 +1,9 @@
+# vim
+alias vim="nvim"
+
+# kubernetes
+alias k="kubectl"
+
 # tmux
 alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
@@ -23,7 +29,7 @@ alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dis
 # config files
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
-alias aliases="vim ~/.jmaliases"
+alias aliases="vim ~/.aliases"
 
 # cli usage
 alias ..="cd .."
