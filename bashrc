@@ -57,20 +57,23 @@ fi
 
 # GO
 if which go > /dev/null; then
+  if [ ! -d "$HOME/golang" ]; then mkdir $HOME/golang ; fi
   export GOPATH=$HOME/golang
   export GOBIN=$GOPATH/bin
-  export GOROOT=/usr/local/opt/go/libexec
+  export GOROOT=$(which go)
   export PATH=$PATH:$GOPATH/bin
   export PATH=$PATH:$GOROOT/bin
 fi
 
 # GCLOUD
-if which go > /dev/null; then
-  if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
-    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-  fi
-  if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
-    source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if which go > /dev/null; then
+    if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
+      source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
+    fi
+    if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
+      source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
+    fi
   fi
 fi
 

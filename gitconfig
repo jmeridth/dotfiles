@@ -25,6 +25,12 @@
   ignore = !git update-index --assume-unchanged
   unignore = !git update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep ^[a-z]
+	change = codereview change
+	gofmt = codereview gofmt
+	mail = codereview mail
+	pending = codereview pending
+	submit = codereview submit
+	sync = codereview sync
 [push]
   default = current
 [help]
@@ -47,3 +53,5 @@
   check = true
 [remote]
   pushdefault = origin
+[http]
+	cookiefile = /home/jmeridth/.gitcookies

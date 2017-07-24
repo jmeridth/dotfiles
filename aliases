@@ -13,6 +13,9 @@ fi
 
 # docker
 alias d-c="docker-compose"
+alias kac="docker ps -aq | xargs docker rm -f"
+alias kai="docker images -aq | xargs docker rmi -f dangling=true"
+alias dka="kac && kai"
 
 # APT-GET
 alias update="sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt autoremove -y"
