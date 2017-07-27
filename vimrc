@@ -65,7 +65,7 @@ endif
         Plug 'fatih/vim-go', {'for': 'go'}
         let editor_name='vim'
         if has('nvim')
-    	let editor_name='nvim'
+          let editor_name='nvim'
         endif
         let gocode_script=g:plugins_location . '/gocode/'. editor_name .'/symlink.sh'
         Plug 'nsf/gocode', {'for': 'go', 'rtp': editor_name, 'do': gocode_script } " Go autocompletion
