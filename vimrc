@@ -39,7 +39,7 @@ endif
     Plug 'flazz/vim-colorschemes'
     Plug 'altercation/vim-colors-solarized'
     Plug 'edkolev/tmuxline.vim'
-    Plug 'godlygeek/tabular'
+    Plug 'junegunn/vim-easy-align'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'majutsushi/tagbar'
     " setting vim specific autocomplete
@@ -146,7 +146,6 @@ endif
     " }
 
     " nerdtree {
-        "" NERDTree
         map <C-e> :NERDTreeToggle<CR>
         map <Leader>e :NERDTreeFind<CR>
         map <Leader>nt :NERDTreeFind<CR>
@@ -157,6 +156,14 @@ endif
         let NERDTreeDirArrows=1
         let NERDTreeAutoDeleteBuffer=1
         autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " }
+
+    " easy-align {
+        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        xmap ga <Plug>(EasyAlign)
+
+        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        nmap ga <Plug>(EasyAlign)
     " }
 
     " ctrlp {
