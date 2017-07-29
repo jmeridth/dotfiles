@@ -23,7 +23,7 @@ alias dsp="docker system prune -af"
 alias kac="docker ps -aq | xargs docker rm -f"
 alias kai="docker images -af | xargs docker rmi -f"
 alias kav="docker volume ls -qf dangling=true | xargs docker volume rm"
-+alias dka="kac; kai, kav"
+alias dka="kac; kai, kav"
 
 # APT-GET
 alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
