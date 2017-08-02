@@ -139,7 +139,7 @@ endif
         let g:pymode_doc = 1
         let g:pymode_doc_key = 'K'
         let g:pymode_lint = 1
-        let g:pymode_lint_checker = "pylint"
+        let g:pymode_lint_checkers = ['pylint']
         let g:pymode_lint_write = 1
         let g:pymode_virtualenv = 0
         let g:pymode_breakpoint = 1
