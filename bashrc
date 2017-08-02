@@ -60,7 +60,7 @@ fi
 if which go > /dev/null; then
   if [ ! -d "$HOME/golang" ]; then mkdir $HOME/golang ; fi
   export GOPATH=$HOME/golang
-  export GOBIN=$GOPATH/bin
+  # export GOBIN=$GOPATH/bin
   if [[ "$OSTYPE" == "darwin"* ]]; then
     export GOROOT=/usr/local/Cellar/go/1.8.3/libexec/
   else

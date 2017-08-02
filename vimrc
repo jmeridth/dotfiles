@@ -42,6 +42,7 @@ endif
     Plug 'junegunn/vim-easy-align'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'majutsushi/tagbar'
+    Plug 'JamshedVesuna/vim-markdown-preview'
     " setting vim specific autocomplete
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -99,6 +100,11 @@ endif
         let g:neocomplete#enable_at_startup = 1
         let g:neocomplete#enable_smart_case = 2
     endif
+    " }
+
+    " markdown {
+        let g:vim_markdown_prewview_github = 1
+        let g:vim_markdown_preview_browser='Google Chrome'
     " }
 
     " synctasic {
