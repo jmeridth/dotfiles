@@ -102,6 +102,12 @@ endif
     endif
     " }
 
+    " go {
+        autocmd FileType go nmap <leader>t  <Plug>(go-test)
+        autocmd FileType go nmap <leader>b  <Plug>(go-build)
+        autocmd FileType go nmap <leader>g  <Plug>(go-def)
+    " }
+
     " markdown {
         let g:vim_markdown_prewview_github = 1
         let g:vim_markdown_preview_browser='Google Chrome'
