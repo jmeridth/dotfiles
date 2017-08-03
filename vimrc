@@ -103,6 +103,7 @@ endif
     " }
 
     " go {
+        let g:go_list_type = "quickfix"
         autocmd FileType go nmap <leader>t  <Plug>(go-test)
         autocmd FileType go nmap <leader>b  <Plug>(go-build)
         autocmd FileType go nmap <leader>g  <Plug>(go-def)

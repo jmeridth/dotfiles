@@ -76,8 +76,14 @@ alias gb='git branch'
 alias gs='git status -sb'
 alias gu='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 
+# tar
+alias tardir="tar -czvf $1"
+alias untardir="tar -xzvf $1 $2"
+
+# ls
 alias l='ls -lah --color'
 alias ls='ls -lah --color'
+
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
