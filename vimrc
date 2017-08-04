@@ -147,6 +147,7 @@ endif
         let g:pymode_doc_key = 'K'
         let g:pymode_lint = 1
         let g:pymode_lint_checkers = ['pylint']
+        let g:pymode_lint_config = '$HOME/.pylintrc'
         let g:pymode_lint_write = 1
         let g:pymode_virtualenv = 0
         let g:pymode_breakpoint = 1
