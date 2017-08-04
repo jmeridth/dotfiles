@@ -55,4 +55,7 @@ ln -sf $DOTFILES/gemrc $HOME/.gemrc
 ln -sf $DOTFILES/pryrc $HOME/.pryrc
 ln -sf $DOTFILES/rubocop.sh $HOME/.rubocop.sh
 
+# PYTHON
+ln -sf $DOTFILES/pylintrc $HOME/.pylintrc
+
 exec $SHELL

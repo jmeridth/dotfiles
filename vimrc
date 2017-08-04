@@ -102,6 +102,13 @@ endif
     endif
     " }
 
+    " go {
+        let g:go_list_type = "quickfix"
+        autocmd FileType go nmap <leader>t  <Plug>(go-test)
+        autocmd FileType go nmap <leader>b  <Plug>(go-build)
+        autocmd FileType go nmap <leader>g  <Plug>(go-def)
+    " }
+
     " markdown {
         let g:vim_markdown_prewview_github = 1
         let g:vim_markdown_preview_browser='Google Chrome'
@@ -141,6 +148,7 @@ endif
         let g:pymode_doc_key = 'K'
         let g:pymode_lint = 1
         let g:pymode_lint_checkers = ['pylint']
+        let g:pymode_lint_config = '$HOME/.pylintrc'
         let g:pymode_lint_write = 1
         let g:pymode_virtualenv = 0
         let g:pymode_breakpoint = 1
