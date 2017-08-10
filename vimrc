@@ -40,7 +40,6 @@ endif
     Plug 'altercation/vim-colors-solarized'
     Plug 'edkolev/tmuxline.vim'
     Plug 'junegunn/vim-easy-align'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'majutsushi/tagbar'
     Plug 'JamshedVesuna/vim-markdown-preview'
     " setting vim specific autocomplete
@@ -144,7 +143,7 @@ endif
         let NERDDefaultAlign = 'left'
     " }
 
-      " python-mode {
+    " python-mode {
         let g:pymode_rope = 0
         let g:pymode_doc = 1
         let g:pymode_doc_key = 'K'
@@ -382,8 +381,8 @@ endif
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:.  " Highlight problematic whitespace
     set nofoldenable
-    " set foldmethod=indent
-    " set foldlevelstart=99
+    set foldmethod=indent
+
     autocmd vimrc FileType python let &colorcolumn=80
     " Disable the annoying bells
     set noerrorbells visualbell t_vb=
