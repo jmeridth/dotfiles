@@ -438,6 +438,11 @@ endif
     :noremap <Leader>V <c-w>t<c-w>H<cr>
     :noremap <Leader>H <c-w>t<c-w>K<cr>
 
+    ""tabs
+    :noremap <Leader>te :tabe<cr>v
+    :noremap <Leader>tn gt
+    :noremap <Leader>tp gT
+
     ""reset split
     :noremap <Leader>= <c-w>=<cr>
 " }
