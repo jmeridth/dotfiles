@@ -104,6 +104,12 @@ endif
 
     " go {
         let g:go_list_type = "quickfix"
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_interfaces = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
         autocmd FileType go nmap <leader>t  <Plug>(go-test)
         autocmd FileType go nmap <leader>b  <Plug>(go-build)
         autocmd FileType go nmap <leader>gc  <Plug>(go-callees)
@@ -197,6 +203,11 @@ endif
     " airline {
         let g:airline_theme = "wombat"
         let g:airline_powerline_fonts = 1
+        let g:airline#extensions#syntastic#enabled = 0
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#tabline#show_buffers = 0
+        let g:airline#extensions#tabline#show_tabs = 1
+        let g:airline#extensions#tabline#formatter = "default"
     " }
 
     " tmuxline {
