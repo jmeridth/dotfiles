@@ -67,6 +67,7 @@ endif
         let editor_name='vim'
         if has('nvim')
           let editor_name='nvim'
+          Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
         let gocode_script=g:plugins_location . '/gocode/'. editor_name .'/symlink.sh'
         Plug 'nsf/gocode', {'for': 'go', 'rtp': editor_name, 'do': gocode_script } " Go autocompletion
@@ -106,7 +107,8 @@ endif
         let g:go_list_type = "quickfix"
         autocmd FileType go nmap <leader>t  <Plug>(go-test)
         autocmd FileType go nmap <leader>b  <Plug>(go-build)
-        autocmd FileType go nmap <leader>g  <Plug>(go-def)
+        autocmd FileType go nmap <leader>gc  <Plug>(go-callees)
+        autocmd FileType go nmap <leader>gi  <Plug>(go-implements)
     " }
 
     " markdown {
