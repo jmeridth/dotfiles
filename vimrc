@@ -114,6 +114,7 @@ endif
     " markdown {
         let g:vim_markdown_prewview_github = 1
         let g:vim_markdown_preview_browser='Google Chrome'
+        let g:vim_markdown_preview_hotkey='<C-m>'
     " }
 
     " synctasic {
