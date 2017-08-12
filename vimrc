@@ -40,7 +40,6 @@ endif
     Plug 'altercation/vim-colors-solarized'
     Plug 'edkolev/tmuxline.vim'
     Plug 'junegunn/vim-easy-align'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'majutsushi/tagbar'
     Plug 'JamshedVesuna/vim-markdown-preview'
     " setting vim specific autocomplete
@@ -67,6 +66,7 @@ endif
         let editor_name='vim'
         if has('nvim')
           let editor_name='nvim'
+          Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
         let gocode_script=g:plugins_location . '/gocode/'. editor_name .'/symlink.sh'
         Plug 'nsf/gocode', {'for': 'go', 'rtp': editor_name, 'do': gocode_script } " Go autocompletion
@@ -104,9 +104,16 @@ endif
 
     " go {
         let g:go_list_type = "quickfix"
+        let g:go_highlight_functions = 1
+        let g:go_highlight_methods = 1
+        let g:go_highlight_structs = 1
+        let g:go_highlight_interfaces = 1
+        let g:go_highlight_operators = 1
+        let g:go_highlight_build_constraints = 1
         autocmd FileType go nmap <leader>t  <Plug>(go-test)
         autocmd FileType go nmap <leader>b  <Plug>(go-build)
-        autocmd FileType go nmap <leader>g  <Plug>(go-def)
+        autocmd FileType go nmap <leader>gc  <Plug>(go-callees)
+        autocmd FileType go nmap <leader>gi  <Plug>(go-implements)
     " }
 
     " markdown {
@@ -142,7 +149,7 @@ endif
         let NERDDefaultAlign = 'left'
     " }
 
-      " python-mode {
+    " python-mode {
         let g:pymode_rope = 0
         let g:pymode_doc = 1
         let g:pymode_doc_key = 'K'
@@ -196,6 +203,11 @@ endif
     " airline {
         let g:airline_theme = "wombat"
         let g:airline_powerline_fonts = 1
+        let g:airline#extensions#syntastic#enabled = 0
+        let g:airline#extensions#tabline#enabled = 1
+        let g:airline#extensions#tabline#show_buffers = 0
+        let g:airline#extensions#tabline#show_tabs = 1
+        let g:airline#extensions#tabline#formatter = "default"
     " }
 
     " tmuxline {
@@ -380,8 +392,8 @@ endif
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:.  " Highlight problematic whitespace
     set nofoldenable
-    " set foldmethod=indent
-    " set foldlevelstart=99
+    set foldmethod=indent
+
     autocmd vimrc FileType python let &colorcolumn=80
     " Disable the annoying bells
     set noerrorbells visualbell t_vb=
@@ -425,6 +437,11 @@ endif
     :noremap <Leader>h <c-w>s<cr>
     :noremap <Leader>V <c-w>t<c-w>H<cr>
     :noremap <Leader>H <c-w>t<c-w>K<cr>
+
+    ""tabs
+    :noremap <Leader>te :tabe<cr>v
+    :noremap <Leader>tn gt
+    :noremap <Leader>tp gT
 
     ""reset split
     :noremap <Leader>= <c-w>=<cr>
