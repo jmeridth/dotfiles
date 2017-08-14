@@ -9,13 +9,6 @@ alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
 alias mux="tmuxinator"
 
-# pbcopy on ubuntu
-if [[ "$OSTYPE" == *"linux"* ]]; then
-  if ! which xclip > /dev/null; then
-    sudo apt-get install xclip -y
-  fi
-  alias pbcopy="xclip -selection clipboard"
-fi
 
 # docker
 alias d-c="docker-compose"
@@ -24,7 +17,6 @@ alias kac="docker ps -aq | xargs docker rm -f"
 alias kai="docker images -aq | xargs docker rmi -f"
 alias kav="docker volume ls -qf dangling=true | xargs docker volume rm"
 alias dka="kac;kai;kav"
-alias cleanaufs="sudo umount -l $(grep 'aufs' /proc/mounts | awk '{print$2}' | sort -r) && sudo rm -rf /var/lib/docker/aufs"
 
 # APT-GET
 alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
@@ -94,4 +86,12 @@ then
   alias l="gls -lAh --color"
   alias ll="gls -l --color"
   alias la='gls -A --color'
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source $HOME/.aliases.osx
+fi
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+  source $HOME/.aliases.linux
 fi

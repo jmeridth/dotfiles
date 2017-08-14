@@ -15,14 +15,6 @@ export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWCOLORHINTS=true
 
-
-# HOMEBREW
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if which brew > /dev/null; then
-    export PATH=$(brew --prefix)/lib:$PATH
-  fi
-fi
-
 # ANSIBLE
 if [[ -a $HOME/ansible_hosts ]] ; then
   export ANSIBLE_HOSTS=~/ansible_hosts
@@ -34,13 +26,6 @@ if which mux > /dev/null; then
   export DISABLE_AUTO_TITLE=true
 fi
 
-# AUTOENV
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [[ -a /usr/local/opt/autoenv/activate.sh ]] ; then source /usr/local/opt/autoenv/activate.sh ; fi
-fi
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $(brew --prefix autoenv)/activate.sh
-fi
 
 # PYENV
 if [[ -d $HOME/.pyenv ]] ; then
@@ -61,25 +46,8 @@ if which go > /dev/null; then
   if [ ! -d "$HOME/golang" ]; then mkdir $HOME/golang ; fi
   export GOPATH=$HOME/golang
   # export GOBIN=$GOPATH/bin
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    export GOROOT=/usr/local/Cellar/go/1.8.3/libexec/
-  else
-    export GOROOT=$(which go)
-  fi
   export PATH=$PATH:$GOPATH/bin
   export PATH=$PATH:$GOROOT/bin
-fi
-
-# GCLOUD
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if which go > /dev/null; then
-    if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
-      source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'
-    fi
-    if [[ -a /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk ]] ; then
-      source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'
-    fi
-  fi
 fi
 
 # DOCKER
@@ -92,11 +60,13 @@ if [[ -s $HOME/.kubectl-completion.sh ]] ; then
   source $HOME/.kubectl-completion.sh
 fi
 
-# BASH COMPLETION
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-  fi
+  source $HOME/.bashrc.osx
+fi
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+  source $HOME/.bashrc.linux
 fi
 
 

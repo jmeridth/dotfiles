@@ -4,7 +4,7 @@ DEV_DIR=~/code
 ./update_scripts.sh
 
 # CMAKE
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "linux"* ]]; then
   if [ -f /etc/redhat-release ]; then
     yum install -y cmake python-devel
   fi
@@ -35,12 +35,16 @@ vim +PlugInstall +q +q!
 
 # BASHRC
 ln -sf $DOTFILES/bashrc $HOME/.bashrc
+ln -sf $DOTFILES/bashrc.osx $HOME/.bashrc.osx
+ln -sf $DOTFILES/bashrc.linux $HOME/.bashrc.linux
 
 # EDITORCONFIG
 ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
 
 # ALIASES
 ln -sf $DOTFILES/aliases $HOME/.aliases
+ln -sf $DOTFILES/aliases.osx $HOME/.aliases.osx
+ln -sf $DOTFILES/aliases.linux $HOME/.aliases.linux
 
 # GIT
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
