@@ -1,0 +1,2 @@
+# GO
+export GOROOT=$(which go)

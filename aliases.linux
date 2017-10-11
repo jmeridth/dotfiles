@@ -1,0 +1,8 @@
+# pbcopy
+if ! which xclip > /dev/null; then
+  sudo apt-get install xclip -y
+fi
+alias pbcopy="xclip -selection clipboard"
+
+# docker
+alias cleanaufs="sudo umount -l $(grep 'aufs' /proc/mounts | awk '{print$2}' | sort -r) && sudo rm -rf /var/lib/docker/aufs"
