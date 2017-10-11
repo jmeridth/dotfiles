@@ -68,8 +68,7 @@ endif
           let editor_name='nvim'
           Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
-        let gocode_script=g:plugins_location . '/gocode/'. editor_name .'/symlink.sh'
-        Plug 'nsf/gocode', {'for': 'go', 'rtp': editor_name, 'do': gocode_script } " Go autocompletion
+        Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
         Plug 'godoctor/godoctor.vim', {'for': 'go'} " Gocode refactoring tool
     " }
 
@@ -110,6 +109,7 @@ endif
         let g:go_highlight_interfaces = 1
         let g:go_highlight_operators = 1
         let g:go_highlight_build_constraints = 1
+        let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
         autocmd FileType go nmap <leader>t  <Plug>(go-test)
         autocmd FileType go nmap <leader>b  <Plug>(go-build)
         autocmd FileType go nmap <leader>gc  <Plug>(go-callees)
