@@ -62,11 +62,11 @@ fi
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $HOME/.bashrc.osx
+  if [[ -a $HOME/.bashrc.osx ]] ; then source $HOME/.bachrc.osx ; fi
 fi
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-  source $HOME/.bashrc.linux
+  if [[ -a $HOME/.bashrc.linux ]] ; then source $HOME/.bashrc.linux ; fi
 fi
 
 

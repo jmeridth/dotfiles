@@ -92,9 +92,9 @@ then
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source $HOME/.aliases.osx
+  if [[ -a $HOME/.aliases.osx ]] ; then source $HOME/.aliases.osx ; fi
 fi
 
 if [[ "$OSTYPE" == "linux"* ]]; then
-  source $HOME/.aliases.linux
+  if [[ -a $HOME/.aliases.linux ]] ; then source $HOME/.aliases.linux ; fi
 fi
