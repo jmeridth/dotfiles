@@ -9,7 +9,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
     yum install -y cmake python-devel
   fi
   if [ -f /etc/lsb-release ]; then
-    sudo apt-get install -y cmake python-dev
+    sudo apt-get install -y cmake python-dev neovim
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
