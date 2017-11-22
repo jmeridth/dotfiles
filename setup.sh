@@ -6,7 +6,7 @@ DEV_DIR=~/code
 # CMAKE
 if [[ "$OSTYPE" == "linux"* ]]; then
   if [ -f /etc/redhat-release ]; then
-    yum install -y cmake python-devel
+    yum install -y cmake python-devel neovim
   fi
   if [ -f /etc/lsb-release ]; then
     sudo apt-get install -y cmake python-dev neovim
@@ -14,6 +14,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
   brew install coreutils
+  brew install neovim
 fi
 
 # powerline fonts
@@ -23,6 +24,7 @@ cd $DEV_DIR/fonts
 ./install.sh
 
 cd $DOTFILES
+./install_pyenv.sh
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
