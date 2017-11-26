@@ -394,7 +394,6 @@ endif
     set nofoldenable
     set foldmethod=indent
 
-    autocmd vimrc FileType python let &colorcolumn=80
     " Disable the annoying bells
     set noerrorbells visualbell t_vb=
     if has('autocmd')
@@ -422,7 +421,7 @@ endif
     autocmd vimrc FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
     autocmd vimrc Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
     autocmd vimrc Filetype javascript,vimrc setlocal ts=4 sts=4 sw=4
-    autocmd vimrc Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=80
+    autocmd vimrc Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
     autocmd vimrc FileType make setlocal noexpandtab
 " }
 

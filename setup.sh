@@ -29,6 +29,7 @@ cd $DOTFILES
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
+ln -sf $HOME/.vim $HOME/.nvim
 
 # VIM-PLUG INSTALL
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
