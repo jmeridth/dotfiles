@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ "$OSTYPE" == "linux"* ]]; then
+  if [ -f /etc/redhat-release ]; then
+    yum install -y git cmake python-devel neovim
+  fi
+  if [ -f /etc/lsb-release ]; then
+    sudo apt-get install -y git cmake python-dev neovim
+  fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install git
+  brew install cmake
+  brew install coreutils
+  brew install neovim
+fi
+
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
+
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[2]}")" && pwd)"
+
+cd "${BASEDIR}"
+git submodule update --init --recursive "${DOTBOT_DIR}"
+
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

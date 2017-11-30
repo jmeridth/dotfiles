@@ -1,0 +1,50 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- shell:
+  - ["mkdir -p ~/code", Making code directory]
+  - ["scripts/update_scripts.sh", Updating scripts]
+  - ["git -C ~/code/fonts pull || git clone https://github.com/powerline/fonts.git ~/code/fonts", Cloning Powerline Fonts]
+  - ["~/code/fonts/install.sh", Installing Powerline Fonts]
+  - ["./scripts/install_pyenv.sh", Install Pyenv]
+  - ["curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Installing Vim Plug]
+  -
+     command: ["vim +PlugInstall +q q!", Installing vim plugins]
+     stdin: true
+     stdout: true
+
+- link:
+    ~/.dotfiles: ''
+    ~/.nvim: ~/.vim
+    ~/.config/nvim/init.vim:
+        create: true
+        path: vim/vimrc
+    ~/.vimrc: vim/vimrc
+    ~/.nvimrc: vim/vimrc
+    ~/.bashrc: bash/bashrc
+    ~/.bashrc.linux: bash/bashrc.linux
+    ~/.bashrc.osx: bash/bashrc.osx
+    ~/.bash_profile: bash/bash_profile
+    ~/.gitconfig: git/gitconfig
+    ~/.git-completion.bash: git/git-completion.bash
+    ~/.git-prompt.sh: git/git-prompt.sh
+    ~/.aliases: aliases/aliases
+    ~/.aliases.linux: aliases/aliases.linux
+    ~/.aliases.osx: aliases/aliases.osx
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmuxline_snapshot: tmux/tmuxline_snapshot
+    ~/.gemrc: ruby/gemrc
+    ~/.pryrc: ruby/pryrc
+    ~/.rubycop.sh: ruby/rubocop.sh
+    ~/.rvmrc: ruby/rvmrc
+    ~/.pylintrc: python/pylintrc
+    ~/.editorconfig: configs/editorconfig
+
+- shell:
+  - scripts/install_pyenv.sh
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
