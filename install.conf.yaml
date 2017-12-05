@@ -12,19 +12,23 @@
   - ["./scripts/install_pyenv.sh", Install Pyenv]
   - ["curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim", Installing Vim Plug]
   -
-     command: ["vim +PlugInstall +q q!", Installing vim plugins]
+     command: ["nvim +PlugInstall +q +q!", Installing vim plugins]
      stdin: true
      stdout: true
 
 - link:
     ~/.dotfiles: ''
-    ~/.nvim: ~/.vim
+    ~/.vim:
+        create: true
+        path: ~/.config/nvim
     ~/.config/nvim/init.vim:
         create: true
         path: vim/vimrc
     ~/.vimrc: vim/vimrc
     ~/.nvimrc: vim/vimrc
-    ~/.bashrc: bash/bashrc
+    ~/.bashrc:
+        create: true
+        path: bash/bashrc
     ~/.bashrc.linux: bash/bashrc.linux
     ~/.bashrc.osx: bash/bashrc.osx
     ~/.bash_profile: bash/bash_profile
