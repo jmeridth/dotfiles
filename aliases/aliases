@@ -9,6 +9,8 @@ alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
 alias mux="tmuxinator"
 
+# clean
+alias killdsstore="find . -name '.DS_Store' -type f -delete"
 
 # docker
 alias d-c="docker-compose"
