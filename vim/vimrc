@@ -418,11 +418,11 @@ endif
         call cursor(l:l, l:c)
     endfunction
     nnoremap <Leader>sw :call StripTrailingWhitespace()<CR>
-    autocmd vimrc FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
-    autocmd vimrc Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
-    autocmd vimrc Filetype javascript,vimrc setlocal ts=4 sts=4 sw=4
-    autocmd vimrc Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
-    autocmd vimrc FileType make setlocal noexpandtab
+    autocmd FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
+    autocmd Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
+    autocmd Filetype javascript,vimrc setlocal ts=4 sts=4 sw=4
+    autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
+    autocmd FileType make setlocal noexpandtab
 " }
 
 " Key Mappings {

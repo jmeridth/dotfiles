@@ -35,7 +35,7 @@ alias ..="cd .."
 alias senv="source ~/.bashrc && cd ."
 
 # cd helpers
-alias dotfiles="cd ~/dev/dotfiles"
+alias dotfiles="cd ~/code/dotfiles"
 
 # ag
 function agsearch(){
