@@ -9,14 +9,19 @@ alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
 alias mux="tmuxinator"
 
+# clean
+alias killdsstore="find . -name '.DS_Store' -type f -delete"
 
 # docker
 alias d-c="docker-compose"
+alias dpa="docker ps -a"
+alias di="docker images"
 alias dsp="docker system prune -af"
 alias dkc="docker ps -aq | xargs docker rm -f"
+alias dkui="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
 alias dki="docker images -aq | xargs docker rmi -f"
 alias dkv="docker volume ls -qf dangling=true | xargs docker volume rm"
-alias dka="dkc;dki;dkv"
+alias dka="dkc;dki;dkv;docker system prune -f"
 alias cleanaufs="sudo systemctl stop docker && grep 'aufs' /proc/mounts | awk '{print$2}' | sort -r | xargs sudo umount -l && sudo rm -rf /var/lib/docker/aufs && sudo systemctl docker start"
 
 # APT-GET
@@ -32,7 +37,7 @@ alias ..="cd .."
 alias senv="source ~/.bashrc && cd ."
 
 # cd helpers
-alias dotfiles="cd ~/dev/dotfiles"
+alias dotfiles="cd ~/code/dotfiles"
 
 # ag
 function agsearch(){

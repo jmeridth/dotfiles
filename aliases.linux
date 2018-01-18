@@ -6,3 +6,6 @@ alias pbcopy="xclip -selection clipboard"
 
 # docker
 alias cleanaufs="sudo umount -l $(grep 'aufs' /proc/mounts | awk '{print$2}' | sort -r) && sudo rm -rf /var/lib/docker/aufs"
+
+# wifi
+alias restartwifi="nmcli radio wifi off && nmcli radio wifi on"

@@ -26,8 +26,8 @@ endif
 " Plugins {
     call plug#begin(g:plugins_location)
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'mileszs/ack.vim'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'rking/ag.vim'
     Plug 'scrooloose/syntastic'
     Plug 'scrooloose/nerdcommenter'
     Plug 'luochen1990/rainbow'
@@ -58,7 +58,10 @@ endif
 
     " Ruby specific {
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
-        Plug 'davidhalter/jedi-vim', {'for': 'python'}
+        Plug 'tpope/vim-rails', {'for': 'ruby'}
+        Plug 'tpope/vim-haml', {'for': 'ruby'}
+        Plug 'tpope/vim-bundler', {'for': 'ruby'}
+        Plug 'Keithbsmiley/rspec.vim', {'for': 'ruby'}
     " }
 
     " Go specific {
@@ -68,7 +71,7 @@ endif
           let editor_name='nvim'
           Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
-        Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+        Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
         Plug 'godoctor/godoctor.vim', {'for': 'go'} " Gocode refactoring tool
     " }
 
@@ -82,11 +85,12 @@ endif
 
     " Javascript specific {
         Plug 'pangloss/vim-javascript', {'for': 'js'}
+        Plug 'mxw/vim-jsx', {'for': 'js'}
         Plug 'walm/jshint.vim', {'for': 'js'}
     " }
 
     " Coffeescript specific {
-        Plug 'kchmck/vim-coffee-script', {'for': 'coffeescript'}
+        Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
     " }
 
     call plug#end()
@@ -122,7 +126,7 @@ endif
         let g:vim_markdown_preview_hotkey='<C-m>'
     " }
 
-    " synctasic {
+    " synctastic {
         let g:syntastic_always_populate_loc_list = 1
         let g:syntastic_auto_loc_list = 1
         let g:syntastic_check_on_open = 0
@@ -168,9 +172,7 @@ endif
     " }
 
     " nerdtree {
-        map <C-e> :NERDTreeToggle<CR>
-        map <Leader>e :NERDTreeFind<CR>
-        map <Leader>nt :NERDTreeFind<CR>
+        map <Leader>e :NERDTreeToggle<CR>
         let NERDTreeShowBookmarks=1
         let NERDTreeQuitOnOpen=1
         let NERDTreeMinimalUI=1
@@ -263,7 +265,7 @@ endif
 
 " General {
     " Allow a trigger for the background
-    set background=dark " Dark backgrounds cause we're emo
+    set background=light
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
@@ -344,7 +346,8 @@ endif
         " True color support
         set termguicolors
     endif
-    silent! colorscheme vividchalk
+    let g:solarized_termcolors=256
+    silent! colorscheme solarized
 
     set splitbelow
     set splitright
@@ -418,11 +421,11 @@ endif
         call cursor(l:l, l:c)
     endfunction
     nnoremap <Leader>sw :call StripTrailingWhitespace()<CR>
-    autocmd vimrc FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
-    autocmd vimrc Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
-    autocmd vimrc Filetype javascript,vimrc setlocal ts=4 sts=4 sw=4
-    autocmd vimrc Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
-    autocmd vimrc FileType make setlocal noexpandtab
+    autocmd FileType c,cpp,java,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> :call StripTrailingWhitespace()
+    autocmd Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
+    autocmd Filetype javascript,js,jsx,coffee,vimrc setlocal ts=4 sts=4 sw=4
+    autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
+    autocmd FileType make setlocal noexpandtab
 " }
 
 " Key Mappings {
