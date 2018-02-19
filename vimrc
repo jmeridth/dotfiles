@@ -265,7 +265,7 @@ endif
 
 " General {
     " Allow a trigger for the background
-    set background=light
+    set background=dark
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
@@ -346,8 +346,7 @@ endif
         " True color support
         set termguicolors
     endif
-    let g:solarized_termcolors=256
-    silent! colorscheme solarized
+    silent! colorscheme vividchalk
 
     set splitbelow
     set splitright
