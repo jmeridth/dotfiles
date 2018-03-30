@@ -12,6 +12,9 @@ alias mux="tmuxinator"
 # clean
 alias killdsstore="find . -name '.DS_Store' -type f -delete"
 
+# blog
+alias blog="cd ~/code/jmeridth.github.io"
+
 # docker
 alias d-c="docker-compose"
 alias dpa="docker ps -a"

@@ -203,7 +203,7 @@ endif
     " }
 
     " airline {
-        let g:airline_theme = "wombat"
+        let g:airline_theme = "solarized"
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#syntastic#enabled = 0
         let g:airline#extensions#tabline#enabled = 1
@@ -213,7 +213,7 @@ endif
     " }
 
     " tmuxline {
-        let g:tmuxline_theme = "wombat"
+        let g:tmuxline_theme = "solarized"
     " }
 
     " git fugitive {
@@ -265,7 +265,7 @@ endif
 
 " General {
     " Allow a trigger for the background
-    set background=dark
+    set background=light
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
@@ -346,7 +346,7 @@ endif
         " True color support
         set termguicolors
     endif
-    silent! colorscheme vividchalk
+    silent! colorscheme solarized-light
 
     set splitbelow
     set splitright

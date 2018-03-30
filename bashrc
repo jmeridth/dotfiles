@@ -19,6 +19,9 @@ export GIT_PS1_SHOWCOLORHINTS=true
 if [[ -a $HOME/ansible_hosts ]] ; then
   export ANSIBLE_HOSTS=~/ansible_hosts
 fi
+if [[ -a $HOME/.ansible_vault_password ]] ; then
+  export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible_vault_password
+fi
 
 # TMUX/TMUXINATOR
 if [[ -a $HOME/.tmuxinator.bash ]] ; then source $HOME/.tmuxinator.bash ; fi
@@ -104,7 +107,7 @@ function updatePrompt {
         fi
 
         if type "__git_ps1" > /dev/null 2>&1; then
-                PROMPT="$PROMPT\$(__git_ps1 '[%s]')${YELLOW}->"
+                PROMPT="$PROMPT\$(__git_ps1 '[%s]')${GREEN}->"
         fi
 
         PS1="$PROMPT\$ ${RESET_COLOR}"
