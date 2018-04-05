@@ -203,7 +203,7 @@ endif
     " }
 
     " airline {
-        let g:airline_theme = "solarized"
+        let g:airline_theme = "molokai"
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#syntastic#enabled = 0
         let g:airline#extensions#tabline#enabled = 1
@@ -213,7 +213,7 @@ endif
     " }
 
     " tmuxline {
-        let g:tmuxline_theme = "solarized"
+        let g:tmuxline_theme = "molokai"
     " }
 
     " git fugitive {
@@ -346,7 +346,7 @@ endif
         " True color support
         set termguicolors
     endif
-    silent! colorscheme solarized-light
+    silent! colorscheme molokai
 
     set splitbelow
     set splitright
