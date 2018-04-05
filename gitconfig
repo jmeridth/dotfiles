@@ -12,9 +12,6 @@
   changed = green
   untracked = cyan
   branch = magenta
-[grep]
-  linenumber = true
-  ignorecase = true
 [alias]
   st = status
   ci = commit
@@ -22,6 +19,7 @@
   co = checkout
   df = diff
   b = branch -a
+  g = grep --ignore-case --line-number
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   ignore = !git update-index --assume-unchanged
   unignore = !git update-index --no-assume-unchanged
