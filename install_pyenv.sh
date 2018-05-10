@@ -4,13 +4,13 @@ git -C $(pyenv root)/plugins/pyenv-virtualenv pull > /dev/null 2>&1 || git clone
 exec "$SHELL"
 
 pyenv install -s 2.7.14
-pyenv install -s 3.6.2
+pyenv install -s 3.6.5
 
 pyenv uninstall neovon2
 pyenv uninstall neovim3
 
-pyenv virtualenv -f 2.7.11 neovim2
-pyenv virtualenv -f 3.4.4 neovim3
+pyenv virtualenv -f 2.7.14 neovim2
+pyenv virtualenv -f 3.6.5 neovim3
 
 pyenv activate neovim2
 pip install --upgrade pip neovim

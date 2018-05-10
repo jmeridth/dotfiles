@@ -31,13 +31,13 @@ fi
 
 
 # PYENV
- if [[ -d $HOME/.pyenv ]] ; then
-   export PYENV_ROOT=$HOME/.pyenv
-   export PATH=$PYENV_ROOT/bin:$PATH
-   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-   eval "$(pyenv init -)"
-   eval "$(pyenv virtualenv-init -)"
- fi
+if [[ -d $HOME/.pyenv ]] ; then
+  export PYENV_ROOT=$HOME/.pyenv
+  export PATH=$PYENV_ROOT/bin:$PATH
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 
 # RVM
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
@@ -67,7 +67,7 @@ fi
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [[ -a $HOME/.bashrc.osx ]] ; then source $HOME/.bachrc.osx ; fi
+  if [[ -a $HOME/.bashrc.osx ]] ; then source $HOME/.bashrc.osx ; fi
 fi
 
 if [[ "$OSTYPE" == "linux"* ]]; then
