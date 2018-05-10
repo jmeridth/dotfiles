@@ -60,6 +60,7 @@ endif
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         Plug 'tpope/vim-rails', {'for': 'ruby'}
         Plug 'tpope/vim-haml', {'for': 'ruby'}
+        Plug 'tpope/vim-haml', {'for': 'ruby'}
         Plug 'tpope/vim-bundler', {'for': 'ruby'}
         Plug 'Keithbsmiley/rspec.vim', {'for': 'ruby'}
     " }
@@ -134,6 +135,7 @@ endif
         "" Syntastic ruby
         let g:syntastic_ruby_checkers=['rubocop', 'rubylint']
         let g:syntastic_ruby_rubocop_exec='~/.rubocop.sh'
+        let g:syntastic_haml_checkers = ['haml_lint']
         "" CoffeeScript ruby
         let g:syntastic_coffee_checkers=['coffee', 'coffeelint']
         let g:syntastic_coffee_coffeelint_args = "-f ~/.coffeelint"
@@ -404,7 +406,8 @@ endif
 " }
 
 " Formatting {
-    set nowrap
+    " set nowrap
+    set wrap
     set autoindent
     set shiftwidth=4
     set expandtab
