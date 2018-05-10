@@ -29,6 +29,8 @@
 # tell the completion to use commit completion.  This also works with aliases
 # of form "!sh -c '...'".  For example, "!sh -c ': git commit ; ... '".
 #
+# Compatible with bash 3.2.57.
+#
 # You can set the following environment variables to influence the behavior of
 # the completion routines:
 #
@@ -282,7 +284,11 @@ __gitcomp ()
 
 # Clear the variables caching builtins' options when (re-)sourcing
 # the completion script.
-unset $(set |sed -ne 's/^\(__gitcomp_builtin_[a-zA-Z0-9_][a-zA-Z0-9_]*\)=.*/\1/p') 2>/dev/null
+if [[ -n ${ZSH_VERSION-} ]]; then
+	unset $(set |sed -ne 's/^\(__gitcomp_builtin_[a-zA-Z0-9_][a-zA-Z0-9_]*\)=.*/\1/p') 2>/dev/null
+else
+	unset $(compgen -v __gitcomp_builtin_)
+fi
 
 # This function is equivalent to
 #
@@ -388,12 +394,7 @@ __git_index_files ()
 	local root="${2-.}" file
 
 	__git_ls_files_helper "$root" "$1" |
-	while read -r file; do
-		case "$file" in
-		?*/*) echo "${file%%/*}" ;;
-		*) echo "$file" ;;
-		esac
-	done | sort | uniq
+	cut -f1 -d/ | sort | uniq
 }
 
 # Lists branches from the local repository.
@@ -878,6 +879,7 @@ __git_list_porcelain_commands ()
 		check-ref-format) : plumbing;;
 		checkout-index)   : plumbing;;
 		column)           : internal helper;;
+		commit-graph)     : plumbing;;
 		commit-tree)      : plumbing;;
 		count-objects)    : infrequent;;
 		credential)       : credentials;;
@@ -1284,6 +1286,12 @@ _git_checkout ()
 
 _git_cherry ()
 {
+	case "$cur" in
+	--*)
+		__gitcomp_builtin cherry
+		return
+	esac
+
 	__git_complete_refs
 }
 
@@ -1503,16 +1511,6 @@ _git_fsck ()
 	esac
 }
 
-_git_gc ()
-{
-	case "$cur" in
-	--*)
-		__gitcomp_builtin gc
-		return
-		;;
-	esac
-}
-
 _git_gitk ()
 {
 	_gitk
@@ -1637,6 +1635,13 @@ _git_ls_remote ()
 
 _git_ls_tree ()
 {
+	case "$cur" in
+	--*)
+		__gitcomp_builtin ls-tree
+		return
+		;;
+	esac
+
 	__git_complete_file
 }
 
@@ -1810,11 +1815,6 @@ _git_mv ()
 	else
 		__git_complete_index_file "--cached"
 	fi
-}
-
-_git_name_rev ()
-{
-	__gitcomp_builtin name-rev
 }
 
 _git_notes ()
@@ -2350,6 +2350,7 @@ _git_config ()
 		core.bigFileThreshold
 		core.checkStat
 		core.commentChar
+		core.commitGraph
 		core.compression
 		core.createObject
 		core.deltaBaseCacheLimit
@@ -2774,12 +2775,20 @@ _git_show_branch ()
 _git_stash ()
 {
 	local save_opts='--all --keep-index --no-keep-index --quiet --patch --include-untracked'
-	local subcommands='push save list show apply clear drop pop create branch'
-	local subcommand="$(__git_find_on_cmdline "$subcommands")"
+	local subcommands='push list show apply clear drop pop create branch'
+	local subcommand="$(__git_find_on_cmdline "$subcommands save")"
+	if [ -n "$(__git_find_on_cmdline "-p")" ]; then
+		subcommand="push"
+	fi
 	if [ -z "$subcommand" ]; then
 		case "$cur" in
 		--*)
 			__gitcomp "$save_opts"
+			;;
+		sa*)
+			if [ -z "$(__git_find_on_cmdline "$save_opts")" ]; then
+				__gitcomp "save"
+			fi
 			;;
 		*)
 			if [ -z "$(__git_find_on_cmdline "$save_opts")" ]; then
@@ -3036,6 +3045,45 @@ _git_worktree ()
 	fi
 }
 
+__git_complete_common () {
+	local command="$1"
+
+	case "$cur" in
+	--*)
+		__gitcomp_builtin "$command"
+		;;
+	esac
+}
+
+__git_cmds_with_parseopt_helper=
+__git_support_parseopt_helper () {
+	test -n "$__git_cmds_with_parseopt_helper" ||
+		__git_cmds_with_parseopt_helper="$(__git --list-parseopt-builtins)"
+
+	case " $__git_cmds_with_parseopt_helper " in
+	*" $1 "*)
+		return 0
+		;;
+	*)
+		return 1
+		;;
+	esac
+}
+
+__git_complete_command () {
+	local command="$1"
+	local completion_func="_git_${command//-/_}"
+	if declare -f $completion_func >/dev/null 2>/dev/null; then
+		$completion_func
+		return 0
+	elif __git_support_parseopt_helper "$command"; then
+		__git_complete_common "$command"
+		return 0
+	else
+		return 1
+	fi
+}
+
 __git_main ()
 {
 	local i c=1 command __git_dir __git_repo_path
@@ -3095,14 +3143,12 @@ __git_main ()
 		return
 	fi
 
-	local completion_func="_git_${command//-/_}"
-	declare -f $completion_func >/dev/null 2>/dev/null && $completion_func && return
+	__git_complete_command "$command" && return
 
 	local expansion=$(__git_aliased_command "$command")
 	if [ -n "$expansion" ]; then
 		words[1]=$expansion
-		completion_func="_git_${expansion//-/_}"
-		declare -f $completion_func >/dev/null 2>/dev/null && $completion_func
+		__git_complete_command "$expansion"
 	fi
 }
 
