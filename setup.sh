@@ -33,9 +33,10 @@ ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
 ln -sf $HOME/.vim $HOME/.nvim
 
 # VIM-PLUG INSTALL
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +q +q!
+
 
 # BASH_PROFILE
 ln -sf $DOTFILES/bash_profile $HOME/.bash_profile
