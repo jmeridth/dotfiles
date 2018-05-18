@@ -98,7 +98,7 @@ function updatePrompt {
         WHITE="\[\e[1;37m\]"
         RESET_COLOR="\[\e[0m\]"
 
-        PROMPT="$CYAN[\h]${CYAN}[\w]\n"
+        PROMPT="$CYAN[\h]${CYAN}[\w] \D{%F %T}\n"
 
         if [[ -a .ruby-gemset ]] ; then
                 PROMPT="$PROMPT${LCYAN}($(rvm-prompt i v p g))${RESET_COLOR}"
