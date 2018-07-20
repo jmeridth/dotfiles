@@ -1,2 +1,5 @@
 # GO
-export GOROOT=$(which go)
+if which go > /dev/null; then
+  export GOROOT=$(which go)
+  export PATH=$PATH:$GOROOT/bin
+fi

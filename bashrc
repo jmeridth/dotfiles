@@ -43,9 +43,7 @@ fi
 if which go > /dev/null; then
   if [ ! -d "$HOME/code/golang" ]; then mkdir -p $HOME/code/golang ; fi
   export GOPATH=$HOME/code/golang
-  export GOROOT=/usr/local/opt/go/libexec
   export PATH=$PATH:$GOPATH/bin
-  export PATH=$PATH:$GOROOT/bin
 fi
 
 # DOCKER

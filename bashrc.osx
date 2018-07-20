@@ -14,7 +14,8 @@ fi
 
 # GO
 if which go > /dev/null; then
-  export GOROOT=/usr/local/Cellar/go/1.8.3/libexec/
+  export GOROOT=/usr/local/opt/go/libexec/
+  export PATH=$PATH:$GOROOT/bin
 fi
 
 # GCLOUD
