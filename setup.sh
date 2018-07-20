@@ -12,8 +12,10 @@ if [[ "$OSTYPE" == "linux"* ]]; then
     sudo apt-get install -y cmake python-dev neovim
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install bash-completion
   brew install cmake
   brew install coreutils
+  brew install ctags
   brew install neovim
 fi
 
@@ -30,7 +32,6 @@ cd $DOTFILES
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
 ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
-ln -sf $HOME/.vim $HOME/.nvim
 
 # VIM-PLUG INSTALL
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

@@ -28,4 +28,4 @@ if which go > /dev/null; then
 fi
 
 ln -sf /usr/local/Cellar/mysql@5.6/5.6.40/bin/mysql /usr/local/bin/mysql
-ln -sf /usr/local/Cellar/mysql@5.6/5.6.40/bin/mysqldump /usr/local/bin/mysql
+ln -sf /usr/local/Cellar/mysql@5.6/5.6.40/bin/mysqldump /usr/local/bin/mysqldump

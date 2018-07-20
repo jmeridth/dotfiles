@@ -60,8 +60,8 @@ endif
         Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
         Plug 'tpope/vim-rails', {'for': 'ruby'}
         Plug 'tpope/vim-haml', {'for': 'ruby'}
-        Plug 'tpope/vim-haml', {'for': 'ruby'}
         Plug 'tpope/vim-bundler', {'for': 'ruby'}
+        Plug 'tpope/vim-rvm', {'for': 'ruby'}
         Plug 'Keithbsmiley/rspec.vim', {'for': 'ruby'}
     " }
 
@@ -104,6 +104,7 @@ endif
         let g:neocomplete#enable_at_startup = 1
         let g:neocomplete#enable_smart_case = 2
     endif
+    let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
     " }
 
     " go {
@@ -280,6 +281,7 @@ endif
         endif
     endfunction
     nnoremap <Leader>bg :call ToggleBG()<CR>
+    silent! colorscheme solarized-light
 
     filetype indent plugin on " Automatically detect file types
     syntax on
@@ -348,7 +350,6 @@ endif
         " True color support
         set termguicolors
     endif
-    silent! colorscheme molokai
 
     set splitbelow
     set splitright
