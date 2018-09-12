@@ -1,6 +1,7 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
+  signingkey = 94D8679B1F349329
 [color]
   ui = true
 [color "branch"]
