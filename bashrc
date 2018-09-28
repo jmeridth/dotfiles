@@ -7,6 +7,8 @@ if [[ -a $HOME/.piston ]] ; then source $HOME/.piston ; fi
 
 # HISTORY
 export HISTTIMEFORMAT="%m/%d/%y %T "
+export HISTSIZE=
+export HISTFILESIZE=
 
 # GIT
 if [[ -a $HOME/.git-completion.bash ]] ; then source $HOME/.git-completion.bash ; fi
@@ -71,39 +73,43 @@ function http(){
   curl http://httpcode.info/$1;
 }
 
-BLACK="\[\e[0;30m\]"
-DGRAY="\[\e[1;30m\]"
-BLUE="\[\e[0;34m\]"
-LBLUE="\[\e[1;34m\]"
-GREEN="\[\e[0;32m\]"
-LGREEN="\[\e[1;32m\]"
-CYAN="\[\e[0;36m\]"
-LCYAN="\[\e[1;36m\]"
-RED="\[\e[0;31m\]"
-LRED="\[\e[1;31m\]"
-PURPLE="\[\e[0;35m\]"
-LPURPLE="\[\e[1;35m\]"
-BROWN="\[\e[0;33m\]"
-YELLOW="\[\e[1;33m\]"
-LGRAY="\[\e[0;37m\]"
-WHITE="\[\e[1;37m\]"
-RESET_COLOR="\[\e[0m\]"
+function updatePrompt {
+  BLACK="\[\e[0;30m\]"
+  DGRAY="\[\e[1;30m\]"
+  BLUE="\[\e[0;34m\]"
+  LBLUE="\[\e[1;34m\]"
+  GREEN="\[\e[0;32m\]"
+  LGREEN="\[\e[1;32m\]"
+  CYAN="\[\e[0;36m\]"
+  LCYAN="\[\e[1;36m\]"
+  RED="\[\e[0;31m\]"
+  LRED="\[\e[1;31m\]"
+  PURPLE="\[\e[0;35m\]"
+  LPURPLE="\[\e[1;35m\]"
+  BROWN="\[\e[0;33m\]"
+  YELLOW="\[\e[1;33m\]"
+  LGRAY="\[\e[0;37m\]"
+  WHITE="\[\e[1;37m\]"
+  RESET_COLOR="\[\e[0m\]"
 
-PROMPT="$CYAN[\h]${CYAN}[\w] \D{%F %T}\n"
+  PROMPT="$CYAN[\h]${CYAN}[\w] \D{%F %T}\n"
 
-if [[ -a .ruby-gemset ]] ; then
-  PROMPT="$PROMPT${LCYAN}(\$(rvm-prompt i v p g))${RESET_COLOR}"
-fi
+  if [[ -a .ruby-gemset ]] ; then
+    PROMPT="$PROMPT${LCYAN}(\$(rvm-prompt i v p g))${RESET_COLOR}"
+  fi
 
-if [[ $VIRTUAL_ENV != "" ]]; then
-  PROMPT="$PROMPT${LCYAN}(\$(basename ${VIRTUAL_ENV}))${RESET_COLOR}"
-fi
+  if [[ $VIRTUAL_ENV != "" ]]; then
+    PROMPT="$PROMPT${LCYAN}(\$(basename ${VIRTUAL_ENV}))${RESET_COLOR}"
+  fi
 
-if type "__git_ps1" > /dev/null 2>&1; then
-  PROMPT="$PROMPT\$(__git_ps1 '[%s]')${GREEN}->"
-fi
+  if type "__git_ps1" > /dev/null 2>&1; then
+    PROMPT="$PROMPT\$(__git_ps1 '[%s]')${GREEN}->"
+  fi
 
-PS1="$PROMPT\$ ${RESET_COLOR}"
+  PS1="$PROMPT\$ ${RESET_COLOR}"
+}
+export -f updatePrompt
+export PROMPT_COMMAND='updatePrompt'
 
 # RVM
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
