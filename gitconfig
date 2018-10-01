@@ -13,6 +13,8 @@
   changed = green
   untracked = cyan
   branch = magenta
+[commit]
+  gpgsign = true
 [alias]
   st = status
   ci = commit
