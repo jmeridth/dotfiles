@@ -400,7 +400,7 @@ __gitcomp_builtin ()
 	if [ -z "$options" ]; then
 		# leading and trailing spaces are significant to make
 		# option removal work correctly.
-		options=" $(__git ${cmd/_/ } --git-completion-helper) $incl "
+		options=" $incl $(__git ${cmd/_/ } --git-completion-helper) "
 		for i in $excl; do
 			options="${options/ $i / }"
 		done
@@ -943,6 +943,7 @@ __git_complete_remote_or_refspec ()
 			*) ;;
 			esac
 			;;
+		--multiple) no_complete_refspec=1; break ;;
 		-*) ;;
 		*) remote="$i"; break ;;
 		esac
@@ -1338,17 +1339,6 @@ _git_checkout ()
 		__git_complete_refs $track_opt
 		;;
 	esac
-}
-
-_git_cherry ()
-{
-	case "$cur" in
-	--*)
-		__gitcomp_builtin cherry
-		return
-	esac
-
-	__git_complete_refs
 }
 
 __git_cherry_pick_inprogress_options="--continue --quit --abort"
@@ -1832,7 +1822,7 @@ _git_mergetool ()
 		return
 		;;
 	--*)
-		__gitcomp "--tool= --prompt --no-prompt"
+		__gitcomp "--tool= --prompt --no-prompt --gui --no-gui"
 		return
 		;;
 	esac
@@ -2566,6 +2556,9 @@ _git_stash ()
 			;;
 		drop,--*)
 			__gitcomp "--quiet"
+			;;
+		list,--*)
+			__gitcomp "--name-status --oneline --patch-with-stat"
 			;;
 		show,--*|branch,--*)
 			;;

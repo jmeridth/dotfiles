@@ -428,7 +428,7 @@ endif
     autocmd Filetype haskell,puppet,ruby,yml,eruby,coffee,html setlocal ts=2 sts=2 sw=2
     autocmd Filetype javascript,js,jsx,coffee,vimrc setlocal ts=4 sts=4 sw=4
     autocmd Filetype python setlocal ts=4 sts=4 sw=4 colorcolumn=120
-    autocmd FileType make setlocal noexpandtab
+    autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 " }
 
 " Key Mappings {

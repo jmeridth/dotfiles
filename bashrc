@@ -111,6 +111,8 @@ function updatePrompt {
 export -f updatePrompt
 export PROMPT_COMMAND='updatePrompt'
 
+export GPG_TTY=$(tty)
+
 # RVM
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
   source $HOME/.rvm/scripts/rvm
