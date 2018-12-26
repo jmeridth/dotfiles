@@ -34,6 +34,7 @@ endif
     Plug 'ervandew/supertab'
     Plug 'editorconfig/editorconfig-vim'
     Plug 'tpope/vim-fugitive'
+    Plug 'patstockwell/vim-monokai-tasty'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'flazz/vim-colorschemes'
@@ -205,8 +206,14 @@ endif
         let g:indent_guides_enable_on_vim_startup = 1
     " }
 
+    " lightine {
+        let g:lightline = {
+            \ 'colorscheme': 'monokai_tasty',
+            \ }
+    " }
+
     " airline {
-        let g:airline_theme = "molokai"
+        let g:airline_theme = "monokai_tasty"
         let g:airline_powerline_fonts = 1
         let g:airline#extensions#syntastic#enabled = 0
         let g:airline#extensions#tabline#enabled = 1
@@ -268,7 +275,7 @@ endif
 
 " General {
     " Allow a trigger for the background
-    set background=dark
+    set background=light
     function! ToggleBG()
         let s:tbg = &background
         " Inversion
@@ -281,7 +288,10 @@ endif
         endif
     endfunction
     nnoremap <Leader>bg :call ToggleBG()<CR>
-    silent! colorscheme vividchalk
+    " silent! colorscheme vividchalk
+    " silent! colorscheme solarized-light
+    let g:vim_monokai_tasty_italic = 1
+    silent! colorscheme vim-monokai-tasty
 
     filetype indent plugin on " Automatically detect file types
     syntax on

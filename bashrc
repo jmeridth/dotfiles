@@ -55,8 +55,8 @@ fi
 alias docker-compose="/usr/local/bin/docker-compose"
 
 # KUBERNETES
-if [[ -s $HOME/.kubectl-completion.sh ]] ; then
-  source $HOME/.kubectl-completion.sh
+if ! which kubectl > /dev/null; then
+  source <(kubectl completion bash)
 fi
 
 
