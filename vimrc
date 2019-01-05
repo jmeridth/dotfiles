@@ -73,7 +73,7 @@ endif
           let editor_name='nvim'
           Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
-        Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.config/nvim/plugged/gocode/vim/symlink.sh' }
+        Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
         Plug 'godoctor/godoctor.vim', {'for': 'go'} " Gocode refactoring tool
     " }
 
