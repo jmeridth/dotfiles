@@ -31,7 +31,6 @@ if which mux > /dev/null; then
   export DISABLE_AUTO_TITLE=true
 fi
 
-
 # PYENV
 if [[ -d $HOME/.pyenv ]] ; then
   export PYENV_ROOT=$HOME/.pyenv
@@ -67,6 +66,8 @@ fi
 if [[ "$OSTYPE" == "linux"* ]]; then
   if [[ -a $HOME/.bashrc.linux ]] ; then source $HOME/.bashrc.linux ; fi
 fi
+
+export POWERLINE_CONFIG_COMMAND=$HOME/code/powerline/scripts/powerline-config
 
 
 function http(){

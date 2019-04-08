@@ -67,13 +67,12 @@ endif
     " }
 
     " Go specific {
-        Plug 'fatih/vim-go', {'for': 'go'}
+        Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoInstallBinaries'}
+        let g:go_metalinter_autosave = 0
         let editor_name='vim'
         if has('nvim')
           let editor_name='nvim'
-          Plug 'zchee/deoplete-go', { 'do': 'make'}
         endif
-        Plug 'stamblerre/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
         Plug 'godoctor/godoctor.vim', {'for': 'go'} " Gocode refactoring tool
     " }
 
@@ -124,7 +123,8 @@ endif
     " }
 
     " markdown {
-        let g:vim_markdown_prewview_github = 1
+        let g:vim_markdown_preview_toggle = 1
+        let g:vim_markdown_preview_github = 1
         let g:vim_markdown_preview_browser='Google Chrome'
         let g:vim_markdown_preview_hotkey='<C-m>'
     " }
@@ -178,7 +178,7 @@ endif
     " nerdtree {
         map <Leader>e :NERDTreeToggle<CR>
         let NERDTreeShowBookmarks=1
-        let NERDTreeQuitOnOpen=1
+        let NERDTreeQuitOnOpen=0
         let NERDTreeMinimalUI=1
         let NERDTreeShowHidden=1
         let NERDTreeDirArrows=1
