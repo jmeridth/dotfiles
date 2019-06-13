@@ -144,7 +144,8 @@ endif
         "" Syntastic yaml
         let g:syntastic_yaml_checkers=['jsyaml']
         "" Syntastic javascript
-        let g:Syntastic_javascript_checkers = ['eslint', 'jshint']
+        let g:Syntastic_javascript_checkers = ['eslint']
+        let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
         "" Syntastic python
         let g:syntastic_python_checkers=['pylint']
         autocmd FileType python let g:syntastic_check_on_wq = 0
@@ -289,9 +290,9 @@ endif
     endfunction
     nnoremap <Leader>bg :call ToggleBG()<CR>
     " silent! colorscheme vividchalk
-    " silent! colorscheme solarized-light
+    silent! colorscheme solarized-light
     let g:vim_monokai_tasty_italic = 1
-    silent! colorscheme vim-monokai-tasty
+    " silent! colorscheme vim-monokai-tasty
 
     filetype indent plugin on " Automatically detect file types
     syntax on
