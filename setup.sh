@@ -27,7 +27,7 @@ cd $DEV_DIR/fonts
 
 # pyenv neovim setup
 cd $DOTFILES
-./install_pyenv.sh
+# ./install_pyenv.sh
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc

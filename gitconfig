@@ -1,7 +1,7 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
-  signingkey = 94D8679B1F349329
+  # signingkey = 94D8679B1F349329
 [color]
   ui = true
 [color "branch"]
@@ -14,7 +14,7 @@
   untracked = cyan
   branch = magenta
 [commit]
-  gpgsign = true
+  # gpgsign = true
 [alias]
   st = status
   ci = commit
@@ -49,6 +49,7 @@
   bare = false
   logallrefupdates = true
   autocrlf = false
+  commentChar = "@"
 [url "https://"]
   insteadof = git://
 [git-up "bundler"]

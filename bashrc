@@ -119,4 +119,6 @@ if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
   source $HOME/.rvm/scripts/rvm
   export PATH="$PATH:$HOME/.rvm/bin"
 fi
+export PYTHONPATH=/Users/jmeridth/code/intermix/leto
+source ${HOME}/.intermix.profile
 eval "$(direnv hook bash)"
