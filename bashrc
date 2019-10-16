@@ -51,7 +51,7 @@ fi
 if [[ -s $HOME/.docker-completion.sh ]] ; then
   source $HOME/.docker-completion.sh
 fi
-alias docker-compose="/usr/local/bin/docker-compose"
+alias d-c="/usr/local/bin/docker-compose"
 
 # KUBERNETES
 if ! which kubectl > /dev/null; then
@@ -96,7 +96,7 @@ function updatePrompt {
   PROMPT="$CYAN[\h]${CYAN}[\w] \D{%F %T}\n"
 
   if [[ -a .ruby-gemset ]] ; then
-    PROMPT="$PROMPT${LCYAN}(\$(rvm-prompt i v p g))${RESET_COLOR}"
+    # PROMPT="$PROMPT${LCYAN}(\$(rvm-prompt i v p g))${RESET_COLOR}"
   fi
 
   if [[ $VIRTUAL_ENV != "" ]]; then
@@ -114,9 +114,4 @@ export PROMPT_COMMAND='updatePrompt'
 
 export GPG_TTY=$(tty)
 
-# RVM
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-  source $HOME/.rvm/scripts/rvm
-  export PATH="$PATH:$HOME/.rvm/bin"
-fi
 eval "$(direnv hook bash)"
