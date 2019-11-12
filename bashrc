@@ -95,10 +95,6 @@ function updatePrompt {
 
   PROMPT="$CYAN[\h]${CYAN}[\w] \D{%F %T}\n"
 
-  if [[ -a .ruby-gemset ]] ; then
-    # PROMPT="$PROMPT${LCYAN}(\$(rvm-prompt i v p g))${RESET_COLOR}"
-  fi
-
   if [[ $VIRTUAL_ENV != "" ]]; then
     PROMPT="$PROMPT${LCYAN}(\$(basename ${VIRTUAL_ENV}))${RESET_COLOR}"
   fi

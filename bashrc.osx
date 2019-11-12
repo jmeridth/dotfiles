@@ -12,6 +12,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
 
+# VISUAL STUDIO CODE
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
 # GO
 if which go > /dev/null; then
   export GOROOT=/usr/local/opt/go/libexec/

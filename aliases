@@ -1,6 +1,3 @@
-# vim
-alias vim="nvim"
-
 # kubernetes
 alias k="kubectl"
 

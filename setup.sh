@@ -16,7 +16,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install cmake
   brew install coreutils
   brew install ctags
-  brew install neovim
+  brew install autoenv
 fi
 
 # powerline fonts
@@ -25,20 +25,12 @@ git clone https://github.com/powerline/fonts.git $DEV_DIR/fonts
 cd $DEV_DIR/fonts
 ./install.sh
 
-# pyenv neovim setup
+# pyenv setup
 cd $DOTFILES
-# ./install_pyenv.sh
+./install_pyenv.sh
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
-ln -sf $HOME/.vimrc $HOME/.config/nvim/init.vim
-
-# VIM-PLUG INSTALL
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim +PlugInstall +q +q!
-
-ln -sf $HOME/.config/nvim $HOME/.vim
 
 # BASH_PROFILE
 ln -sf $DOTFILES/bash_profile $HOME/.bash_profile
