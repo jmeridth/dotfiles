@@ -17,6 +17,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   brew install coreutils
   brew install ctags
   brew install autoenv
+  brew install direnv
 fi
 
 # powerline fonts
