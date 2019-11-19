@@ -92,9 +92,6 @@ alias tardir='tar -czvf "$1"'
 alias untarzippeddir='tar -xzvf "$1" "$2"'
 alias untardir='tar -xvf "$1"'
 
-# vpn
-alias vpn?="ps faux | grep openvpn"
-
 # ls
 alias l='ls -lah --color'
 

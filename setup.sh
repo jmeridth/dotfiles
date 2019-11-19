@@ -41,6 +41,9 @@ ln -sf $DOTFILES/bashrc $HOME/.bashrc
 ln -sf $DOTFILES/bashrc.osx $HOME/.bashrc.osx
 ln -sf $DOTFILES/bashrc.linux $HOME/.bashrc.linux
 
+# ZSHRC
+ln -sf $DOTFILES/zshrc $HOME/.zshrc
+
 # EDITORCONFIG
 ln -sf $DOTFILES/editorconfig $HOME/.editorconfig
 
