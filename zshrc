@@ -29,6 +29,10 @@ if which go > /dev/null; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+
 export POWERLINE_CONFIG_COMMAND=$HOME/code/powerline/scripts/powerline-config
 
 PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
