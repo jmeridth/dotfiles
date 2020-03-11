@@ -1,24 +1,20 @@
 DOTFILES=$(pwd)
 DEV_DIR=~/code
 
-./update_scripts.sh
-
 # CMAKE
 if [[ "$OSTYPE" == "linux"* ]]; then
   if [ -f /etc/redhat-release ]; then
-    yum install -y cmake python-devel neovim
+    yum install -y cmake python-devel
   fi
   if [ -f /etc/lsb-release ]; then
-    sudo apt-get install -y cmake python-dev neovim
+    sudo apt-get install -y cmake python-dev
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  brew install bash-completion
-  brew install cmake
-  brew install coreutils
-  brew install ctags
-  brew install autoenv
-  brew install direnv
+  brew install cmake coreutils ctags autoenv direnv curl wget
 fi
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # powerline fonts
 rm -rf $DEV_DIR/fonts
@@ -32,14 +28,6 @@ cd $DOTFILES
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
-
-# BASH_PROFILE
-ln -sf $DOTFILES/bash_profile $HOME/.bash_profile
-
-# BASHRC
-ln -sf $DOTFILES/bashrc $HOME/.bashrc
-ln -sf $DOTFILES/bashrc.osx $HOME/.bashrc.osx
-ln -sf $DOTFILES/bashrc.linux $HOME/.bashrc.linux
 
 # ZSHRC
 ln -sf $DOTFILES/zshrc $HOME/.zshrc
