@@ -113,3 +113,6 @@ if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# NODE
+export NODE_OPTIONS="--max-old-space-size=4096"
