@@ -1,7 +1,7 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
-  #signingkey = 94D8679B1F349329
+  signingkey = 94D8679B1F349329
 [color]
   ui = true
 [color "branch"]
@@ -13,8 +13,8 @@
   changed = green
   untracked = cyan
   branch = magenta
-#[commit]
-#  gpgsign = true
+[commit]
+  gpgsign = true
 [alias]
   st = status
   ci = commit
@@ -27,12 +27,6 @@
   ignore = !git update-index --assume-unchanged
   unignore = !git update-index --no-assume-unchanged
   ignored = !git ls-files -v | grep ^[a-z]
-	change = codereview change
-	gofmt = codereview gofmt
-	mail = codereview mail
-	pending = codereview pending
-	submit = codereview submit
-	sync = codereview sync
 [push]
   default = current
 [help]
@@ -63,3 +57,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[init]
+	defaultBranch = main
