@@ -112,3 +112,7 @@ if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 
 # NODE
 export NODE_OPTIONS="--max-old-space-size=4096"
+
+# GO
+export GONOSUMDB=gitlab.com/domaintools/*
+export GONOPROXY=gitlab.com/domaintools/*

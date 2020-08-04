@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+kubectl run shell --rm -it --image alpine -- sh

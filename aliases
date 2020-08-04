@@ -1,5 +1,6 @@
 # kubernetes
 alias k="kubectl"
+alias kshell="~/code/dotfiles/bin/kshell"
 
 # tmux
 alias tn="tmux -S /tmp/pair"
