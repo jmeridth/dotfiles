@@ -1,6 +1,10 @@
 # kubernetes
 alias k="kubectl"
 alias kshell="~/code/dotfiles/bin/kshell"
+alias kconfig="vim ~/.kube/config"
+
+# aws
+alias awssso="aws configure sso"
 
 # tmux
 alias tn="tmux -S /tmp/pair"
@@ -29,6 +33,7 @@ alias dka="dkc;dki;dkv;docker system prune -f"
 alias cleanaufs="sudo systemctl stop docker && grep 'aufs' /proc/mounts | awk '{print$2}' | sort -r | xargs sudo umount -l && sudo rm -rf /var/lib/docker/aufs && sudo systemctl docker start"
 alias dn="docker network list"
 alias dv="docker volume list"
+alias osxdocker="docker run -it --rm --privileged --pid=host justincormack/nsenter1"
 
 # fix external display detection
 alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
