@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/jmeridth/.oh-my-zsh"
@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv git pyenv docker docker-compose rvm nvm)
+plugins=(autoenv git docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,6 +103,11 @@ RPROMPT='%*'
 # GPG
 GPG_TTY=$(tty)
 export GPG_TTY
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
 
 export POWERLINE_CONFIG_COMMAND=$HOME/code/powerline/scripts/powerline-config
 
@@ -114,7 +119,8 @@ if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 export NODE_OPTIONS="--max-old-space-size=4096"
 
 # GO
-export GONOSUMDB=gitlab.com/domaintools/*
-export GONOPROXY=gitlab.com/domaintools/*
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
+
+# AUTOENV
+source ~/.autoenv/activate.sh

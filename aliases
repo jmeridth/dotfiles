@@ -18,6 +18,9 @@ alias killdsstore="find . -name '.DS_Store' -type f -delete"
 alias blog="cd ~/code/jmeridth.github.io"
 
 # docker
+function dx(){
+  docker exec -it "$1" /bin/bash
+}
 alias d-c="docker-compose"
 alias dpa="docker ps -a"
 alias drm="docker rm -f"
@@ -53,7 +56,7 @@ alias aliases="vim ~/.aliases"
 
 # cli usage
 alias ..="cd .."
-alias senv="source ~/.bashrc && cd ."
+alias senv="source ~/.zshrc && cd ."
 
 # cd helpers
 alias dotfiles="cd ~/code/dotfiles"
