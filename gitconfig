@@ -1,7 +1,7 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
-  #signingkey = 94D8679B1F349329
+  signingkey = 94D8679B1F349329
 [color]
   ui = true
 [color "branch"]
@@ -13,8 +13,8 @@
   changed = green
   untracked = cyan
   branch = magenta
-#[commit]
-#  gpgsign = true
+[commit]
+  gpgsign = true
 [alias]
   st = status
   ci = commit
@@ -32,7 +32,7 @@
 [help]
   autocorrect = 1
 [gitreview]
-	username = jmeridth
+  username = jmeridth
 [branch]
   autosetuprebase = always
 [core]
@@ -49,13 +49,15 @@
 [remote]
   pushdefault = origin
 [http]
-	cookiefile = /home/jmeridth/.gitcookies
+  cookiefile = /home/jmeridth/.gitcookies
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[gpg]
+  program = gpg2
