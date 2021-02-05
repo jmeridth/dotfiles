@@ -106,6 +106,9 @@ alias untardir='tar -xvf "$1"'
 # ls
 alias l='ls -lah --color'
 
+# intellij (on osx)
+alias intellij='open -a IntelliJ\ IDEA ./'
+
 # grc overides for ls
 #   Made possible through contributions from generous benefactors like
 #   `brew install coreutils`
