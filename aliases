@@ -6,6 +6,9 @@ alias kconfig="vim ~/.kube/config"
 # aws
 alias awssso="aws configure sso"
 
+# terraform
+alias tgraph="terraform graph | dot -Tsvg > graph.svg"
+
 # tmux
 alias tn="tmux -S /tmp/pair"
 alias to="tmux -S /tmp/pair a"
