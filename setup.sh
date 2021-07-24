@@ -1,6 +1,7 @@
 DOTFILES=$(pwd)
 DEV_DIR=~/code
 
+
 # CMAKE
 if [[ "$OSTYPE" == "linux"* ]]; then
   if [ -f /etc/redhat-release ]; then
@@ -10,17 +11,24 @@ if [[ "$OSTYPE" == "linux"* ]]; then
     sudo apt-get install -y cmake python-dev
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  brew install cmake coreutils ctags autoenv direnv curl wget
+  if ! which brew > /dev/null; then
+    # install homebrew
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # install what is in the Brewfile
+    brew bundle -v
+  fi
+  # allow for holding down keys in vscode for vim
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 fi
 
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  # oh-my-zsh
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
 
-# powerline fonts
-rm -rf $DEV_DIR/fonts
-git clone https://github.com/powerline/fonts.git $DEV_DIR/fonts
-cd $DEV_DIR/fonts
-./install.sh
+# pyenv setup
+cd $DOTFILES
+./install_rvm.sh
 
 # pyenv setup
 cd $DOTFILES
@@ -42,11 +50,12 @@ ln -sf $DOTFILES/aliases.linux $HOME/.aliases.linux
 
 # GIT
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
-ln -sf $DOTFILES/git-completion.bash $HOME/.git-completion.bash
-ln -sf $DOTFILES/git-prompt.sh $HOME/.git-prompt.sh
 
 # TMUX
 ln -sf $DOTFILES/tmux.conf $HOME/.tmux.conf
+
+# CURL
+ln -sf $DOTFILES/curlrc $HOME/.curlrc
 
 # RUBY
 ln -sf $DOTFILES/gemrc $HOME/.gemrc

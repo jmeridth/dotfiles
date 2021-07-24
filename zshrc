@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autoenv git docker docker-compose vscode)
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -109,8 +109,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     export SSH_AUTH_SOCK
 fi
 
-export POWERLINE_CONFIG_COMMAND=$HOME/code/powerline/scripts/powerline-config
-
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
@@ -123,7 +121,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 # AUTOENV
-source ~/.autoenv/activate.sh
+source /usr/local/opt/autoenv/activate.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
