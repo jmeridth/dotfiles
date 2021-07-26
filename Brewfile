@@ -1,5 +1,7 @@
 tap "homebrew/cask"
 
+brew "curl"
+brew "wget"
 brew "editorconfig"
 brew "git"
 brew "gpg"
@@ -8,8 +10,7 @@ brew "coreutils"
 brew "ctags"
 brew "autoenv"
 brew "direnv"
-brew "curl"
-brew "wget"
+brew "nvm"
 
 cask "visual-studio-code", greedy: true
 cask "discord", greedy: true

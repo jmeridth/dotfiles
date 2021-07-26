@@ -11,6 +11,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
     sudo apt-get install -y cmake python-dev
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
+  xcode-select --install
   if ! which brew > /dev/null; then
     # install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
