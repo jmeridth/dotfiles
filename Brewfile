@@ -1,21 +1,32 @@
 tap "homebrew/cask"
 
-brew "curl"
-brew "wget"
-brew "editorconfig"
-brew "git"
-brew "gpg"
+brew "autoenv"
 brew "cmake"
 brew "coreutils"
 brew "ctags"
-brew "autoenv"
+brew "curl"
 brew "direnv"
+brew "docker"
+brew "editorconfig"
+brew "git"
+brew "git-lfs"
+brew "gpg"
+brew "go"
+brew "k9s"
+brew "kind"
+brew "kubernetes-cli"
 brew "nvm"
+brew "wget"
 
-cask "visual-studio-code", greedy: true
+# specific to procore
+brew "icu4c"
+brew "shared-mime-info"
+
 cask "discord", greedy: true
 cask "iterm2", greedy: true
+cask "postman", greedy: true
 cask "spotify", greedy: true
+cask "visual-studio-code", greedy: true
 
 # already managed by current employer
 # cask "google-chrome", greedy: true

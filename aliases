@@ -1,7 +1,7 @@
 # kubernetes
 alias k="kubectl"
 alias kshell="~/code/dotfiles/bin/kshell"
-alias kconfig="vim ~/.kube/config"
+alias kconf="vim ~/.kube/config"
 
 # aws
 alias awssso="aws configure sso"
@@ -56,7 +56,7 @@ alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
 
 # config files
 alias vimrc="vim ~/.vimrc"
-alias bashrc="vim ~/.bashrc"
+alias zshrc="vim ~/.zshrc"
 alias aliases="vim ~/.aliases"
 
 # cli usage
