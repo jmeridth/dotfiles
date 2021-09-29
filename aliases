@@ -2,6 +2,7 @@
 alias k="kubectl"
 alias kshell="~/code/dotfiles/bin/kshell"
 alias kconf="vim ~/.kube/config"
+alias kcheat="open https://kubernetes.io/docs/reference/kubectl/cheatsheet/"
 
 # aws
 alias awssso="aws configure sso"
@@ -73,6 +74,9 @@ function agsearch(){
 alias agp='agsearch "py" $1'
 alias agr='agsearch "rb" $1'
 
+# gpg
+alias gpgreset='gpgconf --kill gpg-agent && gpg --card-status'
+
 # ruby
 alias rc='rails console'
 alias rg='rails generate'
@@ -91,7 +95,7 @@ alias deactivate="pyenv deactivate"
 
 # git
 alias gl='git pull --prune'
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias glog="git lg"
 alias gr='git review master'
 alias gp='git push origin HEAD'
 alias gd='git diff'
