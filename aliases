@@ -1,8 +1,11 @@
 # kubernetes
 alias k="kubectl"
+alias mk="minikube"
 alias kshell="~/code/dotfiles/bin/kshell"
 alias kconf="vim ~/.kube/config"
 alias kcheat="open https://kubernetes.io/docs/reference/kubectl/cheatsheet/"
+alias kn="kubens"
+alias kc="kubectx"
 
 # aws
 alias awssso="aws configure sso"
