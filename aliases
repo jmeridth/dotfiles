@@ -6,6 +6,7 @@ alias kconf="vim ~/.kube/config"
 alias kcheat="open https://kubernetes.io/docs/reference/kubectl/cheatsheet/"
 alias kn="kubens"
 alias kc="kubectx"
+alias debug="kubectl run -i --tty --rm debug --image=ubuntu:latest --restart=Never -- /bin/bash"
 
 # aws
 alias awssso="aws configure sso"
@@ -80,12 +81,6 @@ alias agr='agsearch "rb" $1'
 # gpg
 alias gpgreset='gpgconf --kill gpg-agent && gpg --card-status'
 
-# ruby
-alias rc='rails console'
-alias rg='rails generate'
-alias rd='rails destroy'
-alias be='bundle exec'
-
 # json
 alias json="python -m json.tool"
 
@@ -103,12 +98,13 @@ alias gr='git review master'
 alias gp='git push origin HEAD'
 alias gd='git diff'
 alias gdw='git diff --word-diff'
-alias gc='git commit'
-alias gca='git commit -a'
+alias gc='git commit -s'
+alias gca='git commit -a -s'
 alias gco='git checkout'
 alias gb='git branch'
 alias gs='git status -sb'
 alias gu='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpl='git push --force-with-lease'
 
 # tar
 alias tardir='tar -czvf "$1"'
