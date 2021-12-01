@@ -91,20 +91,8 @@ alias py="ptpython"
 alias activate="pyenv activate $1"
 alias deactivate="pyenv deactivate"
 
-# git
+# git (that aren't provided with ohmyzsh git plugin)
 alias gl='git pull --prune'
-alias glog="git lg"
-alias gr='git review master'
-alias gp='git push origin HEAD'
-alias gd='git diff'
-alias gdw='git diff --word-diff'
-alias gc='git commit -s'
-alias gca='git commit -a -s'
-alias gco='git checkout'
-alias gb='git branch'
-alias gs='git status -sb'
-alias gu='git pull origin $(git rev-parse --abbrev-ref HEAD)'
-alias gpl='git push --force-with-lease'
 
 # tar
 alias tardir='tar -czvf "$1"'
