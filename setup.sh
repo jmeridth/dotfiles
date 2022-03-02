@@ -1,7 +1,6 @@
 DOTFILES=$(pwd)
 DEV_DIR=~/code
 
-
 # CMAKE
 if [[ "$OSTYPE" == "linux"* ]]; then
   if [ -f /etc/redhat-release ]; then
