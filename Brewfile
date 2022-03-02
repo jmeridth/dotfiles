@@ -13,29 +13,23 @@ brew "git"
 brew "git-lfs"
 brew "gpg"
 brew "go"
-brew "helm"
-brew "hyperkit"
+#brew "helm"
+#brew "hyperkit"
 brew "jq"
-brew "k9s"
-brew "kind"
-brew "kubernetes-cli"
-brew "kubectx"
-brew "minikube"
+#brew "k9s"
+#brew "kind"
+#brew "kubernetes-cli"
+#brew "kubectx"
+#brew "minikube"
 brew "nvm"
 brew "rg"
 brew "wget"
 brew "yq"
 
-# specific to procore
-brew "icu4c"
-brew "shared-mime-info"
-
 cask "discord", greedy: true
+cask "google-chrome", greedy: true
 cask "iterm2", greedy: true
 cask "postman", greedy: true
 cask "spotify", greedy: true
 cask "visual-studio-code", greedy: true
-
-# already managed by current employer
-# cask "google-chrome", greedy: true
-# cask "zoom"
+cask "zoom"
