@@ -44,6 +44,7 @@
   logallrefupdates = true
   autocrlf = false
   commentChar = "@"
+  excludesfile = /Users/jmeridth/.gitignore
 [git-up "bundler"]
   check = true
 [remote]
