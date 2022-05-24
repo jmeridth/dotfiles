@@ -2,11 +2,18 @@
 alias k="kubectl"
 alias mk="minikube"
 alias kshell="~/code/dotfiles/bin/kshell"
+alias kexec="kubectl exec --stdin --tty $1 -- /bin/bash"
 alias kconf="vim ~/.kube/config"
 alias kcheat="open https://kubernetes.io/docs/reference/kubectl/cheatsheet/"
 alias kn="kubens"
 alias kc="kubectx"
 alias debug="kubectl run -i --tty --rm debug --image=ubuntu:latest --restart=Never -- /bin/bash"
+alias debugalpine="kubectl run -i --tty --rm debug --image=alpine:3.7 --restart=Never -- /bin/sh"
+alias dlocal="$(minikube docker-env -u)"
+alias dmk="$(minikube docker-env)"
+
+# rails
+alias be="bundle exec"
 
 # aws
 alias awssso="aws configure sso"
@@ -30,6 +37,7 @@ if docker info >/dev/null 2>&1; then
   function dx(){
     docker exec -it "$1" /bin/bash
   }
+  alias dockerdebug="docker run -it --rm --name debug alpine:3.7 /bin/sh"
   alias d-c="docker-compose"
   alias dpa="docker ps -a"
   alias drm="docker rm -f"
@@ -92,7 +100,7 @@ alias activate="pyenv activate $1"
 alias deactivate="pyenv deactivate"
 
 # git (that aren't provided with ohmyzsh git plugin)
-alias gl='git pull --prune'
+alias gl='git pull -r --prune'
 alias gs='git status -sb'
 
 # tar

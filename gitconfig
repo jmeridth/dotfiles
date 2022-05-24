@@ -1,7 +1,7 @@
 [user]
-  name = jmeridth
+	name = \"JM\" (Jason Meridth)
   email = jmeridth@gmail.com
-  #signingkey = 94D8679B1F349329
+  signingkey = 246606CF636B3F68
 [color]
   ui = true
 [color "branch"]
