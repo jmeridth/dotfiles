@@ -72,7 +72,6 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autoenv asdf git docker docker-compose vscode)
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -137,4 +136,7 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
 
 # Enable vi mode
+source $ZSH/oh-my-zsh.sh
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 bindkey -v

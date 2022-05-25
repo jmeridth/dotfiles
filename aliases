@@ -39,6 +39,7 @@ if docker info >/dev/null 2>&1; then
   }
   alias dockerdebug="docker run -it --rm --name debug alpine:3.7 /bin/sh"
   alias d-c="docker-compose"
+  alias ddebug="docker run -d --name debug -ti $1 /bin/bash"
   alias dpa="docker ps -a"
   alias drm="docker rm -f"
   alias drmi="docker rmi"

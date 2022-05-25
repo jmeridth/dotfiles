@@ -14,7 +14,7 @@
   untracked = cyan
   branch = magenta
 [commit]
-  #gpgsign = true
+  gpgsign = true
 [alias]
   st = status
   ci = commit
