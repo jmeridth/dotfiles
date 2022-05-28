@@ -101,10 +101,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     export SSH_AUTH_SOCK
 fi
 
-# ALIASES
-if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
-if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
-
 # NODE
 export NODE_OPTIONS="--max-old-space-size=4096"
 
@@ -128,6 +124,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # HOMEBREW
 eval $(/opt/homebrew/bin/brew shellenv)
+export PATH="${PATH}:/opt/homebrew/bin"
 
 # KREW
 export PATH="${PATH}:${HOME}/.krew/bin"
@@ -138,5 +135,9 @@ export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# ALIASES
+if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
+if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 
 bindkey -v
