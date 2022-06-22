@@ -12,6 +12,9 @@ alias debugalpine="kubectl run -i --tty --rm debug --image=alpine:3.7 --restart=
 alias dlocal="$(minikube docker-env -u)"
 alias dmk="$(minikube docker-env)"
 
+# postgres
+function pgtest='f() { docker exec -it "$1" /usr/bin/perl /usr/bin/psql -U postgres };f'
+
 # rails
 alias be="bundle exec"
 

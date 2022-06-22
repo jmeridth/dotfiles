@@ -141,3 +141,6 @@ if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 
 bindkey -v
+# incremental search in insert mode
+bindkey "^F" history-incremental-search-forward
+bindkey "^R" history-incremental-search-backward
