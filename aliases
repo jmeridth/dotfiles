@@ -106,6 +106,7 @@ alias deactivate="pyenv deactivate"
 # git (that aren't provided with ohmyzsh git plugin)
 alias gl='git pull -r --prune'
 alias gs='git status -sb'
+alias gcas!='gca! -s'
 
 # tar
 alias tardir='tar -czvf "$1"'
