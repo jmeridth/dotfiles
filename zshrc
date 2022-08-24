@@ -109,7 +109,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 # AUTOENV
-source /opt/homebrew/opt/autoenv/activate.sh
+source /usr/local/opt/autoenv/activate.sh
 
 # OpenSSL fixes
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -119,11 +119,11 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/opt/
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # HOMEBREW
-eval $(/opt/homebrew/bin/brew shellenv)
+eval $(/usr/local/bin/brew shellenv)
 export PATH="${PATH}:/opt/homebrew/bin"
 
 # KREW
@@ -134,7 +134,7 @@ export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
 
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
