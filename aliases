@@ -40,7 +40,8 @@ if docker info >/dev/null 2>&1; then
   function dx(){
     docker exec -it "$1" /bin/bash
   }
-  alias dockerdebug="docker run -it --rm --name debug alpine:3.7 /bin/sh"
+  alias dockerdebugalpine="docker run -it --rm --name debug alpine:3.7 /bin/sh"
+  alias dockerdebugubuntu="docker run -it --rm --name debug ubuntu:latest /bin/sh"
   alias d-c="docker-compose"
   alias ddebug="docker run -d --name debug -ti $1 /bin/bash"
   alias dpa="docker ps -a"
