@@ -109,7 +109,7 @@ export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
 # AUTOENV
-source /usr/local/opt/autoenv/activate.sh
+source /opt/homebrew/opt/autoenv/activate.sh
 
 # OpenSSL fixes
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
@@ -123,7 +123,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # HOMEBREW
-eval $(/usr/local/bin/brew shellenv)
+eval $(/opt/homebrew/bin/brew shellenv)
 export PATH="${PATH}:/opt/homebrew/bin"
 
 # KREW
