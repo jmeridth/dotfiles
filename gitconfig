@@ -45,6 +45,7 @@
   autocrlf = false
   commentChar = "@"
   excludesfile = /Users/jmeridth/.gitignore
+  pager = less -F -X
 [git-up "bundler"]
   check = true
 [remote]
@@ -53,8 +54,8 @@
   cookiefile = /home/jmeridth/.gitcookies
 [filter "lfs"]
   clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+  smudge = git-lfs smudge --skip -- %f
+  process = git-lfs filter-process --skip
   required = true
 [init]
   defaultBranch = main
