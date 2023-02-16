@@ -107,6 +107,7 @@ export NODE_OPTIONS="--max-old-space-size=4096"
 # GO
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export GOTELEMETRY=off
 
 # AUTOENV
 source /usr/local/opt/autoenv/activate.sh
