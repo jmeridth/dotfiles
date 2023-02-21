@@ -24,7 +24,9 @@ function pgtest='f() { docker exec -it "$1" /usr/bin/perl /usr/bin/psql -U postg
 # aws
 alias awssso="aws configure sso"
 
-# terraform
+# terraform/terragrunt
+alias tf="terraform"
+alias tg="terragrunt"
 alias tgraph="terraform graph | dot -Tsvg > graph.svg"
 
 # tmux
