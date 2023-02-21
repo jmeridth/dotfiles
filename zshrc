@@ -87,6 +87,13 @@ else
   export EDITOR='vim'
 fi
 
+
+HOMEBREW_PREFIX="/usr/local"
+# HOMEBREW FOLDER PREFIX FOR M1
+if [[ $(uname -p) == 'arm' ]]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -110,21 +117,21 @@ export PATH=$PATH:$GOPATH/bin
 export GOTELEMETRY=off
 
 # AUTOENV
-source /usr/local/opt/autoenv/activate.sh
+source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
 
 # OpenSSL fixes
-# export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-# export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib -L/opt/homebrew/opt/libffi/lib"
-# export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include -I/opt/homebrew/opt/libffi/include"
-# export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig:/opt/homebrew/opt/libffi/lib/pkgconfig"
+# export PATH="$HOMEBREW_PREFIX/opt/openssl@1.1/bin:$PATH"
+# export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openssl@1.1/lib -L$HOMEBREW_PREFIX/opt/libffi/lib"
+# export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openssl@1.1/include -I$HOMEBREW_PREFIX/opt/libffi/include"
+# export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/openssl@1.1/lib/pkgconfig:$HOMEBREW_PREFIX/opt/libffi/lib/pkgconfig"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && . "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && . "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # HOMEBREW
-eval $(/usr/local/bin/brew shellenv)
+eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 export PATH="${PATH}:/usr/local/bin"
 
 # KREW
@@ -135,7 +142,7 @@ export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
 
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
 
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
