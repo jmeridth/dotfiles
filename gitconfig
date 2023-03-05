@@ -62,4 +62,6 @@
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [diff]
-	ignoreSubmodules = dirty
+  ignoreSubmodules = dirty
+[pull]
+  rebase = true
