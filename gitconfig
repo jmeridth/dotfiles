@@ -63,5 +63,3 @@
   insteadOf = https://github.com/
 [diff]
   ignoreSubmodules = dirty
-[pull]
-  rebase = true

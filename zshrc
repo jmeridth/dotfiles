@@ -144,6 +144,9 @@ export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
 source $ZSH/oh-my-zsh.sh
 export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
 
+# PYTHON
+alias python=/usr/local/bin/python3
+
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
