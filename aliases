@@ -85,6 +85,9 @@ alias agr='agsearch "rb" $1'
 
 # gpg
 alias gpgreset='gpgconf --kill gpg-agent && gpg --card-status'
+alias jmencrypt='(){gpg --output "$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
+alias jmdecrypt='(){gpg --output "$1" --decrypt "$1".gpg}'
+alias jmtest='(){echo "$1".gpg}'
 
 # json
 alias json="python -m json.tool"
