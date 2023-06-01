@@ -9,11 +9,15 @@ alias kc="kubectx"
 alias debug="kubectl run -i --tty --rm debug --image=ubuntu:latest --restart=Never -- /bin/bash"
 alias debugalpine="kubectl run -i --tty --rm debug --image=alpine:3.7 --restart=Never -- /bin/sh"
 
+# localenv
+function localenv='f() { @export $(cat .env | xargs) };f'
+
 # ffmpeg
 alias codec="ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1"
 
 # aws
 alias awsprofiles='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)'
+alias awslogin='awsprofiles && aws sso login'
 
 # postgres
 function pgtest='f() { docker exec -it "$1" /usr/bin/perl /usr/bin/psql -U postgres };f'
