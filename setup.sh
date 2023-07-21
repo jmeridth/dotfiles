@@ -14,9 +14,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   if ! which brew > /dev/null; then
     # install homebrew
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    # install what is in the Brewfile
-    brew bundle -v
   fi
+  # install what is in the Brewfile
+  brew bundle -v
   # allow for holding down keys in vscode for vim
   defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 fi
@@ -26,9 +26,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# pyenv setup
+# rbenv_gemsets setup
 cd $DOTFILES
-./install_rvm.sh
+./install_rbenv_gemsets.sh
 
 # pyenv setup
 cd $DOTFILES
@@ -49,6 +49,7 @@ ln -sf $DOTFILES/aliases.osx $HOME/.aliases.osx
 ln -sf $DOTFILES/aliases.linux $HOME/.aliases.linux
 
 # GIT
+ln -sf $DOTFILES/gitignore $HOME/.gitignore
 ln -sf $DOTFILES/gitconfig $HOME/.gitconfig
 
 # TMUX

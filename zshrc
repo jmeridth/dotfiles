@@ -137,8 +137,8 @@ export PATH="${PATH}:/usr/local/bin"
 # KREW
 export PATH="${PATH}:${HOME}/.krew/bin"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="/usr/local/sbin:$PATH:$HOME/.rvm/bin"
+# RBENV
+eval "$(rbenv init - zsh)"
 
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
