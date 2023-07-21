@@ -44,14 +44,14 @@
   logallrefupdates = true
   autocrlf = false
   commentChar = "@"
-  excludesfile = /Users/jmeridth/.gitignore
+  excludesfile = /Users/jasonmeridth/.gitignore
   pager = less -F -X
 [git-up "bundler"]
   check = true
 [remote]
   pushdefault = origin
 [http]
-  cookiefile = /home/jmeridth/.gitcookies
+  cookiefile = /Users/jasonmeridth/.gitcookies
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge --skip -- %f
