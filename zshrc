@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv asdf aws git docker docker-compose vscode)
+plugins=(autoenv asdf aws git podman vscode)
 
 
 # User configuration
@@ -137,9 +137,6 @@ export PATH="${PATH}:/usr/local/bin"
 # KREW
 export PATH="${PATH}:${HOME}/.krew/bin"
 
-# RBENV
-eval "$(rbenv init - zsh)"
-
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
 export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
@@ -158,3 +155,4 @@ bindkey -v
 # incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
 bindkey "^R" history-incremental-search-backward
+
