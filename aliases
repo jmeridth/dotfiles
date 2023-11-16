@@ -43,19 +43,19 @@ alias blog="cd ~/code/jmeridth.github.io"
 
 # docker
 function px(){
-podman exec -it "$1" /bin/bash
+docker exec -it "$1" /bin/bash
 }
-alias podmandebugalpine="podman run -it --rm --name debug alpine:3.7 /bin/sh"
-alias podmandebugubuntu="podman run -it --rm --name debug ubuntu:latest /bin/sh"
-alias pdebug="podman run -d --name debug -ti $1 /bin/bash"
-alias pid="podman images --quiet --filter 'dangling=true' | xargs podman rmi"
-alias psp="podman system prune -af"
-alias pkc="podman ps -aq | xargs podman rm -f"
-alias pkui="podman rmi $(podman images | grep '^<none>' | awk '{print $3}')"
-alias pki="podman images -aq | xargs podman rmi -f"
-alias pkv="podman volume ls -qf dangling=true | xargs podman volume rm"
-alias pka="dkc;dki;dkv;dsp"
-alias osxpodman="podman run -it --rm --privileged --pid=host justincormack/nsenter1"
+alias dockerdebugalpine="docker run -it --rm --name debug alpine:3.7 /bin/sh"
+alias dockerdebugubuntu="docker run -it --rm --name debug ubuntu:latest /bin/sh"
+alias ddebug="docker run -d --name debug -ti $1 /bin/bash"
+alias did="docker images --quiet --filter 'dangling=true' | xargs docker rmi"
+alias dsp="docker system prune -af"
+alias dkc="docker ps -aq | xargs docker rm -f"
+alias dkui="docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
+alias dki="docker images -aq | xargs docker rmi -f"
+alias dkv="docker volume ls -qf dangling=true | xargs docker volume rm"
+alias dka="dkc;dki;dkv;dsp"
+alias osxdocker="docker run -it --rm --privileged --pid=host justincormack/nsenter1"
 
 # fix external display detection
 alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
