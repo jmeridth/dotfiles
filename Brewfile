@@ -7,8 +7,8 @@ brew "coreutils"
 brew "ctags"
 brew "curl"
 brew "direnv"
-brew "dive"
-brew "docker"
+#brew "dive"
+#brew "docker"
 brew "editorconfig"
 brew "fzf"
 brew "git"
@@ -21,16 +21,16 @@ brew "jq"
 #brew "kind"
 #brew "kubernetes-cli"
 brew "nvm"
-brew "rbenv"
 brew "rg"
 brew "ruby-build"
+brew "rvm"
 brew "wget"
 brew "yq"
 
-cask "discord", greedy: true
-cask "google-chrome", greedy: true
-cask "iterm2", greedy: true
-cask "postman", greedy: true
-cask "spotify", greedy: true
-cask "visual-studio-code", greedy: true
-cask "zoom", greedy: true
+#cask "discord", greedy: true
+#cask "google-chrome", greedy: true
+#cask "iterm2", greedy: true
+#cask "postman", greedy: true
+#cask "spotify", greedy: true
+#cask "visual-studio-code", greedy: true
+#cask "zoom", greedy: true

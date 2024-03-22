@@ -27,12 +27,12 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 # rbenv_gemsets setup
-cd $DOTFILES
-./install_rbenv_gemsets.sh
+#cd $DOTFILES
+#./install_rbenv_gemsets.sh
 
 # pyenv setup
-cd $DOTFILES
-./install_pyenv.sh
+#cd $DOTFILES
+#./install_pyenv.sh
 
 # VIM
 ln -sf $DOTFILES/vimrc $HOME/.vimrc
