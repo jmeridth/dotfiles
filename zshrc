@@ -144,10 +144,6 @@ export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
 # PYTHON
 alias python=/usr/local/bin/python3
 
-# ALIASES
-if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
-if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
-
 # rails
 alias be="bundle exec"
 
@@ -158,3 +154,7 @@ bindkey "^R" history-incremental-search-backward
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# ALIASES
+if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
+if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
