@@ -1,7 +1,7 @@
 [user]
   name = jmeridth
   email = jmeridth@gmail.com
-  signingkey = C78DFADC2F7356DB
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEC7ebHSEFziXUYYVdQUO/czXU8i0L9cREINhz4boySR
 [color]
   ui = true
 [color "branch"]
@@ -63,3 +63,7 @@
   insteadOf = https://github.com/
 [diff]
   ignoreSubmodules = dirty
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

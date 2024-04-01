@@ -100,8 +100,8 @@ alias json="python -m json.tool"
 alias pyclean="find . -name '*.pyc' -delete"
 alias pyinit="touch __init__.py"
 alias py="ptpython"
-alias activate="pyenv activate $1"
-alias deactivate="pyenv deactivate"
+alias cvenv="python3 -m venv venv"
+alias avenv="source venv/bin/activate"
 
 # git (that aren't provided with ohmyzsh git plugin)
 alias gl='git pull -r --prune'
