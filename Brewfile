@@ -22,8 +22,6 @@ brew "jq"
 #brew "kubernetes-cli"
 brew "nvm"
 brew "rg"
-brew "ruby-build"
-brew "rvm"
 brew "wget"
 brew "yq"
 

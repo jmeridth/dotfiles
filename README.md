@@ -8,8 +8,7 @@ includes the following
 
 - homebrew
 - commands and apps via Homebrew
-- RVM for ruby development
-- pyenv for python development
+- asdf for app versions
 - gitconfig
 - and others...
 

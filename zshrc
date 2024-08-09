@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv asdf aws git docker vscode)
+plugins=(autoenv asdf aws git docker docker-compose vscode)
 
 
 # User configuration
@@ -144,17 +144,18 @@ export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
 # PYTHON
 alias python=/usr/local/bin/python3
 
-# rails
+# RAILS
 alias be="bundle exec"
+
+# RUBY
+export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
 
 bindkey -v
 # incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
 bindkey "^R" history-incremental-search-backward
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # ALIASES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
