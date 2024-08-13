@@ -1,0 +1,47 @@
+HOMEBREW_PREFIX="/usr/local"
+# HOMEBREW FOLDER PREFIX FOR M1
+if [[ $(uname -p) == 'arm' ]]; then
+  HOMEBREW_PREFIX="/opt/homebrew"
+fi
+
+# GPG
+GPG_TTY=$(tty)
+export GPG_TTY
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    . "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
+
+# NODE
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+# GO
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export GOTELEMETRY=off
+
+# AUTOENV
+source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && . "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && . "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# HOMEBREW
+eval $($HOMEBREW_PREFIX/bin/brew shellenv)
+
+export PATH="${PATH}:/usr/local/bin"
+export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+
+# PYTHON
+alias python=/usr/local/bin/python3
+
+# RUBY
+export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
+
+bindkey -v
+# incremental search in insert mode
+bindkey "^F" history-incremental-search-forward
+bindkey "^R" history-incremental-search-backward
