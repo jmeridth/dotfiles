@@ -11,8 +11,8 @@ ln -sf $DOTFILES/.vimrc $HOME/.vimrc
 ln -sf $DOTFILES/.zshrc $HOME/.zshrc
 
 # GitHub codespaces only allows signing with gpg, not ssh
-git config --global unset user.signingkey
-git config --global unset gpg.program
+git config --global --unset user.signingkey
+git config --global --unset gpg.ssh.program
 git config --global gpg.format gpg
 
 exec $SHELL
