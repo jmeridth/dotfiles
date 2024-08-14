@@ -1,9 +1,9 @@
-DOTFILES=$(pwd)
-DEV_DIR=~/code
+#!/bin/bash
 
-# CMAKE
+DOTFILES=$(pwd)
+
 if [[ "$OSTYPE" == "linux"* ]]; then
-  ln -sf $DOTFILES/local/aliases.linux $HOME/.aliases.linux
+  ln -sf $DOTFILES/aliases.linux $HOME/.aliases.linux
   if [ -f /etc/redhat-release ]; then
     yum install -y cmake python-devel
   fi
@@ -11,7 +11,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
     sudo apt-get install -y cmake python-dev
   fi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -sf $DOTFILES/local/aliases.osx $HOME/.aliases.osx
+  ln -sf $DOTFILES/aliases.osx $HOME/.aliases.osx
   xcode-select --install
   if ! which brew > /dev/null; then
     # install homebrew
@@ -28,34 +28,14 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# rbenv_gemsets setup
-#cd $DOTFILES
-#./install_rbenv_gemsets.sh
-
-# VIM
-ln -sf $DOTFILES/.vimrc $HOME/.vimrc
-
-# ZSHRC
-ln -sf $DOTFILES/.zshrc $HOME/.zshrc
-
-# EDITORCONFIG
-ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
-
-# ALIASES
 ln -sf $DOTFILES/local/aliases $HOME/.aliases
-
-# GIT
-ln -sf $DOTFILES/.gitignore $HOME/.gitignore
-ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig
-
-# CURL
 ln -sf $DOTFILES/local/curlrc $HOME/.curlrc
-
-# RUBY
-ln -sf $DOTFILES/.gemrc $HOME/.gemrc
-ln -sf $DOTFILES/.pryrc $HOME/.pryrc
-
-# PYTHON
-ln -sf $DOTFILES/.pylintrc $HOME/.pylintrc
+ln -sf $DOTFILES/../.editorconfig $HOME/.editorconfig
+ln -sf $DOTFILES/../.gemrc $HOME/.gemrc
+ln -sf $DOTFILES/../.gitconfig $HOME/.gitconfig
+ln -sf $DOTFILES/../.pryrc $HOME/.pryrc
+ln -sf $DOTFILES/../.pylintrc $HOME/.pylintrc
+ln -sf $DOTFILES/../.vimrc $HOME/.vimrc
+ln -sf $DOTFILES/../.zshrc $HOME/.zshrc
 
 exec $SHELL
