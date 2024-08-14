@@ -2,6 +2,8 @@
   name = jmeridth
   email = jmeridth@gmail.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEC7ebHSEFziXUYYVdQUO/czXU8i0L9cREINhz4boySR
+[github]
+  user = jmeridth
 [color]
   ui = true
 [color "branch"]
@@ -18,8 +20,16 @@
 [alias]
   gl = pull -r --prune
   gs = status -sb
+[grep]
+  lineNumber = true
+[fetch]
+  prune = true
+[rerere]
+  enabled = true
 [push]
   default = current
+[pull]
+  rebase = true
 [help]
   autocorrect = 1
 [gitreview]
