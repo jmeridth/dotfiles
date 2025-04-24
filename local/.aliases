@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # kubernetes
 alias k="kubectl"
 alias kshell="~/code/dotfiles/bin/kshell"
@@ -8,6 +10,14 @@ alias kn="kubens"
 alias kc="kubectx"
 alias debug="kubectl run -i --tty --rm debug --image=ubuntu:latest --restart=Never -- /bin/bash"
 alias debugalpine="kubectl run -i --tty --rm debug --image=alpine:3.7 --restart=Never -- /bin/sh"
+
+# gh
+alias ghp="gh pr list --web"
+alias ghi="gh issue list --web"
+alias myprs="gh pr list --web -A jmeridth"
+alias allmyprs="gh pr list --web -a jmeridth -A jmeridth"
+alias myissues="gh issue list --web -A jmeridth"
+alias allmyissues="gh issue list --web -a jmeridth -A jmeridth"
 
 # localenv
 function localenv='f() { @export $(cat .env | xargs) };f'
