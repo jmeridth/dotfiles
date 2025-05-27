@@ -28,8 +28,8 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-ln -sf $DOTFILES/aliases $HOME/.aliases
-ln -sf $DOTFILES/curlrc $HOME/.curlrc
+ln -sf $DOTFILES/.aliases $HOME/.aliases
+ln -sf $DOTFILES/.curlrc $HOME/.curlrc
 ln -sf $DOTFILES/.editorconfig $HOME/.editorconfig
 ln -sf $DOTFILES/.gemrc $HOME/.gemrc
 ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig
