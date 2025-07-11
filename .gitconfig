@@ -1,7 +1,7 @@
 [user]
   name = jmeridth
   email = 35014+jmeridth@users.noreply.github.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEC7ebHSEFziXUYYVdQUO/czXU8i0L9cREINhz4boySR
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqx3i3GOjjPQAOf4VXQewDvd+I1Woycv6+XW1AlHycG
 [github]
   user = jmeridth
 [color]
