@@ -3,7 +3,7 @@
 # kubernetes
 alias k="kubectl"
 alias kshell="~/code/dotfiles/bin/kshell"
-alias kexec="kubectl exec --stdin --tty $1 -- /bin/bash"
+alias kexec='(){kubectl exec --stdin --tty "$1" -- /bin/bash}'
 alias kconf="vim ~/.kube/config"
 alias kcheat="open https://kubernetes.io/docs/reference/kubectl/cheatsheet/"
 alias kn="kubens"
@@ -12,25 +12,27 @@ alias debug="kubectl run -i --tty --rm debug --image=ubuntu:latest --restart=Nev
 alias debugalpine="kubectl run -i --tty --rm debug --image=alpine:3.7 --restart=Never -- /bin/sh"
 
 # gh
-alias ghp="gh pr list --web"
-alias ghi="gh issue list --web"
+alias ghp="gh pr list --web --repo $1"
+alias ghpulls='(){gh pr list --repo "$1" --author "$2" --web}'
+alias ghi='(){gh issue list --web --repo "$1"}'
+alias ghissues='(){gh issue list --web --repo "$1" -a "$2"}'
 alias myprs="gh pr list --web -A jmeridth"
 alias allmyprs="gh pr list --web -a jmeridth -A jmeridth"
 alias myissues="gh issue list --web -A jmeridth"
 alias allmyissues="gh issue list --web -a jmeridth -A jmeridth"
 
 # localenv
-function localenv='f() { @export $(cat .env | xargs) };f'
+alias localenv='(){@export $(cat .env | xargs) }'
 
 # ffmpeg
-alias codec="ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1"
+alias codec='(){ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$1"}'
 
 # aws
 alias awsprofiles='export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf)'
 alias awslogin='awsprofiles && aws sso login'
 
 # postgres
-function pgtest='f() { docker exec -it "$1" /usr/bin/perl /usr/bin/psql -U postgres };f'
+alias pgtest='(){ docker exec -it "$1" /usr/bin/perl /usr/bin/psql -U postgres }'
 
 # aws
 alias awssso="aws configure sso"
@@ -52,10 +54,8 @@ alias killdsstore="find . -name '.DS_Store' -type f -delete"
 alias blog="cd ~/code/jmeridth.github.io"
 
 # docker
-function px(){
-docker exec -it "$1" /bin/bash
-}
-function ddebug='f() { docker run -it --rm --name debug $1 /bin/sh };f'
+alias px='(){docker exec -it "$1" /bin/bash}'
+alias ddebug='(){docker run -it --rm --name debug $1 /bin/sh }'
 alias dockerdebugalpine="docker run -it --rm --name debug alpine:3.7 /bin/sh"
 alias dockerdebugubuntu="docker run -it --rm --name debug ubuntu:latest /bin/sh"
 alias did="docker images --quiet --filter 'dangling=true' | xargs docker rmi"
@@ -91,9 +91,7 @@ alias senv="source ~/.zshrc && cd ."
 alias dotfiles="cd ~/code/dotfiles"
 
 # ag
-function agsearch(){
-  ag --$1 -i $2 .
-}
+alias agsearch='(){ag --$1 -i $2 . }'
 alias agp='agsearch "py" $1'
 alias agr='agsearch "rb" $1'
 
