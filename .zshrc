@@ -32,6 +32,8 @@ RPROMPT='%*'
 # Enable vi mode
 source $ZSH/oh-my-zsh.sh
 
+export GOPATH=$HOME/go
+
 # OTHER DOTFILES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
