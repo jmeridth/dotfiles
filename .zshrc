@@ -15,7 +15,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(autoenv asdf aws git docker docker-compose vscode)
+plugins=(autoenv asdf git docker docker-compose vscode)
 
 # User configuration
 
@@ -33,8 +33,11 @@ RPROMPT='%*'
 source $ZSH/oh-my-zsh.sh
 
 export GOPATH=$HOME/go
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # OTHER DOTFILES
 if [[ -a $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
 if [[ -a $HOME/.local ]] ; then source $HOME/.local ; fi
+
+export PATH="/Users/jmeridth/.privateer/bin:$PATH"
