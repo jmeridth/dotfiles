@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+{{- if (eq .osid "linux-debian") }}
+set -e
+
+{{- range .aliases.linux }}
+{{- if (index . "conditional") }}
+if $({{ .conditional }})
+then
+  alias {{ .alias }}={{ .value | quote }}
+fi
+{{- else }}
+alias {{ .alias }}={{ .value | quote }}
+{{- end }}
+{{- end }}
+
+exec $SHELL
+
+{{- else }}
+echo "Not Linux, skipping alias installation."
+{{- end }}

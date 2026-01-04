@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+{{- range .aliases.all }}
+{{- if (index . "conditional") }}
+if $({{ .conditional }})
+then
+  alias {{ .alias }}={{ .value | quote }}
+fi
+{{- else }}
+  alias {{ .alias }}={{ .value | quote }}
+{{- end }}
+{{- end }}
+
+exec $SHELL

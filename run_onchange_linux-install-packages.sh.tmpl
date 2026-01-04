@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+{{- if (eq .osid "linux-debian") }}
+set -e
+
+apt-get update -y
+apt-get install {{- join " " .packages.linux -}}
+
+{{- else }}
+echo "Not Linux, skipping package installation."
+{{- end }}

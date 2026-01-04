@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+{{- if (eq .osid "darwin") }}
+set -e
+
+{{- range .aliases.darwin }}
+{{- if (index . "conditional") }}
+if $({{ .conditional }})
+then
+  alias {{ .alias }}={{ .value | quote }}
+fi
+{{- else }}
+alias {{ .alias }}={{ .value | quote }}
+{{- end }}
+{{- end }}
+
+exec $SHELL
+
+{{- else }}
+echo "Not macOS, skipping alias installation."
+{{- end }}

@@ -1,0 +1,65 @@
+aliases:
+  all:
+    - alias: vimrc
+      value: "vim ~/.vimrc"
+    - alias: zshrc
+      value: "vim ~/.zshrc"
+    - alias: aliases
+      value: "vim ~/.aliases"
+    - alias: ".."
+      value: "cd .."
+    - alias: senv
+      value: "source ~/.zshrc && cd ."
+    - alias: dotfiles
+      value: "cd ~/code/dotfiles"
+    - alias: gpgreset
+      value: "gpgconf --kill gpg-agent && gpg --card-status"
+    - alias: jmencrypt
+      value: '(){gpg --output "$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
+    - alias: jmdecrypt
+      value: '(){gpg --output "$1" --decrypt "$1".gpg}'
+    - alias: jmtest
+      value: '(){echo "$1".gpg}'
+    - alias: json
+      value: "python -m json.tool"
+    - alias: l
+      value: "ls -lah --color"
+    - alias: pyclean
+      value: 'find . -name "*.pyc" -delete'
+    - alias: pyinit
+      value: "touch __init__.py"
+    - alias: py
+      value: "ptpython"
+    - alias: cvenv
+      value: "python3 -m venv venv"
+    - alias: avenv
+      value: "source venv/bin/activate"
+    - alias: tardir
+      value: 'tar -czvf "$1"'
+    - alias: untarzippeddir
+      value: 'tar -xzvf "$1" "$2"'
+    - alias: untardir
+      value: 'tar -xvf "$1"'
+  darwin:
+    - alias: l
+      value: "gls -lAh --color"
+      conditional: "gls &>/dev/null"
+    - alias: ll
+      value: "gls -l --color"
+      conditional: "gls &>/dev/null"
+    - alias: la
+      value: "gls -A --color"
+      conditional: "gls &>/dev/null"
+  linux:
+    - alias: getautorandr
+      valie: "sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
+    - alias: fixdisplays
+      value: "getautorandr && autorandr --change"
+    - alias: update
+      value: "sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
+    - alias: pbcopy
+      value: "xclip -selection clipboard"
+    - alias: cleanaufs
+      value: 'sudo umount -l $(grep "aufs" /proc/mounts | awk "{print$2}" | sort -r) && sudo rm -rf /var/lib/docker/aufs'
+    - alias: restartwifi
+      value: "nmcli radio wifi off && nmcli radio wifi on"

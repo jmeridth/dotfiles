@@ -1,0 +1,34 @@
+packages:
+  darwin:
+    tap:
+      - homebrew/bundle
+      - homebrew/services
+    brew:
+      - asdf
+      - autoenv
+      - chezmoi
+      - cmake
+      - coreutils
+      - ctags
+      - curl
+      - direnv
+      - editorconfig
+      - fzf
+      - gh
+      - git
+      - helm
+      - jq
+      - k9s
+      - kind
+      - kubernetes-cli
+      - wget
+      - yq
+    cask:
+      - visual-studio-code
+  linux:
+    apt:
+      - cmake
+      - python-dev
+      - jq
+      - gh
+      - yq
