@@ -30,7 +30,7 @@ fi
 GPG_TTY=$(tty)
 export GPG_TTY
 if [ -f "${HOME}/.gpg-agent-info" ]; then
-    . "${HOME}/.gpg-agent-info"
+    source "${HOME}/.gpg-agent-info"
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK
 fi
@@ -48,5 +48,6 @@ bindkey -v
 bindkey "^F" history-incremental-search-forward
 bindkey "^R" history-incremental-search-backward
 
-if [[ -a $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
-if [[ -a $HOME/.privateer ]] ; then export PATH="$HOME/.privateer/bin:$PATH" ; fi
+if [[ -e $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
+if [[ -e $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
+if [[ -e $HOME/.privateer ]] ; then export PATH="$HOME/.privateer/bin:$PATH" ; fi
