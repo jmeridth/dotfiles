@@ -1,14 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
 {{- range .aliases.all }}
 {{- if (index . "conditional") }}
 if $({{ .conditional }})
 then
-  alias {{ .alias }}={{ .value | quote }}
+alias {{ .alias }}={{ .value | quote }}
 fi
 {{- else }}
-  alias {{ .alias }}={{ .value | quote }}
+alias {{ .alias }}={{ .value | quote }}
 {{- end }}
 {{- end }}
 

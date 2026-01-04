@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-{{- if (eq .osid "darwin") }}
+{{- if (eq .chezmoi.os "darwin") }}
 set -e
 
 xcode-select --install

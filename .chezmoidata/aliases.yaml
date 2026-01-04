@@ -11,7 +11,7 @@ aliases:
     - alias: senv
       value: "source ~/.zshrc && cd ."
     - alias: dotfiles
-      value: "cd ~/code/dotfiles"
+      value: "cd ~/.local/share/chezmoi"
     - alias: gpgreset
       value: "gpgconf --kill gpg-agent && gpg --card-status"
     - alias: jmencrypt

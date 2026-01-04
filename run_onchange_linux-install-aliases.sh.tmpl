@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 {{- if (eq .osid "linux-debian") }}
 set -e
@@ -7,7 +7,7 @@ set -e
 {{- if (index . "conditional") }}
 if $({{ .conditional }})
 then
-  alias {{ .alias }}={{ .value | quote }}
+alias {{ .alias }}={{ .value | quote }}
 fi
 {{- else }}
 alias {{ .alias }}={{ .value | quote }}

@@ -1,13 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-{{- if (eq .osid "darwin") }}
+{{- if (eq .chezmoi.os "darwin") }}
 set -e
 
 {{- range .aliases.darwin }}
 {{- if (index . "conditional") }}
 if $({{ .conditional }})
 then
-  alias {{ .alias }}={{ .value | quote }}
+alias {{ .alias }}={{ .value | quote }}
 fi
 {{- else }}
 alias {{ .alias }}={{ .value | quote }}
