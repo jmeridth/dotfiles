@@ -1,8 +1,5 @@
 packages:
   darwin:
-    tap:
-      - homebrew/bundle
-      - homebrew/services
     brew:
       - asdf
       - autoenv

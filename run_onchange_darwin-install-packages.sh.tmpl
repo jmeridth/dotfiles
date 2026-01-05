@@ -3,23 +3,16 @@
 {{- if (eq .chezmoi.os "darwin") }}
 set -e
 
+if ! xcode-select -p > /dev/null; then
 xcode-select --install
+fi
+
 if ! which brew > /dev/null; then
   # install homebrew
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-HOMEBREW_PREFIX="/usr/local"
-# HOMEBREW FOLDER PREFIX FOR M1
-if [[ $(uname -p) == 'arm' ]]; then
-  HOMEBREW_PREFIX="/opt/homebrew"
-fi
-eval $($HOMEBREW_PREFIX/bin/brew shellenv)
-
 brew bundle --file=/dev/stdin <<EOF
-{{- range .packages.darwin.tap }}
-tap {{ . | quote }}
-{{- end }}
 {{- range .packages.darwin.brew }}
 brew {{ . | quote }}
 {{- end }}
@@ -27,12 +20,6 @@ brew {{ . | quote }}
 cask {{ . | quote }}, greedy: true
 {{- end }}
 EOF
-
-# AUTOENV
-source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
-
-export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
-exec $SHELL
 
 {{- else }}
 echo "Not macOS, skipping Homebrew package installation."

@@ -43,6 +43,24 @@ export GOTELEMETRY=off
 # RUBY
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
 
+{{- if eq .chezmoi.os "darwin" }}
+if ! which brew > /dev/null; then
+HOMEBREW_PREFIX="/usr/local"
+# HOMEBREW FOLDER PREFIX FOR M1
+if [[ $(uname -p) == 'arm' ]]; then
+HOMEBREW_PREFIX="/opt/homebrew"
+fi
+eval $($HOMEBREW_PREFIX/bin/brew shellenv)
+
+# AUTOENV
+if ! which autoenv > /dev/null; then
+source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
+fi
+
+export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+fi
+{{- end }}
+
 bindkey -v
 # incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
