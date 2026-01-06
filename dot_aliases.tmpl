@@ -1,8 +1,6 @@
-alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
-alias aliases="vim ~/.aliases"
 alias ".."="cd .."
-alias senv="source ~/.zshrc && cd ."
+alias aliases="vim ~/.aliases"
+alias cvenv="python3 -m venv venv"
 alias dotfiles="cd ~/.local/share/chezmoi"
 alias gpgreset="gpgconf --kill gpg-agent && gpg --card-status"
 alias jmencrypt='"$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
@@ -10,14 +8,20 @@ alias jmdecrypt='"$1" --decrypt "$1".gpg}'
 alias jmtest='"$1".gpg}'
 alias json="python -m json.tool"
 alias l="ls -lah --color"
+alias avenv="source venv/bin/activate"
 alias pyclean='"*.pyc" -delete'
 alias pyinit="touch __init__.py"
 alias py="ptpython"
-alias cvenv="python3 -m venv venv"
-alias avenv="source venv/bin/activate"
+alias senv="source ~/.zshrc && cd ."
 alias tardir='"$1"'
 alias untarzippeddir='"$1" "$2"'
 alias untardir='"$1"'
+alias vimrc="vim ~/.vimrc"
+alias zshrc="vim ~/.zshrc"
+
+# Because. Borrowed from https://github.com/some-natalie/dotfiles/
+fliptable(){ echo "（╯°□°）╯ ┻━┻"; }
+shrug(){ echo " ¯\_(ツ)_/¯ "; }
 
 {{- if (eq .osid "darwin") }}
 if ! which gls > /dev/null; then
@@ -28,10 +32,10 @@ fi
 {{- end }}
 
 {{- if (eq .osid "linux-debian") }}
-alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
-alias fixdisplays="getautorandr && autorandr --change"
-alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
-alias pbcopy="xclip -selection clipboard"
 alias cleanaufs='sudo umount -l $(grep "aufs" /proc/mounts | awk "{print$2}" | sort -r) && sudo rm -rf /var/lib/docker/aufs'
+alias fixdisplays="getautorandr && autorandr --change"
+alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
+alias pbcopy="xclip -selection clipboard"
 alias restartwifi="nmcli radio wifi off && nmcli radio wifi on"
+alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
 {{- end }}
