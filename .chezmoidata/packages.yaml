@@ -24,6 +24,7 @@ packages:
       - kind
       - kubernetes-cli
       - markdownlint-cli2
+      - pre-commit
       - sqlite
       - wget
       - yq
