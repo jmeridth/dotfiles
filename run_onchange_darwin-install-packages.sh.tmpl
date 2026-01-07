@@ -3,14 +3,17 @@
 {{- if (eq .chezmoi.os "darwin") }}
 set -e
 
-if ! xcode-select -p > /dev/null; then
-xcode-select --install
+if ! command -v xcode-select >/dev/null 2>&1; then
+  echo "Installing xcode ..."
+  xcode-select --install
 fi
 
-if ! which brew > /dev/null; then
-  # install homebrew
+if ! command -v brew >/dev/null 2>&1; then
+  "Installing Homebrew ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+echo "Installing Homebrew taps, packages, and casks ..."
 
 brew bundle --file=/dev/stdin <<EOF
 {{- range .packages.darwin.tap }}

@@ -4,6 +4,7 @@
 set -e
 
 apt-get update -y
+echo "Installing Linux packages ..."
 apt-get install {{- join " " .packages.linux -}}
 
 {{- else }}
