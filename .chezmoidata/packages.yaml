@@ -15,17 +15,19 @@ packages:
       - fzf
       - gh
       - git
+      - hashicorp/tap/terraform
       - helm
       - jq
       - k9s
       - kind
       - kubernetes-cli
-      - hashicorp/tap/terraform
+      - sqlite
       - wget
       - yq
     cask:
-      - visual-studio-code
       - claude-code
+      - gcloud-cli
+      - visual-studio-code
   linux:
     apt:
       - cmake
