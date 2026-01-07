@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" }}
+if which brew >/dev/null 2<&1; then
+export PATH="/opt/homebrew/bin:$PATH"
+fi
+{{- end }}
+

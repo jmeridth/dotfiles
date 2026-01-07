@@ -18,13 +18,13 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
-if ! which go > /dev/null; then
+if ! which go >/dev/null; then
   export GOPATH=$HOME/code
   export PATH=$PATH:$GOPATH/bin
   export GOTELEMETRY=off
 fi
 
-if ! which asdf > /dev/null; then
+if ! which asdf >/dev/null; then
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 

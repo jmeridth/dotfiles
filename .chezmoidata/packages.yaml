@@ -5,6 +5,7 @@ packages:
     brew:
       - asdf
       - autoenv
+      - bash
       - chezmoi
       - cmake
       - coreutils
