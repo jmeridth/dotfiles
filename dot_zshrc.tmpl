@@ -19,7 +19,9 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 if ! which go > /dev/null; then
-  export GOPATH=$HOME/go
+  export GOPATH=$HOME/code
+  export PATH=$PATH:$GOPATH/bin
+  export GOTELEMETRY=off
 fi
 
 if ! which asdf > /dev/null; then
@@ -34,11 +36,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK
 fi
-
-# GO
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export GOTELEMETRY=off
 
 # RUBY
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
