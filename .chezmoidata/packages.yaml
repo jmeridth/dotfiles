@@ -23,6 +23,7 @@ packages:
       - k9s
       - kind
       - kubernetes-cli
+      - markdownlint-cli2
       - sqlite
       - wget
       - yq
