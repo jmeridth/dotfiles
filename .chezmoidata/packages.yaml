@@ -1,5 +1,7 @@
 packages:
   darwin:
+    tap:
+      - hashicorp/tap
     brew:
       - asdf
       - autoenv
@@ -18,10 +20,12 @@ packages:
       - k9s
       - kind
       - kubernetes-cli
+      - hashicorp/tap/terraform
       - wget
       - yq
     cask:
       - visual-studio-code
+      - claude-code
   linux:
     apt:
       - cmake

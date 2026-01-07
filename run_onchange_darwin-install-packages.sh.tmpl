@@ -13,6 +13,9 @@ if ! which brew > /dev/null; then
 fi
 
 brew bundle --file=/dev/stdin <<EOF
+{{- range .packages.darwin.tap }}
+tap {{ . | quote }}
+{{- end }}
 {{- range .packages.darwin.brew }}
 brew {{ . | quote }}
 {{- end }}
