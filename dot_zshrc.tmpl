@@ -37,6 +37,28 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
     export SSH_AUTH_SOCK
 fi
 
+# Config git repo for work
+setup_gitsign () {
+  git config --local user.name "Jason Meridth"
+  git config --local user.email "jason.meridth@chainguard.dev"
+  git config --local commit.gpgsign true
+  git config --local tag.gpgsign true
+  git config --local gpg.x509.program gitsign
+  git config --local gpg.format x509
+  git config --local gitsign.connectorID https://accounts.google.com
+}
+
+# Config git repo for personal
+setup_gitssh () {
+  git config --local user.name jmeridth
+  git config --local user.email "jmeridth@gmail.com"
+  git config --local user.signingKey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMqx3i3GOjjPQAOf4VXQewDvd+I1Woycv6+XW1AlHycG"
+  git config --local commit.gpgsign true
+  git config --local tag.gpgsign true
+  git config --local gpg.ssh.program /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+  git config --local gpg.format ssh
+}
+
 # RUBY
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
 

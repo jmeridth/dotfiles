@@ -17,6 +17,8 @@
   branch = magenta
 [commit]
   gpgsign = true
+[tag]
+  gpgsign = true
 [alias]
   gl = pull -r --prune
   gs = status -sb
