@@ -18,13 +18,15 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
-if ! which go >/dev/null; then
+if which go >/dev/null; then
+  # Set up Go env vars
   export GOPATH=$HOME/code
   export PATH=$PATH:$GOPATH/bin
   export GOTELEMETRY=off
 fi
 
-if ! which asdf >/dev/null; then
+if which asdf >/dev/null; then
+  # Set up asdf in PATH env var
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
