@@ -33,6 +33,8 @@ packages:
       - claude-code
       - gcloud-cli
       - google-chrome
+      - signal
+      - slack
       - visual-studio-code
   linux:
     apt:
