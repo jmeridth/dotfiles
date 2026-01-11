@@ -32,6 +32,7 @@ packages:
     cask:
       - claude-code
       - gcloud-cli
+      - google-chrome
       - visual-studio-code
   linux:
     apt:
