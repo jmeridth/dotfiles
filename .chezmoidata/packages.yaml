@@ -27,6 +27,8 @@ packages:
       - markdownlint-cli2
       - pre-commit
       - sqlite
+      - terraform
+      - terraform-docs
       - wget
       - yq
     cask:
