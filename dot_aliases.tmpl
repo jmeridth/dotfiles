@@ -20,7 +20,7 @@ alias untardir='"$1"'
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 
-if which gh >/dev/null 2>&1; then
+if command -v gh >/dev/null 2>&1; then
   alias ghopen="gh repo view --web"
   ghapprove(){ gh pr review --approve "$1"; }
   ghpr(){ gh pr view "$1" --web; }
@@ -31,7 +31,7 @@ fliptable(){ echo "（╯°□°）╯ ┻━┻"; }
 shrug(){ echo " ¯\_(ツ)_/¯ "; }
 
 {{- if (eq .osid "darwin") }}
-if ! which gls >/dev/null 2>&1; then
+if ! command -v gls >/dev/null 2>&1; then
 alias l="gls -lAh --color"
 alias ll="gls -l --color"
 alias la="gls -A --color"

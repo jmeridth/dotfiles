@@ -18,14 +18,14 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
-if which go >/dev/null; then
+if command -v go >/dev/null; then
   # Set up Go env vars
   export GOPATH=$HOME/code
   export PATH=$PATH:$GOPATH/bin
   export GOTELEMETRY=off
 fi
 
-if which asdf >/dev/null; then
+if command -v asdf >/dev/null; then
   # Set up asdf in PATH env var
   export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
@@ -65,7 +65,7 @@ setup_gitssh () {
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
 
 {{- if eq .chezmoi.os "darwin" }}
-if ! which brew > /dev/null; then
+if ! command -v brew > /dev/null; then
 HOMEBREW_PREFIX="/usr/local"
 # HOMEBREW FOLDER PREFIX FOR M1
 if [[ $(uname -p) == 'arm' ]]; then
@@ -74,7 +74,7 @@ fi
 eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 
 # AUTOENV
-if ! which autoenv > /dev/null; then
+if ! command -v autoenv > /dev/null; then
 source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
 fi
 

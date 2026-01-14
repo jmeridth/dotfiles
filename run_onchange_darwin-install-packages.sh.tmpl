@@ -3,12 +3,12 @@
 {{- if (eq .chezmoi.os "darwin") }}
 set -e
 
-if ! which xcode-select >/dev/null 2>&1; then
+if ! command -v xcode-select >/dev/null 2>&1; then
   echo "Installing xcode ..."
   xcode-select --install
 fi
 
-if ! which brew >/dev/null 2>&1; then
+if ! command -v brew >/dev/null 2>&1; then
   "Installing Homebrew ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
