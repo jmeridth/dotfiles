@@ -20,6 +20,12 @@ alias untardir='"$1"'
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
 
+if which gh >/dev/null 2>&1; then
+  alias ghopen="gh repo view --web"
+  alias ghapprove(){ gh pr review --approve "$1"; }
+  alias ghpr(){ gh pr view "$1" --web; }
+fi
+
 # Because. Borrowed from https://github.com/some-natalie/dotfiles/
 fliptable(){ echo "（╯°□°）╯ ┻━┻"; }
 shrug(){ echo " ¯\_(ツ)_/¯ "; }
