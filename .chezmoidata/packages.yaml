@@ -16,11 +16,13 @@ packages:
       - fzf
       - gh
       - git
+      - git-crypt
       - gitsign
       - go
       - hashicorp/tap/terraform
       - helm
       - jq
+      - just
       - k9s
       - kind
       - kubernetes-cli
