@@ -34,9 +34,11 @@ packages:
       - wget
       - yq
     cask:
+      - appzapper
       - claude-code
       - gcloud-cli
       - google-chrome
+      - linear-linear
       - signal
       - slack
       - visual-studio-code
