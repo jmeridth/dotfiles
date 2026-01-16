@@ -16,6 +16,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 
   # Enable vi mode
   source $ZSH/oh-my-zsh.sh
+  omz update
 fi
 
 if command -v go >/dev/null; then
@@ -61,9 +62,6 @@ setup_gitssh () {
   git config --local gpg.format ssh
 }
 
-# RUBY
-export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
-
 {{- if eq .chezmoi.os "darwin" }}
 if ! command -v brew > /dev/null; then
 HOMEBREW_PREFIX="/usr/local"
@@ -79,6 +77,13 @@ source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
 fi
 
 export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+
+# RUBY
+if ! command -v ruby > /dev/null; then
+export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
+fi
+
+brew update && brew upgrade
 fi
 {{- end }}
 
