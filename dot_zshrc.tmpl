@@ -77,7 +77,9 @@ source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
 fi
 
 export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+fi
 
+if command -v brew > /dev/null; then
 # RUBY
 if ! command -v ruby > /dev/null; then
 export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
@@ -85,6 +87,7 @@ fi
 
 brew update && brew upgrade
 fi
+
 {{- end }}
 
 bindkey -v
