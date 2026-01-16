@@ -14,9 +14,11 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 
   RPROMPT='%*'
 
+  # Config options
+  zstyle ':omz:update' mode silent # Prevents auto-update prompts
+
   # Enable vi mode
   source $ZSH/oh-my-zsh.sh
-  omz update
 fi
 
 if command -v go >/dev/null; then
