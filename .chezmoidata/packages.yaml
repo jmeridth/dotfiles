@@ -31,6 +31,7 @@ packages:
       - sqlite
       - terraform
       - terraform-docs
+      - tree
       - wget
       - yq
     cask:
@@ -38,6 +39,7 @@ packages:
       - claude-code
       - gcloud-cli
       - google-chrome
+      - iterm2
       - linear-linear
       - signal
       - slack
