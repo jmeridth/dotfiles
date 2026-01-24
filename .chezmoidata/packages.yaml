@@ -37,6 +37,7 @@ packages:
     cask:
       - appzapper
       - claude-code
+      - discord
       - gcloud-cli
       - google-chrome
       - iterm2
