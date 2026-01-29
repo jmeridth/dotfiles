@@ -16,16 +16,40 @@ fi
 echo "Installing Homebrew taps, packages, and casks ..."
 
 brew bundle --file=/dev/stdin <<EOF
-{{- range .packages.darwin.tap }}
+{{- range .all_packages.darwin.tap }}
 tap {{ . | quote }}
 {{- end }}
-{{- range .packages.darwin.brew }}
+{{- range .all_packages.darwin.brew }}
 brew {{ . | quote }}
 {{- end }}
-{{- range .packages.darwin.cask }}
+{{- range .all_packages.darwin.cask }}
 cask {{ . | quote }}, greedy: true
 {{- end }}
 EOF
+
+{{- if eq .chezmoi.hostname .work_hostname }}
+{{- range .work_packages.darwin.tap }}
+tap {{ . | quote }}
+{{- end }}
+{{- range .work_packages.darwin.brew }}
+brew {{ . | quote }}
+{{- end }}
+{{- range .work_packages.darwin.cask }}
+cask {{ . | quote }}, greedy: true
+{{- end }}
+{{- end }}
+
+{{- if eq .chezmoi.hostname .personal_hostname }}
+{{- range .personal_packages.darwin.tap }}
+tap {{ . | quote }}
+{{- end }}
+{{- range .personal_packages.darwin.brew }}
+brew {{ . | quote }}
+{{- end }}
+{{- range .personal_packages.darwin.cask }}
+cask {{ . | quote }}, greedy: true
+{{- end }}
+{{- end }}
 
 {{- else }}
 echo "Not macOS, skipping Homebrew package installation."

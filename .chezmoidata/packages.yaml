@@ -1,4 +1,4 @@
-packages:
+all_packages:
   darwin:
     tap:
       - hashicorp/tap
@@ -38,13 +38,7 @@ packages:
     cask:
       - appzapper
       - claude-code
-      - discord
-      - gcloud-cli
-      - google-chrome
-      - iterm2
-      - linear-linear
-      - signal
-      - slack
+      - ghostty
       - visual-studio-code
   linux:
     apt:
@@ -53,3 +47,29 @@ packages:
       - jq
       - gh
       - yq
+work_packages:
+  darwin:
+    tap:
+    brew:
+    cask:
+      - gcloud-cli
+      - linear-linear
+  linux:
+    apt:
+      - cmake
+      - python-dev
+      - jq
+      - gh
+      - yq
+personal_packages:
+  darwin:
+    tap:
+    brew:
+    cask:
+      - discord
+      - google-chrome
+      - iterm2
+      - signal
+      - slack
+  linux:
+    apt:

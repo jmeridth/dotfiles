@@ -75,7 +75,8 @@
       "Bash(terraform plan)",
       "Bash(terraform fmt *)",
       "Bash(terraform fmt)",
-      "Bash(terraform show *)"
+      "Bash(terraform show *)",
+      "mcp__go-linear__go-linear_issue_get"
     ],
     "deny": [
       "Bash(terraform apply -auto-approve *)",
