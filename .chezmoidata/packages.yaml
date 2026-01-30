@@ -20,6 +20,7 @@ all_packages:
       - gitsign
       - gnupg
       - go
+      - goimports
       - hashicorp/tap/terraform
       - helm
       - jq
