@@ -52,6 +52,7 @@ work_packages:
   darwin:
     tap:
     brew:
+      - podman
     cask:
       - gcloud-cli
       - linear-linear
