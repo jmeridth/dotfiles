@@ -54,13 +54,7 @@ work_packages:
     cask:
       - gcloud-cli
       - linear-linear
-  linux:
-    apt:
-      - cmake
-      - python-dev
-      - jq
-      - gh
-      - yq
+      - loom
 personal_packages:
   darwin:
     tap:
@@ -71,5 +65,3 @@ personal_packages:
       - iterm2
       - signal
       - slack
-  linux:
-    apt:

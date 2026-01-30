@@ -5,7 +5,7 @@ set -e
 
 apt-get update -y
 echo "Installing Linux packages ..."
-apt-get install {{- join " " .packages.linux -}}
+apt-get install {{- join " " .all_packages.linux -}}
 
 {{- else }}
 echo "Not Linux, skipping package installation."

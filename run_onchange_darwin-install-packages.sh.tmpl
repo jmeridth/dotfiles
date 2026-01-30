@@ -28,6 +28,8 @@ cask {{ . | quote }}, greedy: true
 EOF
 
 {{- if eq .chezmoi.hostname .work_hostname }}
+echo "Installing Homebrew taps, packages, and casks on {{ .work_hostname }} ..."
+brew bundle --file=/dev/stdin <<EOF
 {{- range .work_packages.darwin.tap }}
 tap {{ . | quote }}
 {{- end }}
@@ -40,6 +42,8 @@ cask {{ . | quote }}, greedy: true
 {{- end }}
 
 {{- if eq .chezmoi.hostname .personal_hostname }}
+echo "Installing Homebrew taps, packages, and casks on {{ .personal_hostname }} ..."
+brew bundle --file=/dev/stdin <<EOF
 {{- range .personal_packages.darwin.tap }}
 tap {{ . | quote }}
 {{- end }}
