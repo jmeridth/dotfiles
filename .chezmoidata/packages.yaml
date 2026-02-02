@@ -51,8 +51,10 @@ all_packages:
 work_packages:
   darwin:
     tap:
+      - chainguard-dev/tap
     brew:
       - podman
+      - chainctl
     cask:
       - gcloud-cli
       - linear-linear
