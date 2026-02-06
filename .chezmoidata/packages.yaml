@@ -29,6 +29,7 @@ all_packages:
       - kind
       - kubernetes-cli
       - markdownlint-cli2
+      - podman
       - pre-commit
       - sqlite
       - terraform
@@ -39,7 +40,6 @@ all_packages:
     cask:
       - appzapper
       - claude-code
-      - ghostty
       - visual-studio-code
   linux:
     apt:
@@ -53,7 +53,6 @@ work_packages:
     tap:
       - chainguard-dev/tap
     brew:
-      - podman
       - chainctl
     cask:
       - gcloud-cli
