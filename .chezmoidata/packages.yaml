@@ -30,6 +30,7 @@ all_packages:
       - kubernetes-cli
       - markdownlint-cli2
       - podman
+      - podman-compose
       - pre-commit
       - sqlite
       - terraform
@@ -40,6 +41,7 @@ all_packages:
     cask:
       - appzapper
       - claude-code
+      - podman-desktop
       - visual-studio-code
   linux:
     apt:
