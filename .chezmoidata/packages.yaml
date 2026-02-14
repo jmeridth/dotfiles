@@ -23,6 +23,7 @@ all_packages:
       - goimports
       - hashicorp/tap/terraform
       - helm
+      - hugo
       - jq
       - just
       - k9s
