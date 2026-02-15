@@ -24,7 +24,7 @@ fi
 if command -v go >/dev/null; then
   # Set up Go env vars
   export GOPATH=$HOME/code/go
-  export PATH=$PATH:$GOPATH/go/bin
+  export PATH=$PATH:$GOPATH/bin
   export GOTELEMETRY=off
 fi
 
@@ -97,4 +97,3 @@ bindkey "^R" history-incremental-search-backward
 
 if [[ -e $HOME/.aliases ]] ; then source $HOME/.aliases ; fi
 if [[ -e $HOME/.privatealiases ]] ; then source $HOME/.privatealiases ; fi
-if [[ -e $HOME/.privateer ]] ; then export PATH="$HOME/.privateer/bin:$PATH" ; fi
