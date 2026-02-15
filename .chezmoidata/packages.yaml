@@ -21,6 +21,7 @@ all_packages:
       - gnupg
       - go
       - goimports
+      - golangci-lint
       - hashicorp/tap/terraform
       - helm
       - hugo
