@@ -1,7 +1,6 @@
 all_packages:
   darwin:
     tap:
-      - hashicorp/tap
     brew:
       - asdf
       - autoenv
@@ -34,6 +33,7 @@ all_packages:
       - podman
       - podman-compose
       - pre-commit
+      - slp/krunkit/krunkit
       - sqlite
       - terraform
       - terraform-docs
@@ -55,9 +55,8 @@ all_packages:
 work_packages:
   darwin:
     tap:
-      - chainguard-dev/tap
     brew:
-      - chainctl
+      - chainguard-dev/tap/chainctl
     cask:
       - gcloud-cli
       - linear-linear
