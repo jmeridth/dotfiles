@@ -13,7 +13,7 @@ description: Create a meaningful git commit message based on current changes.
 
 - Use three separate headings: What, Why, Notes. Avoid bullet points for What and Why. There should be newlines after the headings.
 - Notes should highlight non-obvious implications, risks, and trade-offs.
-- Notes should highlight things reviewers should specifically watch for that aren't apparent from reading the code diff.
+- Notes should highlight things reviewers should specifically watch for that aren't apparent from reading the code diff and each note in a bulleted list.
 - Avoid stating obvious facts or repeating What/Why.
 - **NEVER git commit or git push without explicit user approval** - ALWAYS ask first
 - **Always sign-off my commits** with `-s` flag.** Make sure the `Signed-off-by` line is only there once at the end of the commit message and uses my git config user.name as the name and my git config user.email as the email.
