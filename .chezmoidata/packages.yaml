@@ -43,6 +43,7 @@ all_packages:
     cask:
       - appzapper
       - claude-code
+      - linear-linear
       - podman-desktop
       - visual-studio-code
   linux:
@@ -56,10 +57,10 @@ work_packages:
   darwin:
     tap:
     brew:
+      - az
       - chainguard-dev/tap/chainctl
     cask:
       - gcloud-cli
-      - linear-linear
       - loom
 personal_packages:
   darwin:
