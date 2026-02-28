@@ -70,6 +70,7 @@ HOMEBREW_PREFIX="/usr/local"
 # HOMEBREW FOLDER PREFIX FOR M1
 if [[ $(uname -p) == 'arm' ]]; then
 HOMEBREW_PREFIX="/opt/homebrew"
+export PATH="$HOMEBREW_PREFIX:$PATH"
 fi
 eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 

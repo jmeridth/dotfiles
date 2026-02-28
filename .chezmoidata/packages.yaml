@@ -42,6 +42,7 @@ all_packages:
       - wget
       - yq
     cask:
+      - 1password-cli
       - appzapper
       - claude-code
       - linear-linear
