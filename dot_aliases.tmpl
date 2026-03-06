@@ -1,8 +1,10 @@
 alias ".."="cd .."
 alias aliases="vim ~/.aliases"
+alias azlogin="az login"
 alias cvenv="python3 -m venv venv"
 alias docker=podman
 alias dotfiles="cd ~/.local/share/chezmoi"
+alias gcloudlogin='gcloud auth application-default login && gcloud auth login'
 alias gpgreset="gpgconf --kill gpg-agent && gpg --card-status"
 alias jmencrypt='"$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
 alias jmdecrypt='"$1" --decrypt "$1".gpg}'
