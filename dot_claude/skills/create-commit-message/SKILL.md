@@ -2,7 +2,6 @@
 name: create-commit-message
 description: Create a meaningful git commit message based on current changes.
 argument-hint: [issue-url | issue-id]
-disable-model-invocation: true
 ---
 
 ## Context

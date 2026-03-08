@@ -39,6 +39,7 @@ all_packages:
       - terraform
       - terraform-docs
       - tree
+      - uv
       - wget
       - yq
     cask:
