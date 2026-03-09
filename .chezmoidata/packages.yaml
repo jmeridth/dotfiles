@@ -49,6 +49,7 @@ all_packages:
       - claude-code
       - linear-linear
       - podman-desktop
+      - spotify
       - visual-studio-code
   linux:
     apt:

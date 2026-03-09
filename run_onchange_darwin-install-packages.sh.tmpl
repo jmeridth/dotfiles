@@ -15,7 +15,7 @@ fi
 
 echo "Installing Homebrew taps, packages, and casks ..."
 
-brew bundle --file=/dev/stdin <<EOF
+brew bundle --cleanup --file=/dev/stdin <<EOF
 {{- range .all_packages.darwin.tap }}
 tap {{ . | quote }}
 {{- end }}
