@@ -5,7 +5,7 @@ set -e
 
 apt-get update -y
 echo "Installing Linux packages ..."
-apt-get install {{- join " " .all_packages.linux -}}
+apt-get install -y cmake python-dev jq gh yq
 
 {{- else }}
 echo "Not Linux, skipping package installation."

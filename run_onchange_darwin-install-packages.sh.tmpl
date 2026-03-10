@@ -9,51 +9,13 @@ if ! command -v xcode-select >/dev/null 2>&1; then
 fi
 
 if ! command -v brew >/dev/null 2>&1; then
-  "Installing Homebrew ..."
+  echo "Installing Homebrew ..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 echo "Installing Homebrew taps, packages, and casks ..."
 
-brew bundle --cleanup --file=/dev/stdin <<EOF
-{{- range .all_packages.darwin.tap }}
-tap {{ . | quote }}
-{{- end }}
-{{- range .all_packages.darwin.brew }}
-brew {{ . | quote }}
-{{- end }}
-{{- range .all_packages.darwin.cask }}
-cask {{ . | quote }}, greedy: true
-{{- end }}
-EOF
-
-{{- if eq .chezmoi.hostname .work_hostname }}
-echo "Installing Homebrew taps, packages, and casks on {{ .work_hostname }} ..."
-brew bundle --file=/dev/stdin <<EOF
-{{- range .work_packages.darwin.tap }}
-tap {{ . | quote }}
-{{- end }}
-{{- range .work_packages.darwin.brew }}
-brew {{ . | quote }}
-{{- end }}
-{{- range .work_packages.darwin.cask }}
-cask {{ . | quote }}, greedy: true
-{{- end }}
-{{- end }}
-
-{{- if eq .chezmoi.hostname .personal_hostname }}
-echo "Installing Homebrew taps, packages, and casks on {{ .personal_hostname }} ..."
-brew bundle --file=/dev/stdin <<EOF
-{{- range .personal_packages.darwin.tap }}
-tap {{ . | quote }}
-{{- end }}
-{{- range .personal_packages.darwin.brew }}
-brew {{ . | quote }}
-{{- end }}
-{{- range .personal_packages.darwin.cask }}
-cask {{ . | quote }}, greedy: true
-{{- end }}
-{{- end }}
+brew bundle --cleanup --file=Brewfile
 
 {{- else }}
 echo "Not macOS, skipping Homebrew package installation."
