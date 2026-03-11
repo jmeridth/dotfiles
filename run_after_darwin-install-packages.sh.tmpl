@@ -15,7 +15,7 @@ fi
 
 echo "Installing Homebrew taps, packages, and casks ..."
 
-brew bundle --cleanup --file=Brewfile
+brew bundle --file=Brewfile
 
 {{- else }}
 echo "Not macOS, skipping Homebrew package installation."
