@@ -12,6 +12,7 @@ argument-hint: [issue-url | issue-id]
 
 ## Critical Rules
 
+- Never add claude as a co-author
 - Create a meaningful commit message based on the changes above.
 - Ensure it follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) specification.
 - Use three separate headings: What, Why, Notes. Avoid bullet points for What and Why. There should be newlines after the headings.
