@@ -15,7 +15,7 @@ fi
 
 echo "Installing Homebrew taps, packages, and casks ..."
 
-brew bundle --file=Brewfile
+brew bundle --upgrade --file=Brewfile
 
 {{- else }}
 echo "Not macOS, skipping Homebrew package installation."
