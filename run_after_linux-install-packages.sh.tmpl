@@ -3,9 +3,9 @@
 {{- if (eq .osid "linux-debian") }}
 set -e
 
-apt-get update -y
+apt update -y
 echo "Installing Linux packages ..."
-apt-get install -y cmake python-dev jq gh yq
+apt install -y cmake curl gh jq python-dev-is-python3 yq
 
 {{- else }}
 echo "Not Linux, skipping package installation."
