@@ -1,0 +1,5 @@
+# Not following: sourced files can't be resolved statically
+disable=SC1091
+
+# Variables set in sourced files are used by the sourcing script
+disable=SC2034
