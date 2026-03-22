@@ -1,5 +1,4 @@
-#!/bin/zsh
-
+# shellcheck shell=bash
 export EDITOR='vim'
 export LANG=en_US.UTF-8
 

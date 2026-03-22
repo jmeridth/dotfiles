@@ -1,5 +1,4 @@
-#!/bin/bash
-
+# shellcheck shell=bash
 alias ".."="cd .."
 alias aliases="vim ~/.aliases"
 alias avenv="source venv/bin/activate"
