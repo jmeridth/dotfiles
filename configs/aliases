@@ -4,7 +4,7 @@ alias azlogin="az login"
 alias brewu="brew update && brew upgrade"
 alias cvenv="python3 -m venv venv"
 alias docker=podman
-alias dotfiles="cd ~/.local/share/chezmoi"
+alias dotfiles="cd ~/code/dotfiles"
 alias gcloudlogin='gcloud auth application-default login && gcloud auth login'
 alias gpgreset="gpgconf --kill gpg-agent && gpg --card-status"
 alias jmencrypt='"$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
@@ -33,19 +33,19 @@ fi
 fliptable(){ echo "（╯°□°）╯ ┻━┻"; }
 shrug(){ echo " ¯\_(ツ)_/¯ "; }
 
-{{- if (eq .osid "darwin") }}
-if ! command -v gls >/dev/null 2>&1; then
-alias l="gls -lAh --color"
-alias ll="gls -l --color"
-alias la="gls -A --color"
+if [[ "$(uname)" == "Darwin" ]]; then
+  if ! command -v gls >/dev/null 2>&1; then
+    alias l="gls -lAh --color"
+    alias ll="gls -l --color"
+    alias la="gls -A --color"
+  fi
 fi
-{{- end }}
 
-{{- if (eq .osid "linux-debian") }}
-alias cleanaufs='sudo umount -l $(grep "aufs" /proc/mounts | awk "{print$2}" | sort -r) && sudo rm -rf /var/lib/docker/aufs'
-alias fixdisplays="getautorandr && autorandr --change"
-alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
-alias pbcopy="xclip -selection clipboard"
-alias restartwifi="nmcli radio wifi off && nmcli radio wifi on"
-alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
-{{- end }}
+if [[ "$(uname)" == "Linux" ]] && [ -f /etc/debian_version ]; then
+  alias cleanaufs='sudo umount -l $(grep "aufs" /proc/mounts | awk "{print$2}" | sort -r) && sudo rm -rf /var/lib/docker/aufs'
+  alias fixdisplays="getautorandr && autorandr --change"
+  alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
+  alias pbcopy="xclip -selection clipboard"
+  alias restartwifi="nmcli radio wifi off && nmcli radio wifi on"
+  alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
+fi

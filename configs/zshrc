@@ -64,32 +64,31 @@ setup_gitssh () {
   git config --local gpg.format ssh
 }
 
-{{- if eq .chezmoi.os "darwin" }}
-if ! command -v brew > /dev/null; then
-HOMEBREW_PREFIX="/usr/local"
-# HOMEBREW FOLDER PREFIX FOR M1
-if [[ $(uname -p) == 'arm' ]]; then
-HOMEBREW_PREFIX="/opt/homebrew"
-export PATH="$HOMEBREW_PREFIX:$PATH"
-fi
-eval $($HOMEBREW_PREFIX/bin/brew shellenv)
+if [[ "$(uname)" == "Darwin" ]]; then
+  if ! command -v brew > /dev/null; then
+    HOMEBREW_PREFIX="/usr/local"
+    # HOMEBREW FOLDER PREFIX FOR M1
+    if [[ $(uname -p) == 'arm' ]]; then
+      HOMEBREW_PREFIX="/opt/homebrew"
+      export PATH="$HOMEBREW_PREFIX:$PATH"
+    fi
+    eval $($HOMEBREW_PREFIX/bin/brew shellenv)
 
-# AUTOENV
-if ! command -v autoenv > /dev/null; then
-source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
-fi
+    # AUTOENV
+    if ! command -v autoenv > /dev/null; then
+      source $HOMEBREW_PREFIX/opt/autoenv/activate.sh
+    fi
 
-export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
-fi
+    export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
+  fi
 
-if command -v brew > /dev/null; then
-# RUBY
-if ! command -v ruby > /dev/null; then
-export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
+  if command -v brew > /dev/null; then
+    # RUBY
+    if ! command -v ruby > /dev/null; then
+      export RUBY_CONFIGURE_OPTS="--with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --disable-install-doc"
+    fi
+  fi
 fi
-fi
-
-{{- end }}
 
 bindkey -v
 # incremental search in insert mode

@@ -1,5 +1,0 @@
-{{ if eq .chezmoi.os "darwin" }}
-if ! command -v brew > /dev/null; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-{{ end }}

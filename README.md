@@ -2,21 +2,35 @@
 
 Used with my local dev environment.
 
-Uses [chezmoi](https://www.chezmoi.io/)
+## Setup
 
-## Local Setup
+```bash
+git clone git@github.com:jmeridth/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+./setup
+```
 
-To Install:
+This will:
 
-`sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME`
+- Symlink config files to your home directory
+- Install packages via Homebrew (macOS) or apt (Debian)
+- Install oh-my-zsh
+- Configure VSCode vim key repeat (macOS)
 
-includes the following
+## Structure
 
-- installing chezmoi
-- sets up aliases
-- commands and apps via Homebrew
-- gitconfig (specific to me)
-- and others...
+```text
+setup                     # Entry point
+scripts/
+  detect-os.sh            # OS and hostname detection
+  install-packages.sh     # Brew/apt package installation
+  install-tools.sh        # oh-my-zsh, vscode config
+  link-dotfiles.sh        # Symlink configs to ~/
+configs/                  # Dotfiles and tool configs
+Brewfile                  # Common Homebrew packages
+Brewfile.work             # Work-specific packages
+Brewfile.personal         # Personal-specific packages
+```
 
 Cheers,
 JM

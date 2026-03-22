@@ -1,0 +1,21 @@
+#!/bin/bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+echo "=== Dotfiles Setup ==="
+echo ""
+
+# Link dotfiles first
+"$SCRIPT_DIR/scripts/link-dotfiles.sh"
+echo ""
+
+# Install packages
+"$SCRIPT_DIR/scripts/install-packages.sh"
+echo ""
+
+# Install additional tools
+"$SCRIPT_DIR/scripts/install-tools.sh"
+echo ""
+
+echo "=== Setup complete ==="

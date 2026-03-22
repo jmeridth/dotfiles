@@ -1,0 +1,7 @@
+cask 'balenaetcher'
+cask 'discord'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'signal'
+cask 'slack'
+cask 'zoom'

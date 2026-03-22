@@ -2,7 +2,6 @@ brew 'asdf'
 brew 'autoenv'
 brew 'az'
 brew 'bash'
-brew 'chezmoi'
 brew 'cmake'
 brew 'coreutils'
 brew 'ctags'
@@ -44,11 +43,6 @@ brew 'wget'
 brew 'yq'
 brew 'zizmor'
 
-{{- if eq .chezmoi.hostname .work_hostname }}
-brew 'az'
-brew 'chainguard-dev/tap/chainctl'
-{{- end }}
-
 cask '1password-cli'
 cask 'appzapper'
 cask 'claude-code'
@@ -56,18 +50,3 @@ cask 'linear-linear'
 cask 'podman-desktop'
 cask 'spotify'
 cask 'visual-studio-code'
-
-{{- if eq .chezmoi.hostname .work_hostname }}
-cask 'gcloud-cli'
-cask 'loom'
-{{- end }}
-
-{{- if eq .chezmoi.hostname .personal_hostname }}
-cask 'balenaetcher'
-cask 'discord'
-cask 'google-chrome'
-cask 'iterm2'
-cask 'signal'
-cask 'slack'
-cask 'zoom'
-{{- end }}
