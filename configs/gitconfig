@@ -34,27 +34,17 @@
   rebase = true
 [help]
   autocorrect = 1
-[gitreview]
-  username = jmeridth
 [branch]
   autosetuprebase = always
 [core]
   editor = vim
   whitespace = cr-at-eol
-  repositoryformatversion = 0
-  filemode = true
-  bare = false
-  logallrefupdates = true
   autocrlf = false
   commentChar = "@"
-  excludesfile = /Users/jasonmeridth/.gitignore
+  excludesfile = ~/.gitignore
   pager = less -F -X
-[git-up "bundler"]
-  check = true
 [remote]
   pushdefault = origin
-[http]
-  cookiefile = /Users/jasonmeridth/.gitcookies
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge --skip -- %f
