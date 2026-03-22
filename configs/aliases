@@ -1,5 +1,8 @@
+#!/bin/bash
+
 alias ".."="cd .."
 alias aliases="vim ~/.aliases"
+alias avenv="source venv/bin/activate"
 alias azlogin="az login"
 alias brewu="brew update && brew upgrade"
 alias cvenv="python3 -m venv venv"
@@ -7,26 +10,30 @@ alias docker=podman
 alias dotfiles="cd ~/code/dotfiles"
 alias gcloudlogin='gcloud auth application-default login && gcloud auth login'
 alias gpgreset="gpgconf --kill gpg-agent && gpg --card-status"
-alias jmencrypt='"$1".gpg --encrypt --recipient jmeridth@gmail.com "$1"}'
-alias jmdecrypt='"$1" --decrypt "$1".gpg}'
-alias jmtest='"$1".gpg}'
 alias json="python -m json.tool"
 alias l="ls -lah --color"
-alias avenv="source venv/bin/activate"
-alias pyclean='"*.pyc" -delete'
-alias pyinit="touch __init__.py"
 alias py="ptpython"
+alias pyinit="touch __init__.py"
 alias senv="source ~/.zshrc && cd ."
-alias tardir='"$1"'
-alias untarzippeddir='"$1" "$2"'
-alias untardir='"$1"'
 alias vimrc="vim ~/.vimrc"
 alias zshrc="vim ~/.zshrc"
+
+jmdecrypt() { gpg --decrypt "$1".gpg; }
+jmencrypt() { gpg --encrypt --recipient jmeridth@gmail.com "$1"; }
+pyclean() { find . -name "*.pyc" -delete; }
+tardir() { tar czf "$1".tar.gz "$1"; }
+untardir() { tar xf "$1"; }
+untarzippeddir() { tar xzf "$1" -C "$2"; }
 
 if command -v gh >/dev/null 2>&1; then
   alias ghopen="gh repo view --web"
   ghapprove(){ gh pr review --approve "$1"; }
   ghpr(){ gh pr view "$1" --web; }
+fi
+
+# 1Password CLI
+if command -v op >/dev/null 2>&1; then
+  reveal() { op item get "$1" --vault Private --format json | jq -r '.id' | xargs -I {} op item get {} --reveal --format json | jq -r '.fields[] | select(.id == "password") | .value'; }
 fi
 
 # Because. Borrowed from https://github.com/some-natalie/dotfiles/
@@ -42,10 +49,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 if [[ "$(uname)" == "Linux" ]] && [ -f /etc/debian_version ]; then
-  alias cleanaufs='sudo umount -l $(grep "aufs" /proc/mounts | awk "{print$2}" | sort -r) && sudo rm -rf /var/lib/docker/aufs'
   alias fixdisplays="getautorandr && autorandr --change"
   alias getautorandr="sudo wget https://raw.githubusercontent.com/wertarbyte/autorandr/master/autorandr -O /usr/bin/autorandr && sudo chmod +x /usr/bin/autorandr"
   alias pbcopy="xclip -selection clipboard"
   alias restartwifi="nmcli radio wifi off && nmcli radio wifi on"
   alias update="sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoclean -y && sudo apt autoremove -y"
+
+  cleanaufs(){ sudo umount -l "$(grep "aufs" /proc/mounts | awk '{print$2}' | sort -r)" && sudo rm -rf /var/lib/docker/aufs; }
 fi

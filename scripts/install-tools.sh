@@ -17,3 +17,14 @@ if [[ "$OS_TYPE" == "Darwin" ]]; then
     defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
   fi
 fi
+
+# map caps lock to esc in Ubuntu
+if [[ "$IS_DEBIAN" == true ]]; then
+  echo "Mapping caps lock to escape on Linux ..."
+  setxkbmap -option caps:escape
+  setxkbmap -option caps:swapescape
+
+  echo "Set ctrl+tab to alternate tabs in terminal ..."
+  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Control>Tab'
+  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Control><Shift>Tab'
+fi

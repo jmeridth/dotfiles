@@ -1,0 +1,5 @@
+!configs/claude/CLAUDE.md
+!configs/claude/skills/**
+!configs/claude/settings.json
+configs/claude
+

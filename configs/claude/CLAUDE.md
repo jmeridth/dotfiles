@@ -66,6 +66,7 @@ Prioritize thorough planning and alignment before implementation. Approach conve
 
 - Keep PR descriptions short and clear
 - Use three separate headings: What, Why, Notes. Avoid bullet points for What and Why
+- Each heading should be in an H2 format (## What, ## Why, ## Notes)
 - Notes should highlight non-obvious implications, risks, and trade-offs
 - Notes should highlight things reviewers should specifically watch for that aren't apparent from reading the code diff
 - Avoid stating obvious facts or repeating What/Why
