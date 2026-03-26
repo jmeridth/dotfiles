@@ -71,6 +71,10 @@
       "Bash(terraform fmt *)",
       "Bash(terraform fmt)",
       "Bash(terraform show *)",
+      "Bash(go build *)",
+      "Bash(go vet *)",
+      "Bash(go test *)",
+      "Bash(go mod *)",
       "mcp__go-linear__go-linear_issue_get"
     ],
     "deny": [
