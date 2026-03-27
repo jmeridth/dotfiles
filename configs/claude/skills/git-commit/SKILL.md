@@ -12,6 +12,7 @@ argument-hint: [issue-url | issue-id]
 
 ## Critical Rules
 
+- **Always ensure you're on a feature branch** that starts with latest that is on the default branch
 - **Always sign-off my commits** with my git config user.name and user.email
 - **Always run tests and lint the code** before creating a git commit
 - **NEVER git commit or git push without explicit user approval** - ALWAYS ask first
