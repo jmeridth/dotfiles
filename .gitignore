@@ -1,5 +1,26 @@
-!configs/claude/CLAUDE.md
-!configs/claude/skills/**
-!configs/claude/settings.json
-configs/claude
+# claude files
 
+# ignore
+configs/claude/**
+
+# keep
+!configs/claude/CLAUDE.md
+!configs/claude/settings.json
+!configs/claude/skills/
+!configs/claude/skills/**
+
+# env file
+.env
+
+# swap file
+*.swp
+
+# OSX Desktop Services Store file
+.DS_Store
+
+# logs
+log/**
+
+# Editor/IDE
+.idea/
+.vscode/

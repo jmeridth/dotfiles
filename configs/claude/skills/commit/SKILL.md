@@ -1,5 +1,5 @@
 ---
-name: git-commit
+name: commit
 description: Create a meaningful git commit message based on current changes.
 argument-hint: [issue-url | issue-id]
 ---
