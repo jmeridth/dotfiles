@@ -9,7 +9,7 @@ description: Create a good pull request
 
 - Ensure the pull request title follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) specification.
 - **Always create PRs as draft** unless I explicitly say otherwise
-- **Always assign me (`zkoppert`) as the assignee** when opening PRs - this helps me track work in progress and follow up
+- **Always assign me (`jmeridth`) as the assignee** when opening PRs - this helps me track work in progress and follow up
 - Always check a PR's status (open/merged/closed) before pushing commits to it
 - Format the pull request description like we format our commits
 - PR descriptions should be kept up to date with the actual changes — verify before finalizing
