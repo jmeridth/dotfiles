@@ -1,11 +1,11 @@
 ---
-name: pr-review
-description: Review a PR (or conduct a self-review) using a multi-model, verification-first workflow.
-argument-hint: [pr-url | pr-number]
+name: review
+description: Review a PR (by link or from current context) or the current feature branch using a multi-model, verification-first workflow.
+argument-hint: [pr-url | pr-number | branch]
 ---
 
 ## Code Review Workflow
-When asked to review a PR (or conduct a self-review), follow this workflow automatically:
+When asked to review a PR (by link or from current context) or the current feature branch, follow this workflow automatically:
 
 ### Multi-model review
 - Launch **at least 3 code review agents in parallel** using different models (e.g., Claude Opus, Claude Sonnet, GPT) to get diverse perspectives
