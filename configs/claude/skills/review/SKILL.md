@@ -8,7 +8,7 @@ argument-hint: [pr-url | pr-number | branch]
 When asked to review a PR (by link or from current context) or the current feature branch, follow this workflow automatically:
 
 ### Multi-model review
-- Launch **at least 3 code review agents in parallel** using different models (e.g., Claude Opus, Claude Sonnet, GPT) to get diverse perspectives
+- Launch **at least 3 code review agents in parallel** using different available models to get diverse perspectives
 - Synthesize findings across all models - only surface issues that multiple models flag or that can be independently verified
 - Present a unified, deduplicated report organized by severity
 
