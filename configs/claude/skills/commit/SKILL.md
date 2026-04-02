@@ -16,7 +16,7 @@ argument-hint: [issue-url | issue-id]
 - **Always sign-off my commits** with my git config user.name and user.email
 - **Always run tests and lint the code** before creating a git commit
 - **NEVER git commit or git push without explicit user approval** - ALWAYS ask first
-- **NEVER add Claude as a co-author**
+- **NEVER add any agent as a co-author, only add co-author(s) when the user explicitly requests it**
 
 
 - Create a meaningful commit message based on the current staged or unstaged changes.
