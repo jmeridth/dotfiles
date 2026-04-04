@@ -1,0 +1,18 @@
+---
+name: Auto Labeler
+on:
+  # pull_request_target event is required for autolabeler to support all PRs including forks
+  pull_request_target:
+    types: [opened, reopened, edited, synchronize]
+permissions:
+  contents: read
+jobs:
+  main:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: github-community-projects/ospo-reusable-workflows/.github/workflows/auto-labeler.yaml@3b691dff6b68489c8548e1295d125c93c9c29a4e
+    with:
+      config-name: release-drafter.yml
+    secrets:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
