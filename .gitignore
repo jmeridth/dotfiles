@@ -28,3 +28,6 @@ log/**
 # Editor/IDE
 .idea/
 .vscode/
+
+# AI
+**/.claude/*.local.*
