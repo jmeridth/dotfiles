@@ -1,0 +1,13 @@
+---
+name: Question
+description: Ask a question
+labels:
+  - question
+body:
+  - type: textarea
+    attributes:
+      label: Question
+      placeholder: |
+        Ex. Does your dotfiles work on Linux?
+    validation:
+      required: true
