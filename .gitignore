@@ -9,6 +9,10 @@ configs/claude/**
 !configs/claude/skills/
 !configs/claude/skills/**
 
+# Generated symlinks from link-dotfiles.sh for hostname-specific skills.
+# Add an entry here for each skill that lives under configs/personal/ or configs/work/.
+configs/claude/skills/go-standards
+
 # env file
 .env
 
