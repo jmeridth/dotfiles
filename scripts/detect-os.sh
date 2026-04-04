@@ -24,7 +24,7 @@ elif [[ "$OS_TYPE" == "Linux" ]] && [ -f /etc/debian_version ]; then
   IS_DEBIAN=true
 fi
 
-CURRENT_HOSTNAME="$(hostname)"
+CURRENT_HOSTNAME="$(hostname -s)"
 if [[ "$CURRENT_HOSTNAME" == "$WORK_HOSTNAME" ]]; then
   HOSTNAME_TYPE="work"
 elif [[ "$CURRENT_HOSTNAME" == "$PERSONAL_HOSTNAME" ]]; then
