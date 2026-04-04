@@ -13,6 +13,6 @@ jobs:
       pull-requests: write
     uses: github-community-projects/ospo-reusable-workflows/.github/workflows/auto-labeler.yaml@a0cf79bd8756e0a9c1555bf4975eae7ce7a8e8dc # v0.6.0
     with:
-      config-name: release-drafter.yml
+      config-name: release-drafter.yaml
     secrets:
       github-token: ${{ secrets.GITHUB_TOKEN }}
