@@ -39,10 +39,20 @@ For each unresolved comment:
 
 ### 5. Reply and resolve
 
-For each comment:
-- **If fixed**: Reply with a direct link to the commit that addressed it (e.g., `Addressed in https://github.com/{owner}/{repo}/commit/{sha}`)
-- **If declined**: Reply with a concise explanation of why the change was not made
-- **Resolve the thread** via the GraphQL `resolveReviewThread` mutation
+For each comment, determine if it is a **review thread comment** (inline code comment on the diff) or a **top-level issue comment** (posted on the PR conversation tab):
+
+- Review thread comments have a `pull_request_review_id` and a `path`/`line` — fetch via `gh api repos/{owner}/{repo}/pulls/{number}/comments`
+- Top-level issue comments do not — fetch via `gh api repos/{owner}/{repo}/issues/{number}/comments`
+
+**If fixed:**
+- Reply with a direct link to the commit that addressed it (e.g., `Addressed in https://github.com/{owner}/{repo}/commit/{sha}`)
+- If it is a review thread comment, also resolve the thread via the GraphQL `resolveReviewThread` mutation
+- If it is a top-level issue comment (not a thread), quote the original message in the reply using a GitHub blockquote (`> text`) so readers have context without needing to scroll — no resolve step needed
+
+**If declined:**
+- Reply with a concise explanation of why the change was not made
+- If it is a review thread comment, resolve the thread
+- If it is a top-level issue comment, quote the original message in the reply
 
 ### Rules
 
