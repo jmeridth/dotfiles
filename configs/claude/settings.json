@@ -78,8 +78,6 @@
       "mcp__go-linear__go-linear_issue_get"
     ],
     "deny": [
-      "Bash(terraform apply -auto-approve *)",
-      "Bash(terraform destroy -auto-approve *)",
       "Read(./.env)"
     ]
   },
