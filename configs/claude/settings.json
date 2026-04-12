@@ -92,5 +92,9 @@
     "skill-creator@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/jmeridth/.claude/statusline-command.sh"
+  }
 }

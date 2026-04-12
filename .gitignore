@@ -8,6 +8,7 @@ configs/claude/**
 !configs/claude/settings.json
 !configs/claude/skills/
 !configs/claude/skills/**
+!configs/claude/statusline-command.sh
 
 # Generated symlinks from link-dotfiles.sh for hostname-specific skills.
 # Add an entry here for each skill that lives under configs/personal/ or configs/work/.
