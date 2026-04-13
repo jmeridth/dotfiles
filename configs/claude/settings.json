@@ -81,6 +81,11 @@
       "Read(./.env)"
     ]
   },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash $HOME/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
@@ -92,9 +97,5 @@
     "skill-creator@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true,
-  "statusLine": {
-    "type": "command",
-    "command": "bash /Users/jmeridth/.claude/statusline-command.sh"
-  }
+  "alwaysThinkingEnabled": true
 }
