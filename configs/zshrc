@@ -92,6 +92,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
   fi
 fi
 
+if command -v claude >/dev/null; then
+  export CLAUDE_CODE_NO_FLICKER=1
+fi
+
 bindkey -v
 # incremental search in insert mode
 bindkey "^F" history-incremental-search-forward
