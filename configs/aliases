@@ -26,7 +26,7 @@ untarzippeddir() { tar xzf "$1" -C "$2"; }
 
 if command -v gh >/dev/null 2>&1; then
   alias ghopen="gh repo view --web"
-  ghapprove(){ gh pr review --approve "$1"; }
+  ghapprove(){ if [[ $# -eq 2 ]]; then gh pr review "$2" --approve --repo "$1"; else gh pr review --approve "$1"; fi; }
   ghpr(){ gh pr view "$1" --web; }
 fi
 
