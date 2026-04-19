@@ -101,5 +101,8 @@ bindkey -v
 bindkey "^F" history-incremental-search-forward
 bindkey "^R" history-incremental-search-backward
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 if [[ -e "$HOME/.aliases" ]] ; then source "$HOME/.aliases" ; fi
 if [[ -e "$HOME/.privatealiases" ]] ; then source "$HOME/.privatealiases" ; fi
