@@ -1,9 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false,
   build = ":TSUpdate",
-  event = { "BufReadPost", "BufNewFile" },
-  opts = {
-    ensure_installed = {
+  config = function()
+    require("nvim-treesitter").install({
       "go",
       "terraform",
       "markdown",
@@ -11,11 +11,6 @@ return {
       "lua",
       "vim",
       "vimdoc",
-    },
-    highlight = { enable = true },
-    indent = { enable = true },
-  },
-  config = function(_, opts)
-    require("nvim-treesitter.configs").setup(opts)
+    })
   end,
 }
