@@ -9,6 +9,7 @@ return {
   cmd = "Neotree",
   keys = {
     { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
+    { "<leader>E", "<cmd>Neotree reveal<CR>", desc = "Reveal current file in explorer" },
   },
   opts = {
     filesystem = {

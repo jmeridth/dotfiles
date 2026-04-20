@@ -22,6 +22,10 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
   source "$ZSH/oh-my-zsh.sh"
 fi
 
+if command -v fzf >/dev/null; then
+  source <(fzf --zsh)
+fi
+
 if command -v go >/dev/null; then
   # Set up Go env vars
   export GOPATH=$HOME/go

@@ -1,7 +1,9 @@
 local opt = vim.opt
 
+-- colorscheme is set by plugins/colorscheme.lua
+
 opt.number = true
-opt.relativenumber = true
+opt.relativenumber = false
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
