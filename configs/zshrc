@@ -27,6 +27,11 @@ if command -v fzf >/dev/null; then
   source <(fzf --zsh)
 fi
 
+if command -v fd >/dev/null; then
+  mkdir -p ~/.zfunc
+  fd --gen-completions zsh > ~/.zfunc/_fd
+fi
+
 if command -v go >/dev/null; then
   # Set up Go env vars
   export GOPATH=$HOME/go
