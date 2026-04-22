@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 alias ".."="cd .."
-alias aliases="vim ~/.aliases"
+alias aliases="nvim ~/.aliases"
+alias vim="nvim"
 alias avenv="source venv/bin/activate"
 alias azlogin="az login"
 alias brewu="brew update && brew upgrade"
@@ -14,8 +15,7 @@ alias l="ls -lah --color"
 alias py="ptpython"
 alias pyinit="touch __init__.py"
 alias senv="source ~/.zshrc && cd ."
-alias vimrc="vim ~/.vimrc"
-alias zshrc="vim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
 
 jmdecrypt() { gpg --decrypt "$1".gpg; }
 jmencrypt() { gpg --encrypt --recipient jmeridth@gmail.com "$1"; }
