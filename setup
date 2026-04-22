@@ -18,10 +18,6 @@ echo ""
 "$SCRIPT_DIR/scripts/install-tools.sh"
 echo ""
 
-# Configure iTerm2
-"$SCRIPT_DIR/scripts/configure-iterm2.sh"
-echo ""
-
 echo "=== Setup complete ==="
 echo ""
 echo "Reload your shell to pick up the new config:"
