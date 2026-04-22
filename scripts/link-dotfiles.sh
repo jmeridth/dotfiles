@@ -36,7 +36,6 @@ link_file "$CONFIGS_DIR/editorconfig"      "$HOME/.editorconfig"
 link_file "$CONFIGS_DIR/curlrc"            "$HOME/.curlrc"
 link_file "$CONFIGS_DIR/gemrc"             "$HOME/.gemrc"
 link_file "$CONFIGS_DIR/tmux.conf"         "$HOME/.tmux.conf"
-link_file "$CONFIGS_DIR/tmuxline_snapshot" "$HOME/.tmuxline_snapshot"
 link_file "$CONFIGS_DIR/nvim"              "$HOME/.config/nvim"
 
 echo "Linking claude config ..."

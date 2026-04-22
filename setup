@@ -23,3 +23,6 @@ echo ""
 echo ""
 
 echo "=== Setup complete ==="
+echo ""
+echo "Reload your shell to pick up the new config:"
+echo "  source ~/.zshrc"
