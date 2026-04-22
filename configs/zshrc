@@ -24,6 +24,7 @@ if [ -d "$HOME/.oh-my-zsh" ]; then
 fi
 
 if command -v fzf >/dev/null; then
+  # shellcheck disable=SC1090
   source <(fzf --zsh)
 fi
 
