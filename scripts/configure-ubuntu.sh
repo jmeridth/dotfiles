@@ -25,7 +25,7 @@ check_for_nerd_fonts=$(fc-list | grep "Ubuntu Nerd Font >&/dev/null")
 if [ "$check_for_nerd_fonts" -eq 1 ]; then
   echo "set up nerd fonts"
   latest_nerd_fonts_version=$(curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest | jq -r '.tag_name')
-  wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/$latest_nerd_fonts_version/Ubuntu.zip \
+  wget -P ~/.local/share/fonts https://github.com/ryanoasis/nerd-fonts/releases/download/"$latest_nerd_fonts_version"/Ubuntu.zip \
   && cd ~/.local/share/fonts \
   && unzip Ubuntu.zip \
   && rm Ubuntu.zip \
