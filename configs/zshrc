@@ -76,6 +76,12 @@ setup_gitssh () {
   git config --local gpg.format ssh
 }
 
+if [[ "$(uname)" == "Linux" ]]; then
+  HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+  export PATH="$HOMEBREW_PREFIX:$PATH"
+  eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+fi
+
 if [[ "$(uname)" == "Darwin" ]]; then
   if ! command -v brew > /dev/null; then
     HOMEBREW_PREFIX="/usr/local"
