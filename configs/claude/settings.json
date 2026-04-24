@@ -79,7 +79,8 @@
     ],
     "deny": [
       "Read(./.env)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "sonnet",
   "statusLine": {
@@ -97,5 +98,6 @@
     "skill-creator@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "skipAutoPermissionPrompt": true
 }
