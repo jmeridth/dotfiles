@@ -2,4 +2,3 @@ brew 'az'
 brew 'chainguard-dev/tap/chainctl'
 
 cask 'loom'
-cask 'microsoft-teams'
