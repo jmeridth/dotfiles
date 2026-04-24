@@ -56,6 +56,7 @@ brew 'zoxide'
 
 cask '1password-cli'
 cask 'appzapper'
+cask 'claude'
 cask 'claude-code'
 cask 'gcloud-cli'
 cask 'linear-linear'
