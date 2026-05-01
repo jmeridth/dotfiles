@@ -1,4 +1,5 @@
 brew 'az'
 brew 'chainguard-dev/tap/chainctl'
+brew 'glab'
 
 cask 'loom'
