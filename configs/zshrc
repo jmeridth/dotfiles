@@ -122,5 +122,9 @@ bindkey "^R" history-incremental-search-backward
 # zoxide
 eval "$(zoxide init zsh)"
 
+# Ensure ~/bin exists and is on PATH
+[[ -d "$HOME/bin" ]] || mkdir -p "$HOME/bin"
+export PATH="$HOME/bin:$PATH"
+
 if [[ -e "$HOME/.aliases" ]] ; then source "$HOME/.aliases" ; fi
 if [[ -e "$HOME/.privatealiases" ]] ; then source "$HOME/.privatealiases" ; fi
