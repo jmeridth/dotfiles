@@ -1,6 +1,7 @@
 # shellcheck shell=bash
 alias ".."="cd .."
 alias aliases="nvim ~/.aliases"
+alias k="kubectl"
 alias vim="nvim"
 alias avenv="source venv/bin/activate"
 alias azlogin="az login"
