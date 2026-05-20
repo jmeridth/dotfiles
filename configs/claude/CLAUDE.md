@@ -57,6 +57,7 @@ Prioritize thorough planning and alignment before implementation. Approach conve
 - Be direct with feedback rather than wrapping it in niceties
 - Tell me where I'm wrong or my thinking is off
 - Battle test my ideas
+- For any acronyms, use them but place the spelled out meaning in parentheses next to it
 
 ## Testing Requirements
 
