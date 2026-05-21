@@ -22,7 +22,8 @@ For each unresolved comment:
 - **Determine validity**: Is this a real bug, a valid improvement, a style nitpick, or incorrect?
 - **Classify the action**:
   - **Fix**: The comment identifies a real issue or a worthwhile improvement — make the code change
-  - **Decline**: The comment is incorrect, a style preference, testing framework internals, or out of scope — explain why
+  - **Decline**: The comment is incorrect, a style preference, or about testing framework internals — explain why
+  - **Out of scope**: The comment requests a change beyond the scope of this PR — decline the change and, if the suggestion has merit as a follow-up, suggest to the user (not the reviewer) that they file an issue to track it
 - Present a summary table of all comments with the proposed action before proceeding
 
 ### 3. Wait for approval
@@ -53,6 +54,13 @@ For each comment, determine if it is a **review thread comment** (inline code co
 - Reply with a concise explanation of why the change was not made
 - If it is a review thread comment, resolve the thread
 - If it is a top-level issue comment, quote the original message in the reply
+
+**If out of scope:**
+- Reply thanking the reviewer and explaining that the suggestion is outside the scope of this PR
+- If the suggestion has merit, mention that a follow-up issue will be filed to track it
+- If it is a review thread comment, resolve the thread
+- If it is a top-level issue comment, quote the original message in the reply
+- In the summary table shown to the user, flag out-of-scope items that warrant a follow-up issue so the user can decide whether to file one
 
 ### Rules
 
