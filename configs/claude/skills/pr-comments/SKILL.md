@@ -67,6 +67,7 @@ For each comment, determine if it is a **review thread comment** (inline code co
 - Never post replies or resolve threads without user approval
 - Always run tests and lint before committing
 - Always sign off commits
+- When posting PR reviews with inline comments via `gh api`, pass the full JSON body via stdin using `cat <<'EOF' | gh api ... --input -`. The `-f`/`-F` flags cannot properly serialize the `comments` array and will produce 422 errors
 - One commit per batch of comment fixes is fine — no need for one commit per comment unless the changes are unrelated
 - If a comment requires a change that conflicts with another comment, flag it to the user
 - If a comment references code outside the PR diff, read the full file before assessing
