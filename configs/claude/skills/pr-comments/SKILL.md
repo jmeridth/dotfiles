@@ -64,6 +64,7 @@ For each comment, determine if it is a **review thread comment** (inline code co
 
 ### Rules
 
+- Always @mention the comment author's GitHub handle at the start of every reply so they get notified
 - Never post replies or resolve threads without user approval
 - Always run tests and lint before committing
 - Always sign off commits
