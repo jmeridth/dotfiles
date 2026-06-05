@@ -13,7 +13,7 @@ cd ~/dotfiles
 This will:
 
 - Symlink config files to your home directory
-- Symlink shared agent instructions to Codex and Claude locations
+- Symlink shared agent instructions and config to Codex and Claude locations
 - Install packages via Homebrew (macOS) or apt (Debian)
 - Install oh-my-zsh
 - Configure VSCode vim key repeat (macOS)
@@ -29,7 +29,7 @@ scripts/
   link-dotfiles.sh        # Symlink configs to ~/
 configs/                  # Dotfiles and tool configs
   AGENTS.md               # Shared global agent instructions
-  agents/skills/          # Shared user-level agent skills
+  agents/                 # Shared user-level agent config
 Brewfile                  # Common Homebrew packages
 Brewfile.work             # Work-specific packages
 Brewfile.personal         # Personal-specific packages

@@ -14,6 +14,11 @@ link_file() {
     return
   fi
 
+  if [ -L "$dest" ]; then
+    echo "  relinking:      $dest -> $src"
+    rm "$dest"
+  fi
+
   if [ -e "$dest" ] && [ ! -L "$dest" ]; then
     echo "  backing up:     $dest -> ${dest}.backup"
     mv "$dest" "${dest}.backup"
@@ -49,14 +54,17 @@ echo "Linking claude config ..."
 # Link the entire claude directory
 link_file "$CONFIGS_DIR/claude" "$HOME/.claude"
 
-echo "Linking agent skills ..."
+echo "Linking agents config ..."
+
+link_file "$CONFIGS_DIR/agents" "$HOME/.agents"
+
+echo "Linking hostname-specific agent skills ..."
 
 # shellcheck source=scripts/detect-os.sh
 source "$SCRIPT_DIR/detect-os.sh"
 
 SHARED_SKILLS_DIR="$CONFIGS_DIR/agents/skills"
 HOSTNAME_SKILLS_DIR="$CONFIGS_DIR/$HOSTNAME_TYPE/agents/skills"
-USER_SKILLS_DIR="$HOME/.agents/skills"
 
 # Remove stale symlinks pointing into any hostname-specific skills dir
 # (handles switching machines or skills moving to shared)
@@ -85,12 +93,3 @@ if [[ -d "$HOSTNAME_SKILLS_DIR" ]]; then
     link_file "$skill_dir" "$SHARED_SKILLS_DIR/$skill"
   done
 fi
-
-mkdir -p "$USER_SKILLS_DIR"
-
-# Link shared skills into Codex's user-level skill discovery directory.
-for skill_dir in "$SHARED_SKILLS_DIR"/*/; do
-  [[ -d "$skill_dir" ]] || continue
-  skill="$(basename "${skill_dir%/}")"
-  link_file "$skill_dir" "$USER_SKILLS_DIR/$skill"
-done
