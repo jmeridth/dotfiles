@@ -14,6 +14,11 @@ link_file() {
     return
   fi
 
+  if [ -L "$dest" ]; then
+    echo "  relinking:      $dest -> $src"
+    rm "$dest"
+  fi
+
   if [ -e "$dest" ] && [ ! -L "$dest" ]; then
     echo "  backing up:     $dest -> ${dest}.backup"
     mv "$dest" "${dest}.backup"
@@ -38,18 +43,28 @@ link_file "$CONFIGS_DIR/gemrc"             "$HOME/.gemrc"
 link_file "$CONFIGS_DIR/tmux.conf"         "$HOME/.tmux.conf"
 link_file "$CONFIGS_DIR/nvim"              "$HOME/.config/nvim"
 
+echo "Linking Codex global instructions ..."
+
+CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
+mkdir -p "$CODEX_HOME_DIR"
+link_file "$CONFIGS_DIR/AGENTS.md" "$CODEX_HOME_DIR/AGENTS.md"
+
 echo "Linking claude config ..."
 
 # Link the entire claude directory
 link_file "$CONFIGS_DIR/claude" "$HOME/.claude"
 
-echo "Linking hostname-specific Claude skills ..."
+echo "Linking agents config ..."
+
+link_file "$CONFIGS_DIR/agents" "$HOME/.agents"
+
+echo "Linking hostname-specific agent skills ..."
 
 # shellcheck source=scripts/detect-os.sh
 source "$SCRIPT_DIR/detect-os.sh"
 
-SHARED_SKILLS_DIR="$CONFIGS_DIR/claude/skills"
-HOSTNAME_SKILLS_DIR="$CONFIGS_DIR/$HOSTNAME_TYPE/claude/skills"
+SHARED_SKILLS_DIR="$CONFIGS_DIR/agents/skills"
+HOSTNAME_SKILLS_DIR="$CONFIGS_DIR/$HOSTNAME_TYPE/agents/skills"
 
 # Remove stale symlinks pointing into any hostname-specific skills dir
 # (handles switching machines or skills moving to shared)
@@ -57,7 +72,10 @@ for link_path in "$SHARED_SKILLS_DIR"/*/; do
   link_path="${link_path%/}"
   [[ -L "$link_path" ]] || continue
   target="$(readlink "$link_path")"
-  if [[ "$target" != *"/personal/claude/skills/"* ]] && [[ "$target" != *"/work/claude/skills/"* ]]; then
+  if [[ "$target" != *"/personal/agents/skills/"* ]] && \
+     [[ "$target" != *"/work/agents/skills/"* ]] && \
+     [[ "$target" != *"/personal/claude/skills/"* ]] && \
+     [[ "$target" != *"/work/claude/skills/"* ]]; then
     continue
   fi
   skill="$(basename "$link_path")"

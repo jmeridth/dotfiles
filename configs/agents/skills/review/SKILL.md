@@ -39,4 +39,5 @@ When asked to review a PR (by link or from current context) or the current featu
 
 - If findings warrant PR comments, draft them in my voice and **show me the draft before posting**
 - When specific code changes are needed, use GitHub suggestion blocks
+- Comment on specific lines of code, if possible
 - One actionable point per comment - do not bundle multiple concerns
