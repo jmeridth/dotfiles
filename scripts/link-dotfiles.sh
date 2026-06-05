@@ -38,18 +38,25 @@ link_file "$CONFIGS_DIR/gemrc"             "$HOME/.gemrc"
 link_file "$CONFIGS_DIR/tmux.conf"         "$HOME/.tmux.conf"
 link_file "$CONFIGS_DIR/nvim"              "$HOME/.config/nvim"
 
+echo "Linking Codex global instructions ..."
+
+CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
+mkdir -p "$CODEX_HOME_DIR"
+link_file "$CONFIGS_DIR/AGENTS.md" "$CODEX_HOME_DIR/AGENTS.md"
+
 echo "Linking claude config ..."
 
 # Link the entire claude directory
 link_file "$CONFIGS_DIR/claude" "$HOME/.claude"
 
-echo "Linking hostname-specific Claude skills ..."
+echo "Linking agent skills ..."
 
 # shellcheck source=scripts/detect-os.sh
 source "$SCRIPT_DIR/detect-os.sh"
 
-SHARED_SKILLS_DIR="$CONFIGS_DIR/claude/skills"
-HOSTNAME_SKILLS_DIR="$CONFIGS_DIR/$HOSTNAME_TYPE/claude/skills"
+SHARED_SKILLS_DIR="$CONFIGS_DIR/agents/skills"
+HOSTNAME_SKILLS_DIR="$CONFIGS_DIR/$HOSTNAME_TYPE/agents/skills"
+USER_SKILLS_DIR="$HOME/.agents/skills"
 
 # Remove stale symlinks pointing into any hostname-specific skills dir
 # (handles switching machines or skills moving to shared)
@@ -57,7 +64,10 @@ for link_path in "$SHARED_SKILLS_DIR"/*/; do
   link_path="${link_path%/}"
   [[ -L "$link_path" ]] || continue
   target="$(readlink "$link_path")"
-  if [[ "$target" != *"/personal/claude/skills/"* ]] && [[ "$target" != *"/work/claude/skills/"* ]]; then
+  if [[ "$target" != *"/personal/agents/skills/"* ]] && \
+     [[ "$target" != *"/work/agents/skills/"* ]] && \
+     [[ "$target" != *"/personal/claude/skills/"* ]] && \
+     [[ "$target" != *"/work/claude/skills/"* ]]; then
     continue
   fi
   skill="$(basename "$link_path")"
@@ -75,3 +85,12 @@ if [[ -d "$HOSTNAME_SKILLS_DIR" ]]; then
     link_file "$skill_dir" "$SHARED_SKILLS_DIR/$skill"
   done
 fi
+
+mkdir -p "$USER_SKILLS_DIR"
+
+# Link shared skills into Codex's user-level skill discovery directory.
+for skill_dir in "$SHARED_SKILLS_DIR"/*/; do
+  [[ -d "$skill_dir" ]] || continue
+  skill="$(basename "${skill_dir%/}")"
+  link_file "$skill_dir" "$USER_SKILLS_DIR/$skill"
+done
