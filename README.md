@@ -30,6 +30,7 @@ scripts/
 configs/                  # Dotfiles and tool configs
   AGENTS.md               # Shared global agent instructions
   agents/                 # Shared user-level agent config
+  codex/                  # Codex config
 Brewfile                  # Common Homebrew packages
 Brewfile.work             # Work-specific packages
 Brewfile.personal         # Personal-specific packages

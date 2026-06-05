@@ -28,6 +28,29 @@ link_file() {
   echo "  linked:         $dest -> $src"
 }
 
+migrate_directory_contents() {
+  local src="$1"
+  local dest="$2"
+
+  if [ ! -d "$dest" ] || [ -L "$dest" ]; then
+    return
+  fi
+
+  echo "  migrating:      $dest contents -> $src"
+  for path in "$dest"/* "$dest"/.[!.]* "$dest"/..?*; do
+    [ -e "$path" ] || continue
+    local name
+    name="$(basename "$path")"
+
+    if [ -e "$src/$name" ] || [ -L "$src/$name" ]; then
+      echo "    keeping managed Codex entry: $name"
+      continue
+    fi
+
+    mv "$path" "$src/$name"
+  done
+}
+
 echo "Linking dotfiles ..."
 
 link_file "$CONFIGS_DIR/zshrc"             "$HOME/.zshrc"
@@ -43,11 +66,12 @@ link_file "$CONFIGS_DIR/gemrc"             "$HOME/.gemrc"
 link_file "$CONFIGS_DIR/tmux.conf"         "$HOME/.tmux.conf"
 link_file "$CONFIGS_DIR/nvim"              "$HOME/.config/nvim"
 
-echo "Linking Codex global instructions ..."
+echo "Linking Codex config ..."
 
 CODEX_HOME_DIR="${CODEX_HOME:-$HOME/.codex}"
-mkdir -p "$CODEX_HOME_DIR"
-link_file "$CONFIGS_DIR/AGENTS.md" "$CODEX_HOME_DIR/AGENTS.md"
+mkdir -p "$(dirname "$CODEX_HOME_DIR")"
+migrate_directory_contents "$CONFIGS_DIR/codex" "$CODEX_HOME_DIR"
+link_file "$CONFIGS_DIR/codex" "$CODEX_HOME_DIR"
 
 echo "Linking claude config ..."
 

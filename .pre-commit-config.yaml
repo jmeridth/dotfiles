@@ -5,3 +5,11 @@ repos:
       - id: shellcheck
         files: ^(configs/(aliases|bash_profile|zprofile|zshrc)|scripts/.*\.sh)$
         types: [file]
+  - repo: local
+    hooks:
+      - id: codex-doctor
+        name: codex doctor
+        entry: codex doctor --summary --ascii
+        language: system
+        pass_filenames: false
+        files: ^configs/codex/config\.toml$
