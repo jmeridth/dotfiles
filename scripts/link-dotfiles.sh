@@ -67,9 +67,7 @@ for link_path in "$SHARED_SKILLS_DIR"/*/; do
   [[ -L "$link_path" ]] || continue
   target="$(readlink "$link_path")"
   if [[ "$target" != *"/personal/agents/skills/"* ]] && \
-     [[ "$target" != *"/work/agents/skills/"* ]] && \
-     [[ "$target" != *"/personal/claude/skills/"* ]] && \
-     [[ "$target" != *"/work/claude/skills/"* ]]; then
+     [[ "$target" != *"/work/agents/skills/"* ]]; then
     continue
   fi
   skill="$(basename "$link_path")"

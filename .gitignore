@@ -7,8 +7,7 @@ configs/codex/**
 # keep
 !configs/claude/CLAUDE.md
 !configs/claude/settings.json
-!configs/claude/skills/
-!configs/claude/skills/**
+!configs/claude/skills
 !configs/claude/statusline-command.sh
 !configs/codex/
 !configs/codex/AGENTS.md
@@ -16,7 +15,7 @@ configs/codex/**
 
 # Generated symlinks from link-dotfiles.sh for hostname-specific skills.
 # Add an entry here for each skill that lives under configs/personal/ or configs/work/.
-configs/claude/skills/go-standards
+configs/agents/skills/go-standards
 
 # env file
 .env
