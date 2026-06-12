@@ -25,4 +25,13 @@ description: Create a good pull request
 - **Check existing review feedback before commenting**: When reviewing a PR, always read through existing review comments and threads first. Do not post a concern that has already been raised by another reviewer - it creates noise and makes it harder for the author to track actionable feedback.
 - **Always use the repo's PR template**: Before opening a PR, check for a pull request template (e.g., `.github/pull_request_template.md` or `.github/PULL_REQUEST_TEMPLATE.md`) in the target repository and use it as the structure for the PR description. Do not write a PR body from scratch when a template exists.
 - **Mark Ready When Ready label**: When creating a draft PR, check if both of these conditions are true: (1) the repository has a label named "Mark Ready When Ready" (`gh label list --search "Mark Ready When Ready"`), and (2) a GitHub Actions workflow in `.github/workflows/` references the `kenyonj/mark-ready-when-ready` action. If both conditions are met, add the "Mark Ready When Ready" label to the draft PR. If either condition is not met, notify me that the label was not applied and which condition(s) failed.
+- **Public vs private repo**: Before writing the PR description, check whether the target repository is public or private (`gh repo view <owner>/<repo> --json visibility -q .visibility`). If the repo is **public**, keep the PR description generic and do not include any proprietary or internal information. Specifically:
+  - Do not link to internal trackers (Linear, internal Jira, internal Confluence)
+  - Do not reference internal project names, environments, customer names, infra hostnames, internal IPs, internal SA emails, or internal repo names
+  - Do not reference companion PRs in private repositories
+  - Phrase the "Why" in generic terms (e.g., "reach addresses on a private network" instead of "reach the PSC endpoint at 10.10.0.108")
+  - Avoid mentioning specific GCP/AWS/Azure resources, project IDs, or internal team names
+  - If the change was driven by an internal incident or initiative, describe the technical problem without naming it
+  - Generic open-source framing is fine; the technical content of the change should still be accurate and complete
+  - If unsure whether something is sensitive, omit it or ask before posting
 
