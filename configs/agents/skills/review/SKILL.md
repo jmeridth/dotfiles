@@ -35,9 +35,14 @@ When asked to review a PR (by link or from current context) or the current featu
 - For **first-time contributors**, lead with what was done well, be warm and specific about how to fix issues, and provide step-by-step guidance rather than terse criticism
 - For established contributors or teammates, be concise and direct
 
+### AI attribution
+
+- **Every summary and every PR comment** produced by this skill must start with `:robot:` on the first line so the PR author knows it is an AI-generated review
+
 ### Drafting comments
 
 - If findings warrant PR comments, draft them in my voice and **show me the draft before posting**
 - When specific code changes are needed, use GitHub suggestion blocks
 - Comment on specific lines of code, if possible
 - One actionable point per comment - do not bundle multiple concerns
+- Each comment must begin with `:robot:` per the attribution rule above
