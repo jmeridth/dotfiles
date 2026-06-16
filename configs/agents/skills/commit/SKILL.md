@@ -21,8 +21,10 @@ argument-hint: [issue-url | issue-id]
 
 - Create a meaningful commit message based on the current staged or unstaged changes.
 - Ensure it follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/#summary) specification.
-- Use three separate headings: What, Why, Notes. Avoid bullet points for What and Why. There should be newlines after the headings.
-- Notes should highlight non-obvious implications, risks, and trade-offs.
-- Notes should highlight things reviewers should specifically watch for that aren't apparent from reading the code diff and each note in a bulleted list.
-- Avoid stating obvious facts or repeating What/Why.
+- Use four separate headings (with newlines after each):
+  - **What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
+  - **Proof it works** -- Tests passed, manual verification steps, or logs.
+  - **Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated. If no AI was involved, say so.
+  - **Review focus** -- 1-2 specific areas where human reviewer input matters most.
+- Avoid stating obvious facts or padding sections.
 - If the issue-url or issue-id ($ARGUMENTS) is provided, add `Relates to $ARGUMENTS` as the first line after the commit title to associate the commit to its issue. Use Linear MCP server or GitHub gh cli if available to get issue-url when issue-id is provided

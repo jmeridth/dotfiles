@@ -69,11 +69,12 @@ Prioritize thorough planning and alignment before implementation. Approach conve
 ## Pull Requests
 
 - Keep PR descriptions short and clear
-- Use three separate headings: What, Why, Notes. Avoid bullet points for What and Why
-- Each heading should be in an H2 format (## What, ## Why, ## Notes)
-- Notes should highlight non-obvious implications, risks, and trade-offs
-- Notes should highlight things reviewers should specifically watch for that aren't apparent from reading the code diff
-- Avoid stating obvious facts or repeating What/Why
+- Use four separate headings in H2 format:
+  - **## What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
+  - **## Proof it works** -- Tests passed, manual verification steps, screenshots, or logs.
+  - **## Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated (e.g., "high -- touches payments"). If no AI was involved, say so.
+  - **## Review focus** -- 1-2 specific areas where human reviewer input matters most (e.g., architecture, security, edge cases).
+- Avoid stating obvious facts or padding sections
 
 ## Context About Me
 

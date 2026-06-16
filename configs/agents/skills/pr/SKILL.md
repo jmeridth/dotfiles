@@ -11,9 +11,12 @@ description: Create a good pull request
 - **Always create PRs as draft** unless I explicitly say otherwise
 - **Always assign me (`jmeridth`) as the assignee** when opening PRs - this helps me track work in progress and follow up
 - Always check a PR's status (open/merged/closed) before pushing commits to it
-- Format the pull request description like we format our commits
-- PR descriptions should be kept up to date with the actual changes — verify before finalizing
-- PR descriptions should always include a **Testing** section. Do not list linting results in the Testing section — linting is a given, not something to highlight. Focus on meaningful tests: unit tests, integration tests, manual verification, etc.
+- Format the pull request description using the PR contract headings:
+  - **## What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
+  - **## Proof it works** -- Tests passed, manual verification steps, screenshots, or logs. Do not list linting results here -- linting is a given. Focus on meaningful tests: unit tests, integration tests, manual verification, etc.
+  - **## Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated (e.g., "high -- touches payments"). If no AI was involved, say so.
+  - **## Review focus** -- 1-2 specific areas where human reviewer input matters most (e.g., architecture, security, edge cases).
+- PR descriptions should be kept up to date with the actual changes -- verify before finalizing
 - When reviewing PRs, focus on critical issues (bugs, security, logic errors) not style nitpicks
 - **Verify before flagging**: When reviewing code, always check source material (config files, upstream docs, official examples) before recommending changes. Do not flag something as a bug or missing requirement based on assumptions alone.
 - **Suggest code changes**: When posting PR comments that request specific code changes, use GitHub's suggestion blocks (````suggestion`) so the author can apply the fix directly.
