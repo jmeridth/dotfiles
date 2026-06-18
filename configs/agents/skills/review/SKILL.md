@@ -43,6 +43,25 @@ When asked to review a PR (by link or from current context) or the current featu
 
 - If findings warrant PR comments, draft them in my voice and **show me the draft before posting**
 - When specific code changes are needed, use GitHub suggestion blocks
-- Comment on specific lines of code, if possible
 - One actionable point per comment - do not bundle multiple concerns
 - Each comment must begin with `:robot:` per the attribution rule above
+
+### Line-level targeting (mandatory)
+
+- **Every PR comment MUST target a specific line in the diff.** Do not post top-level PR comments for code findings.
+- Before posting, parse the diff to get the exact file path and line number for each finding. Use `gh api` or `gh pr diff` to get the current diff and extract line numbers.
+- Use the GitHub pull request review comments API (`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`) with these required fields:
+  - `path` - relative file path (e.g. `src/handler.go`)
+  - `line` - the line number in the diff's new file side
+  - `side` - use `RIGHT` for lines in the new version of the file
+  - `body` - the comment text (starting with `:robot:`)
+  - `commit_id` - the HEAD commit SHA of the PR
+- For multi-line comments, also include `start_line` and `start_side` to highlight a range
+- When suggesting a concrete fix, use a GitHub suggestion block in the body:
+  ````
+  :robot: This could be simplified.
+  ```suggestion
+  replacementCodeHere()
+  ```
+  ````
+- **Never guess line numbers.** Always derive them from the actual diff output. If you cannot determine the exact line, do not post the comment -- surface it in the summary instead.
