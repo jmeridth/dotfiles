@@ -24,7 +24,7 @@ argument-hint: [issue-url | issue-id]
 - Use four separate headings (with newlines after each):
   - **What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
   - **Proof it works** -- Tests passed, manual verification steps, or logs.
-  - **Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated. If no AI was involved, say so.
+  - **Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated. Include the AI model and version used (e.g., "Claude Opus 4.6"). If no AI was involved, say so.
   - **Review focus** -- 1-2 specific areas where human reviewer input matters most.
 - Avoid stating obvious facts or padding sections.
 - If the issue-url or issue-id ($ARGUMENTS) is provided, add `Relates to $ARGUMENTS` as the first line after the commit title to associate the commit to its issue. Use Linear MCP server or GitHub gh cli if available to get issue-url when issue-id is provided
