@@ -39,6 +39,7 @@ brew 'podman-compose'
 brew 'pre-commit'
 brew 'prettier'
 brew 'ripgrep'
+brew 'rustup'
 brew 'shellcheck'
 brew 'slp/krunkit/krunkit', trusted: true
 brew 'sqlite'
