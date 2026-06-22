@@ -16,7 +16,6 @@ This will:
 - Symlink shared agent instructions and config to Claude and agent locations
 - Install packages via Homebrew (macOS) or apt (Debian)
 - Install oh-my-zsh
-- Configure VSCode vim key repeat (macOS)
 
 ## Structure
 
@@ -25,7 +24,7 @@ setup                     # Entry point
 scripts/
   detect-os.sh            # OS and hostname detection
   install-packages.sh     # Brew/apt package installation
-  install-tools.sh        # oh-my-zsh, vscode config
+  install-tools.sh        # oh-my-zsh
   link-dotfiles.sh        # Symlink configs to ~/
 configs/                  # Dotfiles and tool configs
   AGENTS.md               # Shared global agent instructions

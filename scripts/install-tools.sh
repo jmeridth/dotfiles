@@ -16,14 +16,6 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Configure VSCode vim key repeat on macOS
-if [[ "$OS_TYPE" == "Darwin" ]]; then
-  if command -v code >/dev/null 2>&1; then
-    echo "Updating vscode to allow for holding down keys in vscode for vim ..."
-    defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
-  fi
-fi
-
 # map caps lock to esc in Ubuntu
 if [[ "$IS_DEBIAN" == true ]]; then
   echo "Mapping caps lock to escape on Linux ..."
