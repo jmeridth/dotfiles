@@ -1,5 +1,3 @@
 brew 'az'
 brew 'chainguard-dev/tap/chainctl', trusted: true
 brew 'glab'
-
-cask 'loom'
