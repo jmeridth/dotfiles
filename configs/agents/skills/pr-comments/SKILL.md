@@ -62,6 +62,12 @@ For each comment, determine if it is a **review thread comment** (inline code co
 - If it is a top-level issue comment, quote the original message in the reply
 - In the summary table shown to the user, flag out-of-scope items that warrant a follow-up issue so the user can decide whether to file one
 
+### Tone
+
+- Never use exclamation points in replies. They read as combative or aggressive in written PR comments. Use periods instead.
+- Keep replies polite, measured, and professional. When clarifying something the reviewer missed, lead with acknowledgment (e.g., "Good catch on the diff view.") rather than a corrective tone.
+- Do not use em dashes. Restructure sentences instead.
+
 ### Rules
 
 - Always @mention the comment author's GitHub handle at the start of every reply so they get notified
