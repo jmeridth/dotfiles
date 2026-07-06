@@ -86,7 +86,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-opus-4-6",
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
@@ -104,6 +103,6 @@
     "slack@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipWorkflowUsageWarning": true,
+  "skipAutoPermissionPrompt": true
 }
