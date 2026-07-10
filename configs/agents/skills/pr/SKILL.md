@@ -12,10 +12,12 @@ description: Create a good pull request
 - **Always assign me (`jmeridth`) as the assignee** when opening PRs - this helps me track work in progress and follow up
 - Always check a PR's status (open/merged/closed) before pushing commits to it
 - Format the pull request description using the PR contract headings:
+  - **Issue references (top, above What/Why)** -- If the PR relates to or resolves an issue, put the reference line(s) at the very top of the body, above the `## What/Why` heading. Use `Relates to #<n>` for a non-resolving link, and `Fixes #<n>` / `Closes #<n>` only when merging the PR should actually close that issue. One reference per line.
   - **## What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
   - **## Proof it works** -- Tests passed, manual verification steps, screenshots, or logs. Do not list linting results here -- linting is a given. Focus on meaningful tests: unit tests, integration tests, manual verification, etc.
   - **## Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated (e.g., "high -- touches payments"). If no AI was involved, say so.
   - **## Review focus** -- 1-2 specific areas where human reviewer input matters most (e.g., architecture, security, edge cases).
+- **No closing keywords in prose**: Never write GitHub closing keywords (`fix`/`fixes`/`fixed`, `close`/`closes`/`closed`, `resolve`/`resolves`/`resolved`, with or without a colon) directly before an issue number inside a paragraph or heading. GitHub treats `fixes #123` anywhere in the body as a close-on-merge link, so prose like "the failure this fixes: #123" will silently close #123 when the PR merges. Keep all such keywords confined to the dedicated reference lines at the top. When only mentioning an issue in prose, use a neutral phrasing such as "see #123" or "example: #123".
 - PR descriptions should be kept up to date with the actual changes -- verify before finalizing
 - When reviewing PRs, focus on critical issues (bugs, security, logic errors) not style nitpicks
 - **Verify before flagging**: When reviewing code, always check source material (config files, upstream docs, official examples) before recommending changes. Do not flag something as a bug or missing requirement based on assumptions alone.
