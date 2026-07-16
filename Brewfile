@@ -41,7 +41,7 @@ brew 'prettier'
 brew 'ripgrep'
 brew 'rustup'
 brew 'shellcheck'
-brew 'slp/krunkit/krunkit', trusted: true
+brew 'slp/krun/krunkit', trusted: true
 brew 'sqlite'
 brew 'step'
 brew 'terraform-docs'
