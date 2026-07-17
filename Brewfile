@@ -42,6 +42,7 @@ brew 'ripgrep'
 brew 'rustup'
 brew 'shellcheck'
 brew 'slp/krun/krunkit', trusted: true
+brew 'slp/krun/gvproxy', trusted: true
 brew 'sqlite'
 brew 'step'
 brew 'terraform-docs'
