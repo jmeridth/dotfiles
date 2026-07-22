@@ -38,6 +38,7 @@ When asked to review a PR (by link or from current context) or the current featu
 ### AI attribution
 
 - **Every summary and every PR comment** produced by this skill must start with `:robot:` on the first line so the PR author knows it is an AI-generated review
+- **Immediately after the `:robot:` emoji, add a parenthetical tag with the severity, and `non-blocking` only when it applies** — e.g. `:robot: (critical)`, `:robot: (high)`, `:robot: (medium)`, `:robot: (low, non-blocking)`. Severity reflects correctness impact (critical/high/medium/low). **`critical`, `high`, and `medium` are always merge blockers and never get `non-blocking`.** Only `low` (or an other/informational tag) may be marked `non-blocking` — use it for reporting-fidelity gaps, style-adjacent notes, or anything that need not gate the merge.
 
 ### Drafting comments
 
