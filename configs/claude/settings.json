@@ -104,5 +104,6 @@
   },
   "alwaysThinkingEnabled": true,
   "skipWorkflowUsageWarning": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "model": "fable"
 }
