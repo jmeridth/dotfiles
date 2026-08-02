@@ -86,6 +86,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "fable",
   "statusLine": {
     "type": "command",
     "command": "bash $HOME/.claude/statusline-command.sh"
@@ -100,10 +101,25 @@
     "github@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "mattpocock-skills@mattpocock": true,
+    "jmeridth-skills@jmeridth": true
+  },
+  "extraKnownMarketplaces": {
+    "mattpocock": {
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      }
+    },
+    "jmeridth": {
+      "source": {
+        "source": "github",
+        "repo": "jmeridth/skills"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "skipWorkflowUsageWarning": true,
-  "skipAutoPermissionPrompt": true,
-  "model": "fable"
+  "skipAutoPermissionPrompt": true
 }
