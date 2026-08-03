@@ -1,6 +1,5 @@
 brew 'tailscale'
 cask 'balenaetcher'
-cask 'discord'
 cask 'google-chrome'
 cask 'raspberry-pi-imager'
 cask 'signal'
