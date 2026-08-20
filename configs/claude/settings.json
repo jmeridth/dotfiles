@@ -103,7 +103,8 @@
     "mcp-server-dev@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
     "mattpocock-skills@mattpocock": true,
-    "jmeridth-skills@jmeridth": true
+    "jmeridth-skills@jmeridth": true,
+    "i-have-adhd@i-have-adhd": true
   },
   "extraKnownMarketplaces": {
     "mattpocock": {
@@ -118,6 +119,12 @@
         "repo": "jmeridth/skills"
       },
       "autoUpdate": true
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
