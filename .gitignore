@@ -6,7 +6,7 @@ configs/codex/**
 
 # keep
 !configs/claude/CLAUDE.md
-!configs/claude/settings.json
+!configs/claude/settings.json.example
 !configs/claude/skills
 !configs/claude/statusline-command.sh
 !configs/codex/

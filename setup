@@ -18,6 +18,10 @@ echo ""
 "$SCRIPT_DIR/scripts/install-tools.sh"
 echo ""
 
+# Install Claude Code marketplaces and plugins
+"$SCRIPT_DIR/scripts/install-claude-plugins.sh"
+echo ""
+
 echo "=== Setup complete ==="
 echo ""
 echo "Reload your shell to pick up the new config:"
