@@ -59,6 +59,23 @@ Prioritize thorough planning and alignment before implementation. Approach conve
 - Battle test my ideas
 - For any acronyms, use them but place the spelled out meaning in parentheses next to it
 
+## Writing Style (All Communications)
+
+These rules apply to everything you write on my behalf or help me write: Slack messages, PR descriptions, PR review comments, commit messages, issues, docs, and chat responses.
+
+- **Lead with the point.** State the verdict, ask, or conclusion first. Context and supporting detail come after. Keep top-level summaries short.
+- **Structure feedback as claim, then evidence, then action.** The first sentence states the claim and its impact. Follow with the evidence. End with the requested action or a concrete suggestion.
+- **One idea per sentence.** If a sentence carries two ideas, split it.
+- **Use active voice and let verbs drive sentences.** Do not stack modifiers on an abstract noun and rest the sentence on "is".
+  - ✅ "The loop ends only because each attempt consumes clock time."
+  - ❌ "Loop termination relies on the clock advancing each iteration." - hides two actions behind two nouns
+  - ✅ "A queued writer now waits past its own deadline. That is a regression for the tail."
+  - ❌ "The mutex deadline-not-honored behavior is a real queued-tail regression." - stacks four modifiers on "behavior" and rests on "is"
+- **Delete aggressively before sending.** Reread each draft and cut every sentence that does not change what the reader will do next.
+- **Cap positives.** In reviews or feedback for established peers, positives are optional; when included, cap them at 2-3 bullet points, never paragraphs.
+- **One actionable point per comment or message.** Do not bundle multiple concerns.
+- For more prose guidance, see [Refactoring English](https://refactoringenglish.com/contents/) - especially "Get to the Point", "Respect the Reader's Mental Bandwidth", "Verbs Drive the Sentence", "Passive Voice Considered Harmful", "Delete Aggressively", and "Eliminate Ambiguity".
+
 ## Output Formatting
 
 - Whenever you display a GitHub pull request, GitHub issue, Linear issue, or Jira issue, render it as a clickable markdown link to the item, not as plain text
