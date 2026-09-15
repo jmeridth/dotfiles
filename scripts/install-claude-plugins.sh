@@ -49,6 +49,16 @@ install_plugin() {
   fi
 }
 
+update_plugin() {
+  local plugin="$1"
+  local out
+  if out=$(claude plugin update "$plugin" 2>&1); then
+    echo "  plugin updated:      $plugin"
+  else
+    echo "  plugin not updated:  $plugin ($(echo "$out" | head -1))"
+  fi
+}
+
 echo "Configuring Claude Code plugins ..."
 
 if ! command -v claude >/dev/null 2>&1; then
@@ -77,6 +87,15 @@ for plugin in "${PLUGINS[@]}"; do
   install_plugin "$plugin"
 done
 
+# Force everything to latest: refresh marketplace sources, then update
+# each plugin. Updates apply on the next Claude Code restart.
+echo "  refreshing marketplaces ..."
+claude plugin marketplace update >/dev/null 2>&1 || true
+
+for plugin in "${PLUGINS[@]}"; do
+  update_plugin "$plugin"
+done
+
 # Private marketplaces and plugins stay out of this repo. Put them in
 # ~/.claude-plugins.local, which may call add_marketplace / install_plugin:
 #   add_marketplace "some-org/private-marketplace"
@@ -87,3 +106,5 @@ if [ -f "$LOCAL_PLUGINS" ]; then
   # shellcheck source=/dev/null
   source "$LOCAL_PLUGINS"
 fi
+
+echo "  restart Claude Code to pick up updated plugins"
