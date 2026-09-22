@@ -125,6 +125,10 @@ eval "$(zoxide init zsh)"
 [[ -d "$HOME/bin" ]] || mkdir -p "$HOME/bin"
 export PATH="$HOME/bin:$PATH"
 
+# Ensure ~/.local/bin exists and is on PATH
+[[ -d "$HOME/.local/bin" ]] || mkdir -p "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 # Force Homebrew ahead of system paths — /etc/zprofile's path_helper demotes it
 # on nested login shells, which lets /bin/bash (3.2) win over Homebrew's bash.
 # Runs last so nothing reorders it; typeset -U dedupes existing entries.
