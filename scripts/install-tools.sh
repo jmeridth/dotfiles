@@ -16,6 +16,16 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
+# Install Claude Code via the native installer if not present
+CLAUDE_BIN="$HOME/.local/bin/claude"
+if [ ! -x "$CLAUDE_BIN" ]; then
+  echo "Installing Claude Code ..."
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+
+echo "Updating Claude Code ..."
+"$CLAUDE_BIN" update
+
 # map caps lock to esc in Ubuntu
 if [[ "$IS_DEBIAN" == true ]]; then
   echo "Mapping caps lock to escape on Linux ..."

@@ -57,8 +57,6 @@ brew 'zizmor'
 brew 'zoxide'
 
 cask 'appzapper'
-cask 'claude'
-cask 'claude-code'
 cask 'codex'
 cask 'gcloud-cli'
 cask 'ghostty'

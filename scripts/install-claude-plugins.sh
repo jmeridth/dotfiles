@@ -5,6 +5,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 CLAUDE_DIR="$REPO_DIR/configs/claude"
 
+# The native installer puts claude in ~/.local/bin, which may not be on PATH yet
+export PATH="$HOME/.local/bin:$PATH"
+
 MARKETPLACES=(
   "mattpocock/skills"
   "jmeridth/skills"

@@ -8,9 +8,6 @@
     "allow": [
       "WebFetch",
       "WebSearch",
-      "Bash(gcloud * list *)",
-      "Bash(gcloud * describe *)",
-      "Bash(gcloud * get-iam-policy *)",
       "Bash(gcloud config list *)",
       "Bash(gcloud config get *)",
       "Bash(gcloud projects list *)",

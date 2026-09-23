@@ -33,6 +33,5 @@ brew 'zizmor'
 brew 'zoxide'
 
 cask '1password-cli'
-cask 'claude-code'
 cask 'font-ubuntu-nerd-font'
 cask 'gcloud-cli'
