@@ -92,15 +92,9 @@ These rules apply to everything you write on my behalf or help me write: Slack m
 - Use the project's testing framework to run tests to verify all tests pass before making commits
 - Tests should cover both happy path and edge cases for new functionality
 
-## Pull Requests
+## Pull Requests and Commits
 
-- Keep PR descriptions short and clear
-- Use four separate headings in H2 format:
-  - **## What/Why** -- Intent in 1-2 sentences. Combine the what and why into a single concise statement.
-  - **## Proof it works** -- Tests passed, manual verification steps, screenshots, or logs.
-  - **## Risk + AI role** -- Risk tier (low/medium/high) and which parts were AI-generated (e.g., "high -- touches payments"). If no AI was involved, say so.
-  - **## Review focus** -- 1-2 specific areas where human reviewer input matters most (e.g., architecture, security, edge cases).
-- Avoid stating obvious facts or padding sections
+- Use the `pr` skill to open pull requests and the `commit` skill to write commit messages. They define the required format.
 
 ## Context About Me
 
