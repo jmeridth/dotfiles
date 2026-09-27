@@ -18,13 +18,7 @@ MARKETPLACES=(
 PLUGINS=(
   "gopls-lsp@claude-plugins-official"
   "superpowers@claude-plugins-official"
-  "claude-code-setup@claude-plugins-official"
-  "claude-md-management@claude-plugins-official"
   "frontend-design@claude-plugins-official"
-  "code-simplifier@claude-plugins-official"
-  "github@claude-plugins-official"
-  "skill-creator@claude-plugins-official"
-  "mcp-server-dev@claude-plugins-official"
   "slack@claude-plugins-official"
   "mattpocock-skills@mattpocock"
   "jmeridth-skills@jmeridth"
