@@ -26,6 +26,13 @@ fi
 echo "Updating Claude Code ..."
 "$CLAUDE_BIN" update
 
+# Install latest Terraform via tfenv if no versions are installed
+if command -v tfenv >/dev/null 2>&1 && ! tfenv list >/dev/null 2>&1; then
+  echo "Installing Terraform via tfenv ..."
+  tfenv install latest
+  tfenv use latest
+fi
+
 # map caps lock to esc in Ubuntu
 if [[ "$IS_DEBIAN" == true ]]; then
   echo "Mapping caps lock to escape on Linux ..."
