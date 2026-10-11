@@ -96,9 +96,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
       source "$HOMEBREW_PREFIX/opt/autoenv/activate.sh"
     fi
 
-    export HOMEBREW_NO_AUTO_UPDATE=1
     export PATH="$HOMEBREW_PREFIX/opt/libpq/bin:$PATH"
   fi
+
+  # Outside the brew-not-on-PATH block, so it applies in every shell.
+  export HOMEBREW_NO_AUTO_UPDATE=1
 
   if command -v brew > /dev/null; then
     # RUBY
