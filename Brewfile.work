@@ -1,4 +1,4 @@
-brew 'az'
 brew 'chainguard-dev/tap/chainctl', trusted: true
 brew 'glab'
 brew 'jfrog-cli'
+cask 'azure-cli'

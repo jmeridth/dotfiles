@@ -1,7 +1,6 @@
 brew 'actionlint'
 brew 'asdf'
 brew 'autoenv'
-brew 'az'
 brew 'bash'
 brew 'cmake'
 brew 'coreutils'
