@@ -1,3 +1,4 @@
+brew 'opentofu'
 brew 'tailscale'
 cask 'balenaetcher'
 cask 'google-chrome'

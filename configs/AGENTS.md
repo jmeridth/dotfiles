@@ -96,6 +96,11 @@ These rules apply to everything you write on my behalf or help me write: Slack m
 
 - Use the `pr` skill to open pull requests and the `commit` skill to write commit messages. They define the required format.
 
+## Handoffs
+
+- Write handoffs to `~/.claude/handoffs/<repo>/YYYY-MM-DD-<topic>.md`, where `<repo>` is the repository directory name. Never write them to `/tmp`, a scratchpad, or inside a repository.
+- When resuming work in a repo, check `ls -t ~/.claude/handoffs/<repo>/` for the latest handoff first.
+
 ## Context About Me
 
 - Staff+ level software engineer with experience across many tech stacks
