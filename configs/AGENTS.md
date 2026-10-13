@@ -78,7 +78,9 @@ These rules apply to everything you write on my behalf or help me write: Slack m
 
 ## Output Formatting
 
-- Whenever you display a GitHub pull request, GitHub issue, Linear issue, or Jira issue, render it as a clickable markdown link to the item, not as plain text
+- Every GitHub pull request, GitHub issue, Linear issue, or Jira issue must be a clickable markdown link to the item, never plain text
+  - This applies everywhere: inline prose, lists, tables, summaries, and handoffs
+  - This includes shorthand references like `#12`, `PR #11`, or `DEV-3394`. Expand them into links, e.g. `[#12](https://github.com/<owner>/<repo>/pull/12)`
   - GitHub PR: `[jmeridth/dotfiles#32](https://github.com/jmeridth/dotfiles/pull/32)`
   - GitHub issue: `[jmeridth/dotfiles#30](https://github.com/jmeridth/dotfiles/issues/30)`
   - Linear issue: `[ENG-123](https://linear.app/<workspace>/issue/ENG-123)`
