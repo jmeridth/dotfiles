@@ -41,7 +41,28 @@ elif [[ "$IS_DEBIAN" == true ]]; then
   # Install Homebrew if needed
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing Homebrew ..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Ignore global/system git config so GitHub https settings don't break the installer's clones
+    GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+
+  # A fresh Linux Homebrew install isn't on PATH yet
+  if ! command -v brew >/dev/null 2>&1 && [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
+
+  # Add the 1Password apt repository if needed (1password-cli isn't in Ubuntu's repos)
+  if [ ! -f /etc/apt/sources.list.d/1password.list ]; then
+    echo "Adding 1Password apt repository ..."
+    ARCH="$(dpkg --print-architecture)"
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc |
+      sudo gpg --dearmor --batch --yes --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo "deb [arch=$ARCH signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$ARCH stable main" |
+      sudo tee /etc/apt/sources.list.d/1password.list >/dev/null
+    sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/ /usr/share/debsig/keyrings/AC2D62742012EA22
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol |
+      sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol >/dev/null
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc |
+      sudo gpg --dearmor --batch --yes --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
   fi
 
   echo "Updating apt ..."
@@ -60,9 +81,10 @@ elif [[ "$IS_DEBIAN" == true ]]; then
     python-dev-is-python3 \
     shellcheck \
     tmux \
-    yq
+    yq \
+    zsh
 
-  brew bundle --upgrade --file="Brewfile.linux"
+  brew bundle --upgrade --file="$REPO_DIR/Brewfile.linux"
 
 else
   echo "Unsupported OS. Skipping package installation."
