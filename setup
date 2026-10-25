@@ -24,5 +24,13 @@ echo ""
 
 echo "=== Setup complete ==="
 echo ""
-echo "Reload your shell to pick up the new config:"
-echo "  source ~/.zshrc"
+if [[ "$(basename "$SHELL")" == "zsh" ]]; then
+  echo "Reload your shell to pick up the new config:"
+  echo "  source ~/.zshrc"
+else
+  echo "Your login shell is $(basename "$SHELL"), and ~/.zshrc only loads in zsh."
+  echo "Start zsh now:"
+  echo "  zsh"
+  echo "Make zsh your login shell (log out and back in afterwards):"
+  echo "  chsh -s \"\$(command -v zsh)\""
+fi
