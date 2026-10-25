@@ -4,12 +4,14 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 UBUNTU_NO_KEY_UPDATE=false
+NO_LINK=false
 for arg in "$@"; do
   case "$arg" in
     ubuntu-no-key-update) UBUNTU_NO_KEY_UPDATE=true ;;
+    no-link) NO_LINK=true ;;
     *)
       echo "Unknown option: $arg" >&2
-      echo "Usage: $0 [ubuntu-no-key-update]" >&2
+      echo "Usage: $0 [ubuntu-no-key-update] [no-link]" >&2
       exit 1
       ;;
   esac
@@ -18,8 +20,12 @@ done
 echo "=== Dotfiles Setup ==="
 echo ""
 
-# Link dotfiles first
-"$SCRIPT_DIR/scripts/link-dotfiles.sh"
+# Link dotfiles first (skipped with no-link)
+if [[ "$NO_LINK" == true ]]; then
+  echo "Skipping dotfile linking (no-link) ..."
+else
+  "$SCRIPT_DIR/scripts/link-dotfiles.sh"
+fi
 echo ""
 
 # Install packages
