@@ -4,6 +4,13 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/detect-os.sh"
 
+UBUNTU_NO_KEY_UPDATE=false
+for arg in "$@"; do
+  case "$arg" in
+    ubuntu-no-key-update) UBUNTU_NO_KEY_UPDATE=true ;;
+  esac
+done
+
 # Install TPM (Tmux Plugin Manager) if not present
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Installing TPM (Tmux Plugin Manager) ..."
@@ -33,8 +40,10 @@ if command -v tfenv >/dev/null 2>&1 && ! tfenv list >/dev/null 2>&1; then
   tfenv use latest
 fi
 
-# map caps lock to esc in Ubuntu
-if [[ "$IS_DEBIAN" == true ]]; then
+# map caps lock to esc in Ubuntu (skipped with ubuntu-no-key-update)
+if [[ "$IS_DEBIAN" == true && "$UBUNTU_NO_KEY_UPDATE" == true ]]; then
+  echo "Skipping Ubuntu key mapping updates (ubuntu-no-key-update) ..."
+elif [[ "$IS_DEBIAN" == true && "$UBUNTU_NO_KEY_UPDATE" == false ]]; then
   echo "Mapping caps lock to escape on Linux ..."
   setxkbmap -option caps:escape
   setxkbmap -option caps:swapescape
