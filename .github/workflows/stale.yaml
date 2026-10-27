@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write # Label, comment on, and close stale issues
-      pull-requests: read # List pull requests while scanning for stale items
+      pull-requests: read # Read pull requests (exempt from stale via days-before-pr-stale: -1)
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
@@ -23,5 +23,6 @@ jobs:
           close-issue-message: "This issue was closed because it has been stalled for 35 days with no activity."
           days-before-stale: 21
           days-before-close: 14
+          days-before-pr-stale: -1
           days-before-pr-close: -1
           exempt-issue-labels: keep
