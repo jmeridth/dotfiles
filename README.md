@@ -18,6 +18,13 @@ This will:
 - Install oh-my-zsh
 - Install Claude Code marketplaces and plugins (skipped if `claude` is not installed)
 
+On Ubuntu, setup maps caps lock to escape and sets ctrl+tab to switch terminal
+tabs. To leave your key mappings alone, run:
+
+```bash
+./setup ubuntu-no-key-update
+```
+
 ## Claude Code skills
 
 My Claude Code skills no longer live here. They moved to their own marketplace
