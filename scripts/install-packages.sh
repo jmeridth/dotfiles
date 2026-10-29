@@ -33,6 +33,10 @@ if [[ "$OS_TYPE" == "Darwin" ]]; then
     cat "$REPO_DIR/Brewfile.personal" >> "$TMPFILE"
   fi
 
+  # zshrc sets HOMEBREW_NO_AUTO_UPDATE, so refresh the index explicitly.
+  echo "Updating Homebrew ..."
+  brew update
+
   echo "Installing Homebrew taps, packages, and casks ..."
   brew bundle --upgrade --file="$TMPFILE"
   rm -f "$TMPFILE"
@@ -61,6 +65,9 @@ elif [[ "$IS_DEBIAN" == true ]]; then
     shellcheck \
     tmux \
     yq
+
+  echo "Updating Homebrew ..."
+  brew update
 
   brew bundle --upgrade --file="Brewfile.linux"
 
