@@ -5,6 +5,13 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source "$SCRIPT_DIR/detect-os.sh"
 
+UBUNTU_NO_KEY_UPDATE=false
+for arg in "$@"; do
+  case "$arg" in
+    ubuntu-no-key-update) UBUNTU_NO_KEY_UPDATE=true ;;
+  esac
+done
+
 # Configures different things for a fresh Ubuntu setup
 
 if [[ "$IS_UBUNTU" != true ]]; then
@@ -14,12 +21,16 @@ fi
 
 echo "Setting up..."
 
-echo "map caps lock to escape"
-setxkbmap -option caps:swapescape
+if [[ "$UBUNTU_NO_KEY_UPDATE" == true ]]; then
+  echo "Skipping Ubuntu key mapping updates (ubuntu-no-key-update) ..."
+elif [[ "$UBUNTU_NO_KEY_UPDATE" == false ]]; then
+  echo "map caps lock to escape"
+  setxkbmap -option caps:swapescape
 
-echo "set ctrl+tab to allow switch between terminal tabs"
-gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Control>Tab'
-gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Control><Shift>Tab'
+  echo "set ctrl+tab to allow switch between terminal tabs"
+  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Control>Tab'
+  gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Control><Shift>Tab'
+fi
 
 check_for_nerd_fonts=$(fc-list | grep "Ubuntu Nerd Font >&/dev/null")
 if [ "$check_for_nerd_fonts" -eq 1 ]; then

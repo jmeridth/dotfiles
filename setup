@@ -3,6 +3,18 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+UBUNTU_NO_KEY_UPDATE=false
+for arg in "$@"; do
+  case "$arg" in
+    ubuntu-no-key-update) UBUNTU_NO_KEY_UPDATE=true ;;
+    *)
+      echo "Unknown option: $arg" >&2
+      echo "Usage: $0 [ubuntu-no-key-update]" >&2
+      exit 1
+      ;;
+  esac
+done
+
 echo "=== Dotfiles Setup ==="
 echo ""
 
@@ -15,7 +27,11 @@ echo ""
 echo ""
 
 # Install additional tools
-"$SCRIPT_DIR/scripts/install-tools.sh"
+if [[ "$UBUNTU_NO_KEY_UPDATE" == true ]]; then
+  "$SCRIPT_DIR/scripts/install-tools.sh" ubuntu-no-key-update
+else
+  "$SCRIPT_DIR/scripts/install-tools.sh"
+fi
 echo ""
 
 # Install Claude Code marketplaces and plugins
