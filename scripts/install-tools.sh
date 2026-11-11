@@ -33,6 +33,21 @@ fi
 echo "Updating Claude Code ..."
 "$CLAUDE_BIN" update
 
+# Point the Docker CLI at Homebrew's plugin dir so buildx and compose load
+DOCKER_PLUGIN_DIR="/opt/homebrew/lib/docker/cli-plugins"
+DOCKER_CONFIG_FILE="$HOME/.docker/config.json"
+if [[ "$OS_TYPE" == "Darwin" ]] && command -v jq >/dev/null 2>&1; then
+  mkdir -p "$HOME/.docker"
+  [ -s "$DOCKER_CONFIG_FILE" ] || echo '{}' > "$DOCKER_CONFIG_FILE"
+  if ! jq -e --arg d "$DOCKER_PLUGIN_DIR" '(.cliPluginsExtraDirs // []) | index($d)' "$DOCKER_CONFIG_FILE" >/dev/null; then
+    echo "Adding Homebrew Docker CLI plugin dir to $DOCKER_CONFIG_FILE ..."
+    DOCKER_CONFIG_TMP="$(mktemp)"
+    jq --arg d "$DOCKER_PLUGIN_DIR" '.cliPluginsExtraDirs = ((.cliPluginsExtraDirs // []) + [$d])' "$DOCKER_CONFIG_FILE" > "$DOCKER_CONFIG_TMP"
+    cat "$DOCKER_CONFIG_TMP" > "$DOCKER_CONFIG_FILE"
+    rm -f "$DOCKER_CONFIG_TMP"
+  fi
+fi
+
 # Install latest Terraform via tfenv if no versions are installed
 if command -v tfenv >/dev/null 2>&1 && ! tfenv list >/dev/null 2>&1; then
   echo "Installing Terraform via tfenv ..."

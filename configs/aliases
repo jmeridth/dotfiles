@@ -7,7 +7,6 @@ alias avenv="source venv/bin/activate"
 alias azlogin="az login"
 alias brewu="brew update && brew upgrade -y"
 alias cvenv="python3 -m venv venv"
-alias docker=podman
 alias gcloudlogin='gcloud auth application-default login && gcloud auth login'
 alias gpgreset="gpgconf --kill gpg-agent && gpg --card-status"
 alias json="python -m json.tool"
