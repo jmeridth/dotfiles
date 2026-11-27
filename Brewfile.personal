@@ -1,8 +1,4 @@
-brew 'opentofu'
 brew 'tailscale'
-cask 'balenaetcher'
-cask 'google-chrome'
-cask 'raspberry-pi-imager'
 cask 'signal'
 cask 'slack'
 cask 'tailscale-app'
